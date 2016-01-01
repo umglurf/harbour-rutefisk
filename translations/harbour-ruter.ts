@@ -42,15 +42,7 @@
 <context>
     <name>RealTime</name>
     <message>
-        <source>Platform</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>min</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>sec</source>
+        <source>Auto Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -58,11 +50,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Auto Refresh</source>
+        <source>Travels from</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Error getting stops</source>
+        <source>Platform</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>min</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error getting stop information</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -74,6 +78,22 @@
     </message>
     <message>
         <source>min</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error getting stop information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>from</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

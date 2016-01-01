@@ -69,7 +69,7 @@ CoverBackground {
     ListModel {
         id: departuresModel
 
-        function update(stopID) {
+        function update(stopID, linenumber, destination) {
           var xhr = new XMLHttpRequest();
           xhr.onreadystatechange = function() {
             if(xhr.readyState == 4 && xhr.status == 200) {
@@ -79,7 +79,15 @@ CoverBackground {
               var data = JSON.parse(xhr.responseText);
               var l = data.length;
               for(var index=0; index < l; index++) {
-                var line = data[index]['MonitoredVehicleJourney']['PublishedLineName'] + data[index]['MonitoredVehicleJourney']['DestinationName'];
+                var linenr = data[index]['MonitoredVehicleJourney']['PublishedLineName'];
+                var dest = data[index]['MonitoredVehicleJourney']['DestinationName'];
+                var line = linenr + " " + dest;
+                if(linenumber > 0) {
+                   if(linenr != linenumber || dest != destination) {
+                       continue;
+                   }
+                }
+
                 if(!travels.hasOwnProperty(line)) {
                   lines_sorted.push(line);
                   travels[line] = {};
@@ -126,10 +134,15 @@ CoverBackground {
         triggeredOnStart: true
 
         onTriggered: {
+
             if(pageStack.currentPage.stopID) {
               departuresModel.clear();
-              for(var i=0; i < pageStack.currentPage.stopID.length; i++) {
-                departuresModel.update(pageStack.currentPage.stopID[i]);
+              if(pageStack.currentPage.linenumber) {
+                departuresModel.update(pageStack.currentPage.stopID, pageStack.currentPage.linenumber, pageStack.currentPage.destination);
+              } else {
+                for(var i=0; i < pageStack.currentPage.stopID.length; i++) {
+                  departuresModel.update(pageStack.currentPage.stopID[i], 0, "");
+                }
               }
             } else {
                 departuresModel.clear();

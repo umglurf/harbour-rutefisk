@@ -20,23 +20,63 @@ import Sailfish.Silica 1.0
 
 Page {
   id: realTimeLinePage
-  property var stopID
+  property string stopID
   property string stopName
-  property string line
+  property string linenumber
+  property string destination
+  property bool autorefresh: false
 
-  SilicaListView {
+  SilicaGridView {
+      id: realTimeLineList
       anchors.fill: parent
+      cellWidth: Theme.itemSizeSmall
+
       model: realTimeLineModel
 
-      header: {
-          PageHeader {
-              title: qsTr("Travels from") + " " + stopName
+      header: PageHeader {
+        id: pageHeader
+        title: linenumber + " " + destination + " " + qsTr("from") + " " + stopName
+      }
+
+      PullDownMenu {
+        MenuItem {
+          text: qsTr("Auto Refresh");
+          onClicked: {
+            autorefresh = true
+            realTimeLineTimer.start();
           }
+        }
+        MenuItem {
+          text: qsTr("Refresh");
+          onClicked: {
+              realTimeLineModel.update();
+          }
+        }
+      }
+
+      delegate: Label {
+        Component.onCompleted: realTimeLineList.cellHeight = height
+        text: departure
+        color: Theme.highlightColor
+        font.pixelSize: Theme.fontSizeSmall
       }
   }
 
+  Timer {
+    id: realTimeLineTimer
+    interval: 10000
+    repeat: true
+    triggeredOnStart: false
+
+    onTriggered: {
+      if(Qt.application.state == Qt.ApplicationActive) {
+        realTimeLineModel.update();
+      }
+    }
+  }
+
   Component.onCompleted: {
-      realTimeModel.update();
+      realTimeLineModel.update();
   }
 
   ListModel {
@@ -46,31 +86,19 @@ Page {
       var xhr = new XMLHttpRequest()
       xhr.onreadystatechange = function() {
         if(xhr.readyState == 4 && xhr.status == 200) {
+          realTimeLineModel.clear();
           var now = new Date();
           var data = JSON.parse(xhr.responseText);
           var l = data.length;
           for(var index=0; index < l; index++) {
             var departuredata = {};
-            var line = data[index]['MonitoredVehicleJourney']['PublishedLineName'] + data[index]['MonitoredVehicleJourney']['DestinationName'];
-            if(line != realTimeLinePage.line) {
+            var line = data[index]['MonitoredVehicleJourney']['PublishedLineName']
+            var destination = data[index]['MonitoredVehicleJourney']['DestinationName'];
+            if(line != realTimeLinePage.linenumber || destination != realTimeLinePage.destination) {
                 continue;
             }
-            departuredata['line'] = data[index]['MonitoredVehicleJourney']['PublishedLineName'];
-            departuredata['destination'] = data[index]['MonitoredVehicleJourney']['DestinationName'];
-            departuredata['origin'] = data[index]['MonitoredVehicleJourney']['OriginName'] ? data[index]['MonitoredVehicleJourney']['OriginName'] : "";
-            var departure = new Date(data[index]['MonitoredVehicleJourney']['MonitoredCall']['AimedArrivalTime']);
-            var timestr;
-            if(departure.getTime() - now.getTime() < (1000 * 60 * 10)) { // 10 minutes, 1000 usec * 60 sec * 10
-              if(departure.getTime() - now.getTime() < (1000 * 60)) { // 1 minute, 1000 usec * 60 sec
-                timestr = ((departure.getTime() - now.getTime()) / 1000 ).toFixed(0) + qsTr("sec");
-              } else {
-                timestr = ((departure.getTime() - now.getTime()) / 1000 / 60 ).toFixed(0) + qsTr("min");
-              }
-            } else {
-              timestr = departure.toLocaleTimeString(Qt.locale(), "HH:mm");
-            }
-            departuredata['departure_aimed'] = timestr;
-
+            departuredata['line'] = line;
+            departuredata['destination'] = destination;
             var departure = new Date(data[index]['MonitoredVehicleJourney']['MonitoredCall']['ExpectedArrivalTime']);
             var timestr;
             if(departure.getTime() - now.getTime() < (1000 * 60 * 10)) { // 10 minutes, 1000 usec * 60 sec * 10
@@ -82,10 +110,17 @@ Page {
             } else {
               timestr = departure.toLocaleTimeString(Qt.locale(), "HH:mm");
             }
-            departuredata['departure_expected'] = timestr;
+            departuredata['departure'] = timestr;
 
             realTimeLineModel.append(departuredata);
           }
+        } else if(xhr.readyState == 4) {
+          console.log(xhr.status);
+          console.log(xhr.statusText);
+          console.log(realTimeLinePage.stopID);
+          console.log(realTimeLinePage.stopName);
+          realTimeLineModel.clear();
+          realTimeLineModel.append({"departure": qsTr("Error getting stop information")});
         }
       };
       xhr.open("GET", "http://reisapi.ruter.no/StopVisit/GetDepartures/" + realTimeLinePage.stopID, true);

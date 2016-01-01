@@ -111,6 +111,9 @@ Page {
                     font.pixelSize: Theme.fontSizeSmall
                     //color: Theme.highlightColor
                   }
+                  onClicked: {
+                      pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": stopID, "stopName": realTimePage.stopName, "linenumber": linenumber, "destination": destination });
+                  }
                 }
 
                 Grid {
@@ -209,6 +212,7 @@ Page {
               travels[platform]['lines'][line]['destination'] = data[index]['MonitoredVehicleJourney']['DestinationName'];
               travels[platform]['lines'][line]['origin'] = data[index]['MonitoredVehicleJourney']['OriginName'] ? data[index]['MonitoredVehicleJourney']['OriginName'] : "";
               travels[platform]['lines'][line]['departures'] = {}
+              travels[platform]['lines'][line]['stopID'] = stopID
             }
             var departure = new Date(data[index]['MonitoredVehicleJourney']['MonitoredCall']['ExpectedArrivalTime']);
             var timestr;
@@ -234,12 +238,12 @@ Page {
           for(var i=0; i < platforms.length; i++) {
             realTimeModel.append(travels[platforms[i]]);
           }
-        } else if(xhr.readyState == 4) {
+        } else if(xhr.readyState == 4 && xhr.status == 0) {
           errorLabel.visible = true;
           errorLabel.text = qsTr("Error getting stop information");
         }
       };
-      xhr.open("GET", "http://reisapi.ruter.no/SStopVisit/GetDepartures/" + stopID, true);
+      xhr.open("GET", "http://reisapi.ruter.no/StopVisit/GetDepartures/" + stopID, true);
       xhr.send();
     }
   }
