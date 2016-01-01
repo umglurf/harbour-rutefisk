@@ -18,6 +18,7 @@ SOURCES += src/harbour-ruter.cpp
 
 OTHER_FILES += qml/harbour-ruter.qml \
     qml/cover/CoverPage.qml \
+    qml/cover/cover.svg \
     qml/pages/MainPage.qml \
     qml/pages/RealTime.qml \
     rpm/harbour-ruter.changes.in \

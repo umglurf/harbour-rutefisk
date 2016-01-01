@@ -24,11 +24,8 @@ CoverBackground {
     //transparent: true
 
     Image {
+      source: "cover.svg";
       anchors.fill: parent
-      source: "harbour-ruter.png";
-      x: Theme.paddingLarge
-      y: Theme.paddingMedium + Theme.paddingSmall
-      width: parent.width - 2*x
       opacity: 0.8
     }
 
