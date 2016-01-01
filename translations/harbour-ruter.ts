@@ -34,6 +34,10 @@
         <source>Search stop or street</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Error getting stops</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RealTime</name>
@@ -55,6 +59,21 @@
     </message>
     <message>
         <source>Auto Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error getting stops</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RealTimeLine</name>
+    <message>
+        <source>sec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>min</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

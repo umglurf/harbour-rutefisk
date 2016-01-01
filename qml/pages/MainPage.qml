@@ -47,6 +47,11 @@ Page {
             }
         }
 
+        Label {
+            id: errorLabel
+            visible: false
+        }
+
     }
 
     SilicaListView {
@@ -111,13 +116,18 @@ Page {
         function update() {
             xhr.abort();
             xhr.onreadystatechange = function() {
+                console.log("state: " + xhr.readyState);
                 if(xhr.readyState == 4 && xhr.status == 200) {
+                    errorLabel.visible = false;
                     var data = JSON.parse(xhr.responseText);
                     var l = data.length;
                     placesModel.clear();
                     for(var index=0; index < l; index++) {
                         placesModel.append(data[index]);
                     };
+                } else if(xhr.readyState == 4) {
+                    errorLabel.visible = true;
+                    errorLabel.text = qsTr("Error getting stops");
                 }
             };
             if(searchString == "") {

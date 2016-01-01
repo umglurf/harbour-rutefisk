@@ -54,6 +54,11 @@ Page {
         title: "Travels from " + stopName
       }
 
+      Label {
+        id: errorLabel
+        visible: false
+      }
+
       Column {
         width: parent.width
 
@@ -229,9 +234,12 @@ Page {
           for(var i=0; i < platforms.length; i++) {
             realTimeModel.append(travels[platforms[i]]);
           }
+        } else if(xhr.readyState == 4) {
+          errorLabel.visible = true;
+          errorLabel.text = qsTr("Error getting stop information");
         }
       };
-      xhr.open("GET", "http://reisapi.ruter.no/StopVisit/GetDepartures/" + stopID, true);
+      xhr.open("GET", "http://reisapi.ruter.no/SStopVisit/GetDepartures/" + stopID, true);
       xhr.send();
     }
   }
