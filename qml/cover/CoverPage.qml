@@ -18,88 +18,106 @@ This file is part of harbour-ruter.
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-Cover {
+CoverBackground {
     id: cover
-    anchors.fill: parent
-    transparent: true
+    //anchors.fill: parent
+    //transparent: true
 
     Image {
       anchors.fill: parent
       source: "harbour-ruter.png";
-      visible: departuresModel.count == 0
+      x: Theme.paddingLarge
+      y: Theme.paddingMedium + Theme.paddingSmall
+      width: parent.width - 2*x
+      opacity: 0.8
     }
 
 
     SilicaListView {
-        anchors.fill: parent
+        id: realTimeList
         model: departuresModel
 
-        delegate: ListItem {
-            Column {
-                Label {
-                    text: line
-                }
-                Label {
-                    text: departure
-                }
-            }
+        property real itemHeight: Theme.itemSizeExtraSmall
+
+        clip: true
+        interactive: false
+        x: Theme.paddingMedium
+        y: Theme.paddingMedium + Theme.paddingSmall
+        width: parent.width - 2*x
+        height: 4*itemHeight + 2*Theme.paddingSmall
+        spacing: Theme.paddingSmall
+
+        delegate:  Column {
+          width: parent.width
+          Component.onCompleted: realTimeList.itemHeight = height
+
+          Item {
+            width: parent.width
+            height: Theme.paddingSmall
+          }
+          Label {
+            text: line
+            color: Theme.primaryColor
+            truncationMode: TruncationMode.Fade
+          }
+          Label {
+            text: departure
+            font.pixelSize: Theme.fontSizeExtraSmall
+            color: Theme.primaryColor
+            truncationMode: TruncationMode.Fade
+          }
         }
     }
 
     ListModel {
         id: departuresModel
 
-        function update() {
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-              if(xhr.readyState == 4 && xhr.status == 200) {
-                departuresModel.clear();
-                var now = new Date();
-                var travels = {};
-                var lines_sorted = [];
-                var data = JSON.parse(xhr.responseText);
-                var l = data.length;
-                for(var index=0; index < l; index++) {
-                  var line = data[index]['MonitoredVehicleJourney']['PublishedLineName'] + data[index]['MonitoredVehicleJourney']['DestinationName'];
-                  if(!travels.hasOwnProperty(line)) {
-                      lines_sorted.push(line);
-                      travels[line] = {};
-                      travels[line]['line'] = line;
-                      travels[line]['departures'] = [];
-                  }
-                  travels[line]['departures'].push(new Date(data[index]['MonitoredVehicleJourney']['MonitoredCall']['ExpectedArrivalTime']));
+        function update(stopID) {
+          var xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function() {
+            if(xhr.readyState == 4 && xhr.status == 200) {
+              var now = new Date();
+              var travels = {};
+              var lines_sorted = [];
+              var data = JSON.parse(xhr.responseText);
+              var l = data.length;
+              for(var index=0; index < l; index++) {
+                var line = data[index]['MonitoredVehicleJourney']['PublishedLineName'] + data[index]['MonitoredVehicleJourney']['DestinationName'];
+                if(!travels.hasOwnProperty(line)) {
+                  lines_sorted.push(line);
+                  travels[line] = {};
+                  travels[line]['line'] = line;
+                  travels[line]['departures'] = [];
                 }
-                lines_sorted.sort();
-                var now = new Date();
-                for(var index=0; index < lines_sorted.length; index++) {
-                    travels[lines_sorted[index]]['departures'].sort();
-                    var departures = travels[lines_sorted[index]]['departures'];
-                    var departure = "";
-                    for(var i=0; i < departures.length && i < 2; i++) {
-                        var departure_time = departures.shift();
-                        var timestr;
-                        if(departure_time - now.getTime() < (1000 * 60 * 10)) { // 10 minutes, 1000 usec * 60 sec * 10
-                          if(departure_time - now.getTime() < (1000 * 60)) { // 1 minute, 1000 usec * 60 sec
-                            timestr = ((departure_time - now.getTime()) / 1000 ).toFixed(0) + qsTr("sec");
-                          } else {
-                            timestr = ((departure_time - now.getTime()) / 1000 / 60 ).toFixed(0) + qsTr("min");
-                          }
-                        } else {
-                          timestr = departure_time.toLocaleTimeString(Qt.locale(), "HH:mm");
-                        }
-                        departure = departure + timestr + " ";
+                travels[line]['departures'].push(new Date(data[index]['MonitoredVehicleJourney']['MonitoredCall']['ExpectedArrivalTime']));
+              }
+              lines_sorted.sort();
+              var now = new Date();
+              for(var index=0; index < lines_sorted.length; index++) {
+                travels[lines_sorted[index]]['departures'].sort();
+                var departures = travels[lines_sorted[index]]['departures'];
+                var departure = "";
+                for(var i=0; i < departures.length && i < 3; i++) {
+                  var departure_time = departures.shift();
+                  var timestr;
+                  if(departure_time - now.getTime() < (1000 * 60 * 10)) { // 10 minutes, 1000 usec * 60 sec * 10
+                    if(departure_time - now.getTime() < (1000 * 60)) { // 1 minute, 1000 usec * 60 sec
+                      timestr = ((departure_time - now.getTime()) / 1000 ).toFixed(0) + qsTr("sec");
+                    } else {
+                      timestr = ((departure_time - now.getTime()) / 1000 / 60 ).toFixed(0) + qsTr("min");
                     }
-                    travels[lines_sorted[index]]['departure'] = departure;
-                    departuresModel.append(travels[lines_sorted[index]]);
+                  } else {
+                    timestr = departure_time.toLocaleTimeString(Qt.locale(), "HH:mm");
+                  }
+                  departure = departure + timestr + " ";
                 }
+                travels[lines_sorted[index]]['departure'] = departure;
+                departuresModel.append(travels[lines_sorted[index]]);
               }
             }
-            if(pageStack.currentPage.stopID) {
-              xhr.open("GET", "http://reisapi.ruter.no/StopVisit/GetDepartures/" + pageStack.currentPage.stopID, true);
-              xhr.send();
-            } else {
-                departuresModel.clear();
-            }
+          }
+          xhr.open("GET", "http://reisapi.ruter.no/StopVisit/GetDepartures/" + stopID, true);
+          xhr.send();
         }
     }
 
@@ -111,12 +129,20 @@ Cover {
         triggeredOnStart: true
 
         onTriggered: {
-            departuresModel.update();
+            if(pageStack.currentPage.stopID) {
+              departuresModel.clear();
+              for(var i=0; i < pageStack.currentPage.stopID.length; i++) {
+                departuresModel.update(pageStack.currentPage.stopID[i]);
+              }
+            } else {
+                departuresModel.clear();
+            }
         }
     }
 
     onStatusChanged: {
         if(cover.status == Cover.Active) {
+            departureTimer.stop();
             departureTimer.start();
         } else {
             departureTimer.stop();
