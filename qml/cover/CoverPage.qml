@@ -128,7 +128,7 @@ CoverBackground {
 
     Timer {
         id: departureTimer
-        interval: 10000
+        interval: 30000
         repeat: true
         running: false
         triggeredOnStart: true

@@ -64,7 +64,7 @@ Page {
 
   Timer {
     id: realTimeLineTimer
-    interval: 10000
+    interval: 30000
     repeat: true
     triggeredOnStart: false
 
