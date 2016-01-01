@@ -15,14 +15,6 @@
 <context>
     <name>MainPage</name>
     <message>
-        <source>Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search places</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Realtime info</source>
         <translation type="unfinished"></translation>
     </message>
@@ -32,6 +24,14 @@
     </message>
     <message>
         <source>Travel to here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ruter travel information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search stop or street</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

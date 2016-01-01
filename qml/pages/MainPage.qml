@@ -31,14 +31,14 @@ Page {
         width: mainpage.width
 
         PageHeader {
-            title: qsTr("Search places")
+            title: qsTr("Ruter travel information")
         }
 
 
         SearchField {
             id: searchField
             width: parent.width
-            placeholderText: qsTr("Search")
+            placeholderText: qsTr("Search stop or street")
 
             Binding {
                 target: mainpage
