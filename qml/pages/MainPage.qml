@@ -70,8 +70,8 @@ Page {
             menu: ContextMenu {
                 MenuItem {
                     text: qsTr("Realtime info")
-                    visible: PlaceType == 'Stop'
-                    onClicked: pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": ID, "stopName": Name, "autorefresh": false});
+                    visible: PlaceType == 'Stop' || PlaceType == 'Area'
+                    onClicked: show_realtime()
                 }
                 MenuItem {
                     text: qsTr("Travel from here")
@@ -82,7 +82,19 @@ Page {
             }
 
             onClicked: {
-                pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": ID, "stopName": Name, "autorefresh": false});
+                show_realtime();
+            }
+
+            function show_realtime() {
+                if(PlaceType == "Stop") {
+                  pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": [ID], "stopName": Name, "autorefresh": false});
+                } else if(PlaceType == "Area") {
+                    var id = [];
+                    for(var i=0; i < Stops.count; i++) {
+                        id.push(Stops.get(i)['ID']);
+                    }
+                    pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": id, "stopName": Name, "autorefresh": false});
+                }
             }
         }
 

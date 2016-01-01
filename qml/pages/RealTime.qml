@@ -20,7 +20,7 @@ import Sailfish.Silica 1.0
 
 Page {
   id: realTimePage
-  property string stopID
+  property var stopID
   property string stopName
   property bool autorefresh
 
@@ -97,11 +97,15 @@ Page {
               delegate: Column {
                 width: parent.width
 
-                Label {
-                  id: lineLabel
-                  text: linenumber + " " + destination
-                  font.pixelSize: Theme.fontSizeSmall
-                  color: Theme.highlightColor
+                BackgroundItem {
+                  width: lineLabel.width
+                  height: lineLabel.height
+                  Label {
+                    id: lineLabel
+                    text: linenumber + " " + destination
+                    font.pixelSize: Theme.fontSizeSmall
+                    //color: Theme.highlightColor
+                  }
                 }
 
                 Grid {
@@ -165,7 +169,9 @@ Page {
     }
 
     Component.onCompleted: {
-      realTimeModel.update();
+      for(var stopIndex=0; stopIndex < realTimePage.stopID.length; stopIndex++) {
+        realTimeModel.update(realTimePage.stopID[stopIndex]);
+      }
       if(autorefresh) {
         realTimeTimer.start();
       }
@@ -174,9 +180,9 @@ Page {
 
   ListModel {
     id: realTimeModel
-    property var xhr: new XMLHttpRequest()
 
-    function update() {
+    function update(stopID) {
+      var xhr = new XMLHttpRequest()
       xhr.onreadystatechange = function() {
         if(xhr.readyState == 4 && xhr.status == 200) {
           var now = new Date();
@@ -205,7 +211,7 @@ Page {
               if(departure.getTime() - now.getTime() < (1000 * 60)) { // 1 minute, 1000 usec * 60 sec
                 timestr = ((departure.getTime() - now.getTime()) / 1000 ).toFixed(0) + qsTr("sec");
               } else {
-                timestr = ((departure.getTime() - now.getTime()) / 1000 / 60 ).toFixed(2) + qsTr("min");
+                timestr = ((departure.getTime() - now.getTime()) / 1000 / 60 ).toFixed(0) + qsTr("min");
               }
             } else {
               timestr = departure.toLocaleTimeString(Qt.locale(), "HH:mm");
@@ -225,7 +231,7 @@ Page {
           }
         }
       };
-      xhr.open("GET", "http://reisapi.ruter.no/StopVisit/GetDepartures/" + realTimePage.stopID, true);
+      xhr.open("GET", "http://reisapi.ruter.no/StopVisit/GetDepartures/" + stopID, true);
       xhr.send();
     }
   }
