@@ -115,8 +115,8 @@ Page {
 
         function update() {
             xhr.abort();
+            errorLabel.visible = false
             xhr.onreadystatechange = function() {
-                console.log("state: " + xhr.readyState);
                 if(xhr.readyState == 4 && xhr.status == 200) {
                     errorLabel.visible = false;
                     var data = JSON.parse(xhr.responseText);
@@ -125,7 +125,7 @@ Page {
                     for(var index=0; index < l; index++) {
                         placesModel.append(data[index]);
                     };
-                } else if(xhr.readyState == 4) {
+                } else if(xhr.readyState == 4 && xhr.status == 0) {
                     errorLabel.visible = true;
                     errorLabel.text = qsTr("Error getting stops");
                 }
