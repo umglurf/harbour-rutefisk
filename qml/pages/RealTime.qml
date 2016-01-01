@@ -51,7 +51,7 @@ Page {
       width: parent.width
 
       PageHeader {
-        title: "Travels from " + stopName
+        title: qsTr("Travels from") + " " + stopName
       }
 
       Label {
