@@ -19,8 +19,11 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Page {
-    id: mainpage
+    id: findFromToPage
     property string searchString
+    property string fromID
+    property string toID
+    property string fromtoname
 
     onSearchStringChanged: {
         placesModel.update();
@@ -28,20 +31,20 @@ Page {
 
     Column {
         id: headerContainer
-        width: mainpage.width
+        width: findFromToPage.width
 
         PageHeader {
-            title: qsTr("Ruter travel information")
+            title: qsTr("Travel") + " " + (fromID ? qsTr("from") : qsTr("to")) + " " + fromtoname
         }
 
 
         SearchField {
             id: searchField
             width: parent.width
-            placeholderText: qsTr("Search stop or street")
+            placeholderText: fromID ? qsTr("Search destination") : qsTr("Search start")
 
             Binding {
-                target: mainpage
+                target: findFromToPage
                 property: "searchString"
                 value: searchField.text
             }
@@ -72,40 +75,13 @@ Page {
                 color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
             }
 
-            menu: ContextMenu {
-                MenuItem {
-                    text: qsTr("Realtime info")
-                    visible: PlaceType == 'Stop' || PlaceType == 'Area'
-                    onClicked: show_realtime()
-                }
-                MenuItem {
-                    text: qsTr("Travel from here")
-                    onClicked: {
-                        pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"fromID": ID, "fromtoname": Name});
-                    }
-                }
-                MenuItem {
-                    text: qsTr("Travel to here")
-                    onClicked: {
-                        pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"toID": ID, "fromtoname": Name});
-                    }
-                }
-            }
-
             onClicked: {
-                show_realtime();
-            }
-
-            function show_realtime() {
-                if(PlaceType == "Stop") {
-                  pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": [ID], "stopName": Name, "autorefresh": false});
-                } else if(PlaceType == "Area") {
-                    var id = [];
-                    for(var i=0; i < Stops.count; i++) {
-                        id.push(Stops.get(i)['ID']);
-                    }
-                    pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": id, "stopName": Name, "autorefresh": false});
-                }
+              if(findFromToPage.fromID) {
+                findFromToPage.toID = ID
+              } else {
+                findFromToPage.fromID = ID
+              }
+              pageStack.push(Qt.resolvedUrl("TravelFromTo.qml"), { "fromID": findFromToPage.fromID, "toID": findFromToPage.toID});
             }
         }
 
@@ -145,4 +121,3 @@ Page {
         }
     }
 }
-

@@ -161,7 +161,7 @@ Page {
 
     Timer {
         id: realTimeTimer
-        interval: 10000
+        interval: 30000
         repeat: false
         triggeredOnStart: false
 
@@ -170,7 +170,6 @@ Page {
             pageStack.replace(Qt.resolvedUrl("RealTime.qml"), { "stopID": stopID, "stopName": stopName, "autorefresh": autorefresh}, PageStackAction.Immediate);
           } else {
               realTimeTimer.repeat = true;
-              realTimeTimer.interval = 30000;
               realTimeTimer.start();
           }
         }

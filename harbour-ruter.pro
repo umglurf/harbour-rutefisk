@@ -21,6 +21,7 @@ OTHER_FILES += qml/harbour-ruter.qml \
     qml/cover/cover.svg \
     qml/pages/MainPage.qml \
     qml/pages/RealTime.qml \
+    qml/icons/*.svg \
     rpm/harbour-ruter.changes.in \
     rpm/harbour-ruter.spec \
     rpm/harbour-ruter.yaml \
@@ -40,5 +41,8 @@ CONFIG += sailfishapp_i18n
 #TRANSLATIONS += translations/harbour-ruter-de.ts
 
 DISTFILES += \  
-    qml/pages/RealTimeLine.qml
+    qml/pages/RealTimeLine.qml \
+    qml/pages/FindFromTo.qml \
+    qml/pages/TravelFromTo.qml \
+    qml/pages/TravelFromToOptions.qml
 

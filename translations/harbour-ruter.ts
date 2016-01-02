@@ -13,6 +13,33 @@
     </message>
 </context>
 <context>
+    <name>FindFromTo</name>
+    <message>
+        <source>Travel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search destination</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error getting stops</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainPage</name>
     <message>
         <source>Realtime info</source>
@@ -94,6 +121,130 @@
     </message>
     <message>
         <source>from</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TravelFromTo</name>
+    <message>
+        <source>Travel search result</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>min</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Walking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error getting travel search result</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TravelFromToOptions</name>
+    <message>
+        <source>Travel search options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel is to start after selected time and date or before</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Before</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minutes needed for interchange</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minutes punishment for an interchange.
+Set to a high value (like 30) to prioritize
+journeys without interchange</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Walking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Walking speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>m/min</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maximum minutes to walk to a stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transport types</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Metro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tram</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Train</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Airport bus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Airport train</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
