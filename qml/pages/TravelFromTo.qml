@@ -242,7 +242,6 @@ Page {
           transport.push("Tram");
       }
       url = url + "&transporttypes=" + transport.join(",");
-      console.log(url);
       xhr.open("GET", url, true);
       xhr.send();
     }

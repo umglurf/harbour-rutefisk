@@ -190,12 +190,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Minutes punishment for an interchange.
-Set to a high value (like 30) to prioritize
-journeys without interchange</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Walking</source>
         <translation type="unfinished"></translation>
     </message>
@@ -245,6 +239,10 @@ journeys without interchange</source>
     </message>
     <message>
         <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minutes punishment for an interchange</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
