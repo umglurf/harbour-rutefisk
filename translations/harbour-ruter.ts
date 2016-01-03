@@ -127,10 +127,6 @@
 <context>
     <name>TravelFromTo</name>
     <message>
-        <source>Travel search result</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>min</source>
         <translation type="unfinished"></translation>
     </message>
@@ -148,6 +144,14 @@
     </message>
     <message>
         <source>Error getting travel search result</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel from</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>to</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

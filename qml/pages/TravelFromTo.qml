@@ -24,8 +24,10 @@ Page {
   property bool error: false
   property string errorstring
 
-  property string fromID: "1000026620"
-  property string toID: "1000013115"
+  property string fromID
+  property string fromName
+  property string toID
+  property string toName
   property var date: new Date()
   property var time: new Date()
   property real changemargin: 2
@@ -61,7 +63,7 @@ Page {
 
     header: PageHeader {
       id: pageHeader
-      title: qsTr("Travel search result")
+      title: qsTr("Travel from") + " " + fromName + " " + qsTr("to") + " " + toName
     }
 
     PullDownMenu {
@@ -70,7 +72,9 @@ Page {
         onClicked: {
           pageStack.push(Qt.resolvedUrl("TravelFromToOptions.qml"), {
                            "fromID": fromID,
+                           "fromName": fromName,
                            "toID": toID,
+                           "toName": toName,
                            "date": date,
                            "time": time,
                            "changemargin": changemargin,
