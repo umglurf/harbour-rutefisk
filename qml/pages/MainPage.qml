@@ -67,7 +67,7 @@ Page {
             Label {
                 x: Theme.horizontalPageMargin
                 anchors.verticalCenter: parent.verticalCenter
-                text: Name
+                text: Name + (PlaceType == "Street" ? " (" + District + ")" : "" )
                 font.capitalization: Font.Capitalize
                 color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
             }
@@ -82,7 +82,7 @@ Page {
                     text: qsTr("Travel from here")
                     onClicked: {
                         if(PlaceType == "Street") {
-                          pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name, "streetFrom": true});
+                          pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetFrom": true});
                         } else {
                           pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"fromID": ID, "fromName": Name});
                         }
@@ -92,7 +92,7 @@ Page {
                     text: qsTr("Travel to here")
                     onClicked: {
                         if(PlaceType == "Street") {
-                          pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name, "streetTo": true});
+                          pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetTo": true});
                         } else {
                           pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"toID": ID, "toName": Name});
                         }
@@ -102,7 +102,7 @@ Page {
 
             onClicked: {
                 if(PlaceType == "Street") {
-                    pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name, "streetFrom": true});
+                    pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetFrom": true});
                 } else {
                   show_realtime();
                 }

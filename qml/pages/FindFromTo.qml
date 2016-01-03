@@ -71,7 +71,7 @@ Page {
       Label {
         x: Theme.horizontalPageMargin
         anchors.verticalCenter: parent.verticalCenter
-        text: Name
+        text: Name + (PlaceType == "Street" ? " (" + District + ")" : "" )
         font.capitalization: Font.Capitalize
         color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
       }
@@ -81,7 +81,7 @@ Page {
           if(PlaceType == "Street") {
               pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {
                                "fromID": findFromToPage.fromID, "fromName": findFromToPage.fromName,
-                               "streetID": ID, "streetName": Name, "streetTo": true
+                               "streetID": ID, "streetName": Name + " (" + District + ")", "streetTo": true
                              });
           } else {
             pageStack.push(Qt.resolvedUrl("TravelFromTo.qml"), {
@@ -93,7 +93,7 @@ Page {
           if(PlaceType == "Street") {
               pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {
                                "toID": findFromToPage.toID, "toName": findFromToPage.toName,
-                               "streetID": ID, "streetName": Name, "streetTo": true
+                               "streetID": ID, "streetName": Name + " (" + District + ")", "streetTo": true
                              });
           } else {
             pageStack.push(Qt.resolvedUrl("TravelFromTo.qml"), {
