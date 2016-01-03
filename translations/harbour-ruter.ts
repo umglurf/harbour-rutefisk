@@ -154,10 +154,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Walking</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>min</source>
         <translation type="unfinished"></translation>
     </message>
@@ -167,6 +163,10 @@
     </message>
     <message>
         <source>Error getting travel search result</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Walking %L1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

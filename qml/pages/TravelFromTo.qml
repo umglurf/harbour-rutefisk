@@ -62,21 +62,21 @@ Page {
     visible: !error
 
     header: Column {
-        width: parent.width
-        PageHeader {
-          id: pageHeader
-          title: qsTr("Journey information")
-        }
-        Label {
-            text: qsTr("From") + " " + fromName
-            font.pixelSize: Theme.fontSizeSmall
-            color: Theme.highlightColor
-        }
-        Label {
-            text: qsTr("To") + " " + toName
-            font.pixelSize: Theme.fontSizeSmall
-            color: Theme.highlightColor
-        }
+      width: parent.width
+      PageHeader {
+        id: pageHeader
+        title: qsTr("Journey information")
+      }
+      Label {
+        text: qsTr("From") + " " + fromName
+        font.pixelSize: Theme.fontSizeSmall
+        color: Theme.highlightColor
+      }
+      Label {
+        text: qsTr("To") + " " + toName
+        font.pixelSize: Theme.fontSizeSmall
+        color: Theme.highlightColor
+      }
     }
 
     PullDownMenu {
@@ -112,6 +112,11 @@ Page {
     delegate: ListItem {
       height: linesItemColumn.height
       width: parent.width
+
+      onClicked: {
+          linesColumn.visible = !linesColumn.visible
+      }
+
       Column {
         id: linesItemColumn
         width: parent.width
@@ -120,68 +125,109 @@ Page {
           text: departure + " - " + arrival + " (" + traveltime + ")"
         }
 
-        Grid {
-          id: linesGrid
-          property int maxwidth: Theme.itemSizeSmall
-          width: parent.width
-          columnSpacing: Theme.paddingMedium
-          columns: width / maxwidth
+        Column {
+          id: linesColumn
+          visible: false
 
           Repeater {
-
             model: Stages
 
-            delegate: Row {
-              Component.onCompleted: {
-                if(width > linesGrid.maxwidth) {
-                  linesGrid.maxwidth = width
+            delegate: Column {
+              Row {
+                Item {
+                  visible: !walking
+                  height: lineLabel.height
+                  width: lineLabel.height
+                  Image {
+                    id: lineIcon
+                    anchors.fill: parent
+                    Component.onCompleted: {
+                      if(Transportation == "0") { //walking
+                        parent.visible = false
+                      } else if(Transportation == "1") { //airportbus
+                        source = "../icons/bus.svg"
+                      } else if(Transportation == "2") { //bus
+                        source = "../icons/bus.svg"
+                      } else if(Transportation == "3") { //dummy
+                        parent.visible = false
+                      } else if(Transportation == "4") { //airporttrain
+                        source = "../icons/train.svg"
+                      } else if(Transportation == "5") { //boat
+                        source = "../icons/boat.svg"
+                      } else if(Transportation == "6") { //train
+                        source = "../icons/train.svg"
+                      } else if(Transportation == "7") { //tram
+                        source = "../icons/tram.svg"
+                      } else if(Transportation == "8") { //metro
+                        source = "../icons/metro.svg"
+                      }
+                    }
+                  }
+                  ColorOverlay {
+                    anchors.fill: lineIcon
+                    source: lineIcon
+                    color: Theme.highlightColor
+                  }
+                }
+                Label {
+                  id: lineLabel
+                  visible: !walking
+                  font.pixelSize: Theme.fontSizeSmall
+                  color: Theme.highlightColor
+                  text: LineName + " " + Destination + " (" + traveltime + ")"
                 }
               }
 
-              Label {
-                id: lineLabel
-                font.pixelSize: Theme.fontSizeExtraSmall
-                color: Theme.highlightColor
-                Component.onCompleted: {
-                  if(WalkingTime) {
-                    text = qsTr("Walking");
-                  } else {
-                    text = LineName
+              Row {
+                Item {
+                  visible: !walking
+                  height: departureLabel.height
+                  width: departureLabel.height * 2 + Theme.paddingSmall
+                }
+                Label {
+                  id: departureLabel
+                  visible: !walking
+                  font.pixelSize: Theme.fontSizeExtraSmall
+                  color: Theme.highlightColor
+                  Component.onCompleted: {
+                      if(!walking) {
+                        text = DepartureStop['Name'] + ": " + departure
+                      }
                   }
                 }
               }
-              Item {
-                height: lineLabel.height
-                width: lineLabel.height
-                Image {
-                  id: lineIcon
-                  anchors.fill: parent
+
+              Row {
+                Item {
+                  visible: !walking
+                  height: arrivalLabel.height
+                  width: arrivalLabel.height * 2 + Theme.paddingSmall
+                }
+                Label {
+                  id: arrivalLabel
+                  visible: !walking
+                  font.pixelSize: Theme.fontSizeExtraSmall
+                  color: Theme.highlightColor
                   Component.onCompleted: {
-                    if(Transportation == "0") { //walking
-                      parent.visible = false
-                    } else if(Transportation == "1") { //airportbus
-                      source = "../icons/bus.svg"
-                    } else if(Transportation == "2") { //bus
-                      source = "../icons/bus.svg"
-                    } else if(Transportation == "3") { //dummy
-                      parent.visible = false
-                    } else if(Transportation == "4") { //airporttrain
-                      source = "../icons/train.svg"
-                    } else if(Transportation == "5") { //boat
-                      source = "../icons/boat.svg"
-                    } else if(Transportation == "6") { //train
-                      source = "../icons/train.svg"
-                    } else if(Transportation == "7") { //tram
-                      source = "../icons/tram.svg"
-                    } else if(Transportation == "8") { //metro
-                      source = "../icons/metro.svg"
+                    if(!walking) {
+                      text = ArrivalStop['Name'] + ": " + arrival
                     }
                   }
                 }
-                ColorOverlay {
-                  anchors.fill: lineIcon
-                  source: lineIcon
+              }
+
+              Row {
+                Item {
+                  visible: walking
+                  height: walkingLabel.height
+                  width: walkingLabel.height
+                }
+                Label {
+                  id: walkingLabel
+                  visible: walking
+                  font.pixelSize: Theme.fontSizeSmall
                   color: Theme.highlightColor
+                  text: qsTr("Walking %L1").arg(traveltime)
                 }
               }
             }
@@ -220,9 +266,27 @@ Page {
               var min = traveltime - (hour * 60);
               data['TravelProposals'][index]['traveltime'] = hour + qsTr("h") + " " + min + qsTr("min");
             }
-            if(!data['TravelProposals'][index].hasOwnProperty('WalkingTime')) {
-                data['TravelProposals'][index]['WalkingTime'] = false
+            for(var stageindex=0; stageindex < data['TravelProposals'][index]['Stages'].length; stageindex++) {
+              if(data['TravelProposals'][index]['Stages'][stageindex].hasOwnProperty('WalkingTime')) {
+                data['TravelProposals'][index]['Stages'][stageindex]['walking'] = true
+              } else {
+                data['TravelProposals'][index]['Stages'][stageindex]['walking'] = false
+              }
+              var arrival = new Date(data['TravelProposals'][index]['Stages'][stageindex]['ArrivalTime']);
+              data['TravelProposals'][index]['Stages'][stageindex]['arrival'] = arrival.toLocaleTimeString(Qt.locale(), "HH:mm");
+              var departure = new Date(data['TravelProposals'][index]['Stages'][stageindex]['DepartureTime']);
+              data['TravelProposals'][index]['Stages'][stageindex]['departure'] = departure.toLocaleTimeString(Qt.locale(), "HH:mm");
+              var traveltime = ( arrival.getTime() - departure.getTime() ) / 1000 / 60;
+              if(traveltime < 60) {
+                data['TravelProposals'][index]['Stages'][stageindex]['traveltime'] = traveltime + qsTr("min");
+              } else {
+                var hour = Math.floor((traveltime / 60));
+                var min = traveltime - (hour * 60);
+                data['TravelProposals'][index]['Stages'][stageindex]['traveltime'] = hour + qsTr("h") + " " + min + qsTr("min");
+              }
             }
+
+
             travelModel.append(data['TravelProposals'][index]);
           };
         } else if(xhr.readyState == 4 && xhr.status == 0) {
@@ -241,25 +305,25 @@ Page {
       url = url + "&maxwalkingminutes=" + travelFromToPage.maxwalkingminutes;
       var transport = [];
       if(travelFromToPage.airportbus) {
-          transport.push("AirportBus");
+        transport.push("AirportBus");
       }
       if(travelFromToPage.airporttrain) {
-          transport.push("AirportTrain");
+        transport.push("AirportTrain");
       }
       if(travelFromToPage.bus) {
-          transport.push("Bus");
+        transport.push("Bus");
       }
       if(travelFromToPage.train) {
-          transport.push("Train");
+        transport.push("Train");
       }
       if(travelFromToPage.boat) {
-          transport.push("Boat");
+        transport.push("Boat");
       }
       if(travelFromToPage.metro) {
-          transport.push("Metro");
+        transport.push("Metro");
       }
       if(travelFromToPage.tram) {
-          transport.push("Tram");
+        transport.push("Tram");
       }
       url = url + "&transporttypes=" + transport.join(",");
       xhr.open("GET", url, true);
