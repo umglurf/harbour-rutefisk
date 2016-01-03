@@ -120,26 +120,24 @@ Page {
 
     model: travelModel
 
-    delegate: Column {
-      //height: linesItemColumn.height
+    delegate: ListItem {
+      id: linesListItem
+      height: linesItemColumn.height
+      contentHeight: linesItemColumn.height
       width: parent.width
 
+      onClicked: {
+        linesColumn.visible = !linesColumn.visible;
+        linesGrid.visible = !linesGrid.visible;
+      }
 
       Column {
         id: linesItemColumn
         width: parent.width
-        ListItem {
-          id: linesListItem
-          contentHeight: travelTimeLabel.height
-          Label {
-            id: travelTimeLabel
-            text: departure + " - " + arrival + " (" + traveltime + ")"
-            color: linesListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
-          }
-          onClicked: {
-            linesColumn.visible = !linesColumn.visible;
-            linesGrid.visible = !linesGrid.visible;
-          }
+        Label {
+          id: travelTimeLabel
+          text: departure + " - " + arrival + " (" + traveltime + ")"
+          color: linesListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
         }
         Grid {
           id: linesGrid
