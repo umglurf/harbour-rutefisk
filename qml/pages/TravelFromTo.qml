@@ -326,6 +326,13 @@ Page {
           error = false;
           var data = JSON.parse(xhr.responseText);
           travelModel.clear();
+          if(data.hasOwnProperty('ReisError')) {
+            searchIndicator.visible = false;
+            searchIndicator.running = false;
+              error = true;
+              errorstring = data['ReisError']['Description'];
+              return;
+          }
           for(var index=0; index < data['TravelProposals'].length; index++) {
             var arrival = new Date(data['TravelProposals'][index]['ArrivalTime']);
             data['TravelProposals'][index]['arrival'] = arrival.toLocaleTimeString(Qt.locale(), "HH:mm");
