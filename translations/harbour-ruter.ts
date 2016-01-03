@@ -169,6 +169,10 @@
         <source>Walking %1</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Realtime for %1 %2</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TravelFromToOptions</name>
