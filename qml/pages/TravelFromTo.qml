@@ -262,22 +262,12 @@ Page {
                   height: departureLabel.height
                   width: departureLabel.height + Theme.paddingLarge
                 }
-                BackgroundItem {
-                    id: arrivalListItem
-                    visible: !walking
-                    contentHeight: departureLabel.height
-                    height: departureLabel.height
-                    onClicked: {
-                      pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": DepartureStop['ID'], "stopName": DepartureStop['Name'], "linenumber": LineName, "destination": Destination });
-                    }
-                    Label {
-                      id: departureLabel
-                      visible: !walking
-                      font.pixelSize: Theme.fontSizeSmall
-                      //color: Theme.highlightColor
-                      color: arrivalListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
-                      text: walking ? "" : DepartureStop['Name'] + ": " + departure
-                    }
+                Label {
+                  id: departureLabel
+                  visible: !walking
+                  font.pixelSize: Theme.fontSizeSmall
+                  color: Theme.highlightColor
+                  text: walking ? "" : DepartureStop['Name'] + ": " + departure
                 }
               }
 
