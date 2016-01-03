@@ -169,6 +169,10 @@
         <source>Walking %L1</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Walking</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TravelFromToOptions</name>

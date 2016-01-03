@@ -114,7 +114,8 @@ Page {
       width: parent.width
 
       onClicked: {
-          linesColumn.visible = !linesColumn.visible
+          linesColumn.visible = !linesColumn.visible;
+          linesGrid.visible = !linesGrid.visible;
       }
 
       Column {
@@ -123,6 +124,67 @@ Page {
         Label {
           id: travelTimeLabel
           text: departure + " - " + arrival + " (" + traveltime + ")"
+        }
+        Grid {
+          id: linesGrid
+          property int maxwidth: Theme.itemSizeSmall
+          width: parent.width
+          columnSpacing: Theme.paddingMedium
+          columns: width / maxwidth
+
+          Repeater {
+
+            model: Stages
+
+            delegate: Row {
+              Component.onCompleted: {
+                if(width > linesGrid.maxwidth) {
+                  linesGrid.maxwidth = width
+                }
+              }
+
+              Label {
+                id: lineLabel
+                font.pixelSize: Theme.fontSizeExtraSmall
+                color: Theme.highlightColor
+                text: walking ? qsTr("Walking") : LineName
+              }
+              Item {
+                height: lineLabel.height
+                width: lineLabel.height
+                Image {
+                  id: lineIcon
+                  anchors.fill: parent
+                  Component.onCompleted: {
+                    if(Transportation == "0") { //walking
+                      parent.visible = false
+                    } else if(Transportation == "1") { //airportbus
+                      source = "../icons/bus.svg"
+                    } else if(Transportation == "2") { //bus
+                      source = "../icons/bus.svg"
+                    } else if(Transportation == "3") { //dummy
+                      parent.visible = false
+                    } else if(Transportation == "4") { //airporttrain
+                      source = "../icons/train.svg"
+                    } else if(Transportation == "5") { //boat
+                      source = "../icons/boat.svg"
+                    } else if(Transportation == "6") { //train
+                      source = "../icons/train.svg"
+                    } else if(Transportation == "7") { //tram
+                      source = "../icons/tram.svg"
+                    } else if(Transportation == "8") { //metro
+                      source = "../icons/metro.svg"
+                    }
+                  }
+                }
+                ColorOverlay {
+                  anchors.fill: lineIcon
+                  source: lineIcon
+                  color: Theme.highlightColor
+                }
+              }
+            }
+          }
         }
 
         Column {
