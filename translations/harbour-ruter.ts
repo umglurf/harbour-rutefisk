@@ -40,6 +40,17 @@
     </message>
 </context>
 <context>
+    <name>FindFromToStreet</name>
+    <message>
+        <source>House numbers in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error getting houses</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainPage</name>
     <message>
         <source>Realtime info</source>

@@ -81,19 +81,31 @@ Page {
                 MenuItem {
                     text: qsTr("Travel from here")
                     onClicked: {
-                        pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"fromID": ID, "fromtoname": Name});
+                        if(PlaceType == "Street") {
+                          pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name, "streetFrom": true});
+                        } else {
+                          pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"fromID": ID, "fromName": Name});
+                        }
                     }
                 }
                 MenuItem {
                     text: qsTr("Travel to here")
                     onClicked: {
-                        pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"toID": ID, "fromtoname": Name});
+                        if(PlaceType == "Street") {
+                          pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name, "streetTo": true});
+                        } else {
+                          pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"toID": ID, "toName": Name});
+                        }
                     }
                 }
             }
 
             onClicked: {
-                show_realtime();
+                if(PlaceType == "Street") {
+                    pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name, "streetFrom": true});
+                } else {
+                  show_realtime();
+                }
             }
 
             function show_realtime() {

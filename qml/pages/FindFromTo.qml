@@ -22,8 +22,9 @@ Page {
   id: findFromToPage
   property string searchString
   property string fromID
+  property string fromName
   property string toID
-  property string fromtoname
+  property string toName
 
   onSearchStringChanged: {
     placesModel.update();
@@ -34,7 +35,7 @@ Page {
     width: findFromToPage.width
 
     PageHeader {
-      title: qsTr("Travel") + " " + (fromID ? qsTr("from") : qsTr("to")) + " " + fromtoname
+      title: qsTr("Travel") + " " + (fromID ? qsTr("from") + " " + fromName : qsTr("to")) + " " + toName
     }
 
 
@@ -76,25 +77,31 @@ Page {
       }
 
       onClicked: {
-        var fromID;
-        var fromName;
-        var toID;
-        var toName;
         if(findFromToPage.fromID) {
-          fromID = findFromToPage.fromID
-          fromName = findFromToPage.fromtoname
-          toID = ID
-          toName = Name
+          if(PlaceType == "Street") {
+              pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {
+                               "fromID": findFromToPage.fromID, "fromName": findFromToPage.fromName,
+                               "streetID": ID, "streetName": Name, "streetTo": true
+                             });
+          } else {
+            pageStack.push(Qt.resolvedUrl("TravelFromTo.qml"), {
+                             "fromID": findFromToPage.fromID, "fromName": findFromToPage.fromName,
+                             "toID": ID, "toName": Name
+                           });
+          }
         } else {
-          fromID = ID
-          fromName = Name
-          toID = findFromToPage.toID
-          toName = findFromToPage.fromtoname
+          if(PlaceType == "Street") {
+              pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {
+                               "toID": findFromToPage.toID, "toName": findFromToPage.toName,
+                               "streetID": ID, "streetName": Name, "streetTo": true
+                             });
+          } else {
+            pageStack.push(Qt.resolvedUrl("TravelFromTo.qml"), {
+                             "fromID": ID, "fromName": Name,
+                             "toID": findFromToPage.toID, "toName": findFromToPage.toName
+                           });
+          }
         }
-        pageStack.push(Qt.resolvedUrl("TravelFromTo.qml"), {
-                           "fromID": fromID, "fromName": fromName,
-                           "toID": toID, "toName": toName
-                       });
       }
     }
 

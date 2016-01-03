@@ -44,5 +44,6 @@ DISTFILES += \
     qml/pages/RealTimeLine.qml \
     qml/pages/FindFromTo.qml \
     qml/pages/TravelFromTo.qml \
-    qml/pages/TravelFromToOptions.qml
+    qml/pages/TravelFromToOptions.qml \
+    qml/pages/FindFromToStreet.qml
 
