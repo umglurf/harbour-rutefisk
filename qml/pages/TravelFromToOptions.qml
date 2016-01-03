@@ -24,7 +24,7 @@ Page {
   property string fromName
   property string toID
   property string toName
-  property bool isafter: false
+  property bool isafter: true
   property var date: new Date()
   property string datestring: date.toLocaleDateString(Qt.locale())
   property var time: new Date()
@@ -70,6 +70,7 @@ Page {
                            "fromName": fromName,
                            "toID": toID,
                            "toName": toName,
+                           "isafter": isafter,
                            "date": date,
                            "time": time,
                            "changemargin": changemargin,
