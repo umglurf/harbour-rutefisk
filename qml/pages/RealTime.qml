@@ -54,6 +54,13 @@ Page {
         title: qsTr("Travels from") + " " + stopName
       }
 
+      BusyIndicator {
+        id: searchIndicator
+        visible: false
+        running: false
+        size: BusyIndicatorSize.Small
+      }
+
       Label {
         id: errorLabel
         visible: false
@@ -190,6 +197,8 @@ Page {
 
     function update(stopID) {
       var xhr = new XMLHttpRequest()
+      searchIndicator.visible = true;
+      searchIndicator.running = true;
       xhr.onreadystatechange = function() {
         if(xhr.readyState == 4 && xhr.status == 200) {
           var now = new Date();
@@ -237,7 +246,11 @@ Page {
           for(var i=0; i < platforms.length; i++) {
             realTimeModel.append(travels[platforms[i]]);
           }
+          searchIndicator.visible = false;
+          searchIndicator.running = false;
         } else if(xhr.readyState == 4 && xhr.status == 0) {
+          searchIndicator.visible = false;
+          searchIndicator.running = false;
           errorLabel.visible = true;
           errorLabel.text = qsTr("Error getting stop information");
         }

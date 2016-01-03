@@ -37,6 +37,13 @@ Page {
       title: qsTr("House numbers in") + " " + streetName
     }
 
+    BusyIndicator {
+      id: searchIndicator
+      running: false
+      visible: false
+      size: BusyIndicatorSize.Small
+    }
+
     Label {
       id: errorLabel
       visible: false
@@ -110,6 +117,8 @@ Page {
     id: streetModel
 
     function update() {
+      searchIndicator.visible = true;
+      searchIndicator.running = true;
       var xhr = new XMLHttpRequest()
       xhr.onreadystatechange = function() {
         if(xhr.readyState == 4 && xhr.status == 200) {
@@ -119,7 +128,11 @@ Page {
           for(var index=0; index < data['Houses'].length; index++) {
             streetModel.append(data['Houses'][index]);
           };
+          searchIndicator.visible = false;
+          searchIndicator.running = false;
         } else if(xhr.readyState == 4 && xhr.status == 0) {
+          searchIndicator.visible = false;
+          searchIndicator.running = false;
           errorLabel.visible = true;
           errorLabel.text = qsTr("Error getting houses");
         }

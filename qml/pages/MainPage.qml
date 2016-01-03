@@ -19,142 +19,154 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Page {
-    id: mainpage
-    property string searchString
+  id: mainpage
+  property string searchString
 
-    onSearchStringChanged: {
-        placesModel.update();
-    }
+  onSearchStringChanged: {
+    placesModel.update();
+  }
 
-    Column {
-        id: headerContainer
-        width: mainpage.width
+  Column {
+    id: headerContainer
+    width: mainpage.width
 
-        PageHeader {
-            title: qsTr("Ruter travel information")
-        }
-
-
-        SearchField {
-            id: searchField
-            width: parent.width
-            placeholderText: qsTr("Search stop or street")
-
-            Binding {
-                target: mainpage
-                property: "searchString"
-                value: searchField.text
-            }
-        }
-
-        Label {
-            id: errorLabel
-            visible: false
-        }
-
-    }
-
-    SilicaListView {
-        id: placesList
-        model: placesModel
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        anchors.top: headerContainer.bottom
-
-        delegate: ListItem {
-            id: listItem
-            Label {
-                x: Theme.horizontalPageMargin
-                anchors.verticalCenter: parent.verticalCenter
-                text: Name + (PlaceType == "Street" ? " (" + District + ")" : "" )
-                font.capitalization: Font.Capitalize
-                color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
-            }
-
-            menu: ContextMenu {
-                MenuItem {
-                    text: qsTr("Realtime info")
-                    visible: PlaceType == 'Stop' || PlaceType == 'Area'
-                    onClicked: show_realtime()
-                }
-                MenuItem {
-                    text: qsTr("Travel from here")
-                    onClicked: {
-                        if(PlaceType == "Street") {
-                          pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetFrom": true});
-                        } else {
-                          pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"fromID": ID, "fromName": Name});
-                        }
-                    }
-                }
-                MenuItem {
-                    text: qsTr("Travel to here")
-                    onClicked: {
-                        if(PlaceType == "Street") {
-                          pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetTo": true});
-                        } else {
-                          pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"toID": ID, "toName": Name});
-                        }
-                    }
-                }
-            }
-
-            onClicked: {
-                if(PlaceType == "Street") {
-                    pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetFrom": true});
-                } else {
-                  show_realtime();
-                }
-            }
-
-            function show_realtime() {
-                if(PlaceType == "Stop") {
-                  pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": [ID], "stopName": Name, "autorefresh": false});
-                } else if(PlaceType == "Area") {
-                    var id = [];
-                    for(var i=0; i < Stops.count; i++) {
-                        id.push(Stops.get(i)['ID']);
-                    }
-                    pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": id, "stopName": Name, "autorefresh": false});
-                }
-            }
-        }
-
-        Component.onCompleted: {
-            searchField.forceActiveFocus();
-        }
+    PageHeader {
+      title: qsTr("Ruter travel information")
     }
 
 
-    ListModel {
-        id: placesModel
-        property var xhr: new XMLHttpRequest()
+    Row {
+      width: parent.width
+      SearchField {
+        id: searchField
+        width: parent.width - searchIndicator.width - Theme.paddingSmall
+        placeholderText: qsTr("Search stop or street")
 
-        function update() {
-            xhr.abort();
-            errorLabel.visible = false
-            xhr.onreadystatechange = function() {
-                if(xhr.readyState == 4 && xhr.status == 200) {
-                    errorLabel.visible = false;
-                    var data = JSON.parse(xhr.responseText);
-                    var l = data.length;
-                    placesModel.clear();
-                    for(var index=0; index < l; index++) {
-                        placesModel.append(data[index]);
-                    };
-                } else if(xhr.readyState == 4 && xhr.status == 0) {
-                    errorLabel.visible = true;
-                    errorLabel.text = qsTr("Error getting stops");
-                }
-            };
-            if(searchString == "") {
-                placesModel.clear();
+        Binding {
+          target: mainpage
+          property: "searchString"
+          value: searchField.text
+        }
+      }
+      BusyIndicator {
+        id: searchIndicator
+        running: false
+        size: BusyIndicatorSize.Small
+        anchors.verticalCenter: parent.verticalCenter
+      }
+    }
+
+    Label {
+      id: errorLabel
+      visible: false
+    }
+
+  }
+
+  SilicaListView {
+    id: placesList
+    model: placesModel
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    anchors.top: headerContainer.bottom
+
+    delegate: ListItem {
+      id: listItem
+      Label {
+        x: Theme.horizontalPageMargin
+        anchors.verticalCenter: parent.verticalCenter
+        text: Name + (PlaceType == "Street" ? " (" + District + ")" : "" )
+        font.capitalization: Font.Capitalize
+        color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+      }
+
+      menu: ContextMenu {
+        MenuItem {
+          text: qsTr("Realtime info")
+          visible: PlaceType == 'Stop' || PlaceType == 'Area'
+          onClicked: show_realtime()
+        }
+        MenuItem {
+          text: qsTr("Travel from here")
+          onClicked: {
+            if(PlaceType == "Street") {
+              pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetFrom": true});
             } else {
-                xhr.open("GET", "http://reisapi.ruter.no/Place/GetPlaces/" + searchString, true);
-                xhr.send();
+              pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"fromID": ID, "fromName": Name});
             }
+          }
         }
+        MenuItem {
+          text: qsTr("Travel to here")
+          onClicked: {
+            if(PlaceType == "Street") {
+              pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetTo": true});
+            } else {
+              pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"toID": ID, "toName": Name});
+            }
+          }
+        }
+      }
+
+      onClicked: {
+        if(PlaceType == "Street") {
+          pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetFrom": true});
+        } else {
+          show_realtime();
+        }
+      }
+
+      function show_realtime() {
+        if(PlaceType == "Stop") {
+          pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": [ID], "stopName": Name, "autorefresh": false});
+        } else if(PlaceType == "Area") {
+          var id = [];
+          for(var i=0; i < Stops.count; i++) {
+            id.push(Stops.get(i)['ID']);
+          }
+          pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": id, "stopName": Name, "autorefresh": false});
+        }
+      }
     }
+
+    Component.onCompleted: {
+      searchField.forceActiveFocus();
+    }
+  }
+
+
+  ListModel {
+    id: placesModel
+    property var xhr: new XMLHttpRequest()
+
+    function update() {
+      xhr.abort();
+      errorLabel.visible = false
+      searchIndicator.running = true
+      xhr.onreadystatechange = function() {
+        if(xhr.readyState == 4 && xhr.status == 200) {
+          errorLabel.visible = false;
+          var data = JSON.parse(xhr.responseText);
+          var l = data.length;
+          placesModel.clear();
+          for(var index=0; index < l; index++) {
+            placesModel.append(data[index]);
+          };
+          searchIndicator.running = false
+        } else if(xhr.readyState == 4 && xhr.status == 0) {
+          searchIndicator.running = false
+          errorLabel.visible = true;
+          errorLabel.text = qsTr("Error getting stops");
+        }
+      };
+      if(searchString == "") {
+        placesModel.clear();
+      } else {
+        xhr.open("GET", "http://reisapi.ruter.no/Place/GetPlaces/" + searchString, true);
+        xhr.send();
+      }
+    }
+  }
 }
 

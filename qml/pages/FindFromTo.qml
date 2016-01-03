@@ -38,16 +38,24 @@ Page {
       title: qsTr("Travel") + " " + (fromID ? qsTr("from") + " " + fromName : qsTr("to")) + " " + toName
     }
 
-
-    SearchField {
-      id: searchField
+    Row {
       width: parent.width
-      placeholderText: fromID ? qsTr("Search destination") : qsTr("Search start")
+      SearchField {
+        id: searchField
+        width: parent.width - searchIndicator.width - Theme.paddingSmall
+        placeholderText: fromID ? qsTr("Search destination") : qsTr("Search start")
 
-      Binding {
-        target: findFromToPage
-        property: "searchString"
-        value: searchField.text
+        Binding {
+          target: findFromToPage
+          property: "searchString"
+          value: searchField.text
+        }
+      }
+      BusyIndicator {
+        id: searchIndicator
+        running: false
+        size: BusyIndicatorSize.Small
+        anchors.verticalCenter: parent.verticalCenter
       }
     }
 
@@ -116,6 +124,7 @@ Page {
     property var xhr: new XMLHttpRequest()
 
     function update() {
+      searchIndicator.running = true;
       xhr.abort();
       errorLabel.visible = false
       xhr.onreadystatechange = function() {
@@ -127,7 +136,9 @@ Page {
           for(var index=0; index < l; index++) {
             placesModel.append(data[index]);
           };
+          searchIndicator.running = false;
         } else if(xhr.readyState == 4 && xhr.status == 0) {
+          searchIndicator.running = false;
           errorLabel.visible = true;
           errorLabel.text = qsTr("Error getting stops");
         }

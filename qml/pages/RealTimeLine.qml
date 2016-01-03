@@ -25,6 +25,7 @@ Page {
   property string linenumber
   property string destination
   property bool autorefresh: false
+  property BusyIndicator searchIndicator
 
   SilicaGridView {
       id: realTimeLineList
@@ -33,9 +34,21 @@ Page {
 
       model: realTimeLineModel
 
-      header: PageHeader {
-        id: pageHeader
-        title: linenumber + " " + destination + " " + qsTr("from") + " " + stopName
+      header: Column {
+          width: parent.width
+          PageHeader {
+            id: pageHeader
+            title: linenumber + " " + destination + " " + qsTr("from") + " " + stopName
+          }
+          BusyIndicator {
+            id: searchIndicator
+            visible: false
+            running: false
+            size: BusyIndicatorSize.Small
+            Component.onCompleted: {
+                realTimeLinePage.searchIndicator = this;
+            }
+          }
       }
 
       PullDownMenu {
@@ -83,6 +96,8 @@ Page {
     id: realTimeLineModel
 
     function update() {
+      searchIndicator.visible = true;
+      searchIndicator.running = true;
       var xhr = new XMLHttpRequest()
       xhr.onreadystatechange = function() {
         if(xhr.readyState == 4 && xhr.status == 200) {
@@ -114,11 +129,11 @@ Page {
 
             realTimeLineModel.append(departuredata);
           }
+          searchIndicator.visible = false;
+          searchIndicator.running = false;
         } else if(xhr.readyState == 4) {
-          console.log(xhr.status);
-          console.log(xhr.statusText);
-          console.log(realTimeLinePage.stopID);
-          console.log(realTimeLinePage.stopName);
+          searchIndicator.visible = false;
+          searchIndicator.running = false;
           realTimeLineModel.clear();
           realTimeLineModel.append({"departure": qsTr("Error getting stop information")});
         }

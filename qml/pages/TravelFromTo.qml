@@ -41,6 +41,7 @@ Page {
   property bool boat: true
   property bool metro: true
   property bool tram: true
+  property BusyIndicator searchIndicator
 
   SilicaFlickable {
     anchors.fill: parent
@@ -76,6 +77,14 @@ Page {
         text: qsTr("To") + " " + toName
         font.pixelSize: Theme.fontSizeSmall
         color: Theme.highlightColor
+      }
+      BusyIndicator {
+        id: searchIndicator
+        running: false
+        size: BusyIndicatorSize.Small
+        Component.onCompleted: {
+            travelFromToPage.searchIndicator = this;
+        }
       }
     }
 
@@ -308,6 +317,8 @@ Page {
     property var xhr: new XMLHttpRequest()
 
     function update() {
+      searchIndicator.visible = true;
+      searchIndicator.running = true;
       xhr.abort();
       error = false;
       xhr.onreadystatechange = function() {
@@ -351,7 +362,11 @@ Page {
 
             travelModel.append(data['TravelProposals'][index]);
           };
+          searchIndicator.visible = false;
+          searchIndicator.running = false;
         } else if(xhr.readyState == 4 && xhr.status == 0) {
+          searchIndicator.visible = false;
+          searchIndicator.running = false;
           error = true;
           errorstring = qsTr("Error getting travel search result");
         }
