@@ -61,9 +61,22 @@ Page {
     anchors.fill: parent
     visible: !error
 
-    header: PageHeader {
-      id: pageHeader
-      title: qsTr("Travel from") + " " + fromName + " " + qsTr("to") + " " + toName
+    header: Column {
+        width: parent.width
+        PageHeader {
+          id: pageHeader
+          title: qsTr("Journey information")
+        }
+        Label {
+            text: qsTr("From") + " " + fromName
+            font.pixelSize: Theme.fontSizeSmall
+            color: Theme.highlightColor
+        }
+        Label {
+            text: qsTr("To") + " " + toName
+            font.pixelSize: Theme.fontSizeSmall
+            color: Theme.highlightColor
+        }
     }
 
     PullDownMenu {
