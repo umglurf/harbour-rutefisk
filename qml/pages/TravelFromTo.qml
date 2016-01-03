@@ -132,17 +132,17 @@ Page {
       }
 
       menu: ContextMenu {
-          hasContent: linesColumn.visible
-          Repeater {
-              model: Stages
-              delegate: MenuItem {
-                visible: !walking
-                text: walking ? "" : qsTr("Realtime for %1 %2").arg(LineName).arg(Destination)
-                onClicked: {
-                    pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": DepartureStop['ID'], "stopName": DepartureStop['Name'], "linenumber": LineName, "destination": Destination });
-                }
-              }
+        hasContent: linesColumn.visible
+        Repeater {
+          model: Stages
+          delegate: MenuItem {
+            visible: !walking
+            text: walking ? "" : qsTr("Realtime for %1 %2").arg(LineName).arg(Destination)
+            onClicked: {
+              pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": DepartureStop['ID'], "stopName": DepartureStop['Name'], "linenumber": LineName, "destination": Destination });
+            }
           }
+        }
       }
 
       Column {
