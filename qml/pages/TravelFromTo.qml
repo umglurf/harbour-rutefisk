@@ -83,7 +83,7 @@ Page {
         running: false
         size: BusyIndicatorSize.Small
         Component.onCompleted: {
-            travelFromToPage.searchIndicator = this;
+          travelFromToPage.searchIndicator = this;
         }
       }
     }
@@ -123,8 +123,8 @@ Page {
       width: parent.width
 
       onClicked: {
-          linesColumn.visible = !linesColumn.visible;
-          linesGrid.visible = !linesGrid.visible;
+        linesColumn.visible = !linesColumn.visible;
+        linesGrid.visible = !linesGrid.visible;
       }
 
       Column {
@@ -253,7 +253,7 @@ Page {
                 Item {
                   visible: !walking
                   height: departureLabel.height
-                  width: departureLabel.height * 2 + Theme.paddingSmall
+                  width: departureLabel.height + Theme.paddingLarge
                 }
                 Label {
                   id: departureLabel
@@ -261,9 +261,9 @@ Page {
                   font.pixelSize: Theme.fontSizeExtraSmall
                   color: Theme.highlightColor
                   Component.onCompleted: {
-                      if(!walking) {
-                        text = DepartureStop['Name'] + ": " + departure
-                      }
+                    if(!walking) {
+                      text = DepartureStop['Name'] + ": " + departure
+                    }
                   }
                 }
               }
@@ -272,7 +272,7 @@ Page {
                 Item {
                   visible: !walking
                   height: departureDeviationLabel.height
-                  width: departureDeviationLabel.height * 2 + Theme.paddingLarge
+                  width: departureDeviationLabel.height + Theme.paddingLarge * 2
                 }
                 Label {
                   id: departureDeviationLabel
@@ -281,16 +281,16 @@ Page {
                   color: Theme.highlightColor
                   Component.onCompleted: {
                     if(!walking) {
-                        if(DepartureStop['Deviations'].length > 0) {
-                          var deviations = [];
-                          for(var i=0; i < DepartureStop['Deviations'].length; i++) {
-                            deviations.push(DepartureStop['Deviations'][i]['Header'])
-                          }
-                          text = deviations.join("\n");
-                        } else {
-                            parent.visible = false;
+                      if(DepartureStop['Deviations'].length > 0) {
+                        var deviations = [];
+                        for(var i=0; i < DepartureStop['Deviations'].length; i++) {
+                          deviations.push(DepartureStop['Deviations'][i]['Header'])
                         }
+                        text = deviations.join("\n");
+                      } else {
+                        parent.visible = false;
                       }
+                    }
                   }
                 }
               }
@@ -299,7 +299,7 @@ Page {
                 Item {
                   visible: !walking
                   height: arrivalLabel.height
-                  width: arrivalLabel.height * 2 + Theme.paddingSmall
+                  width: arrivalLabel.height + Theme.paddingLarge
                 }
                 Label {
                   id: arrivalLabel
@@ -318,7 +318,7 @@ Page {
                 Item {
                   visible: !walking
                   height: arrivalDeviationLabel.height
-                  width: arrivalDeviationLabel.height * 2 + Theme.paddingLarge
+                  width: arrivalDeviationLabel.height + Theme.paddingLarge * 2
                 }
                 Label {
                   id: arrivalDeviationLabel
@@ -327,16 +327,16 @@ Page {
                   color: Theme.highlightColor
                   Component.onCompleted: {
                     if(!walking) {
-                        if(ArrivalStop['Deviations'].length > 0) {
-                          var deviations = [];
-                          for(var i=0; i < ArrivalStop['Deviations'].length; i++) {
-                            deviations.push(ArrivalStop['Deviations'][i]['Header'])
-                          }
-                          text = deviations.join("\n");
-                        } else {
-                            parent.visible = false;
+                      if(ArrivalStop['Deviations'].length > 0) {
+                        var deviations = [];
+                        for(var i=0; i < ArrivalStop['Deviations'].length; i++) {
+                          deviations.push(ArrivalStop['Deviations'][i]['Header'])
                         }
+                        text = deviations.join("\n");
+                      } else {
+                        parent.visible = false;
                       }
+                    }
                   }
                 }
               }
@@ -383,9 +383,9 @@ Page {
           if(data['ReisError'] && data['ReisError'].hasOwnProperty('Description') ) {
             searchIndicator.visible = false;
             searchIndicator.running = false;
-              error = true;
-              errorstring = data['ReisError']['Description'];
-              return;
+            error = true;
+            errorstring = data['ReisError']['Description'];
+            return;
           }
           for(var index=0; index < data['TravelProposals'].length; index++) {
             var arrival = new Date(data['TravelProposals'][index]['ArrivalTime']);
