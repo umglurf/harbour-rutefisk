@@ -28,6 +28,7 @@ Page {
   property string fromName
   property string toID
   property string toName
+  property bool isafter: true
   property var date: new Date()
   property var time: new Date()
   property real changemargin: 2
@@ -97,6 +98,7 @@ Page {
                            "fromName": fromName,
                            "toID": toID,
                            "toName": toName,
+                           "isafter": isafter,
                            "date": date,
                            "time": time,
                            "changemargin": changemargin,
