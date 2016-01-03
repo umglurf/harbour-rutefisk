@@ -70,12 +70,12 @@ Page {
       }
       Label {
         text: qsTr("From %1").arg(fromName)
-        font.pixelSize: Theme.fontSizeSmall
+        font.pixelSize: Theme.fontSizeMedium
         color: Theme.highlightColor
       }
       Label {
         text: qsTr("To %1").arg(toName)
-        font.pixelSize: Theme.fontSizeSmall
+        font.pixelSize: Theme.fontSizeMedium
         color: Theme.highlightColor
       }
       BusyIndicator {
@@ -154,7 +154,7 @@ Page {
 
               Label {
                 id: lineLabel
-                font.pixelSize: Theme.fontSizeExtraSmall
+                font.pixelSize: Theme.fontSizeSmall
                 color: Theme.highlightColor
                 text: walking ? qsTr("Walking") : LineName
               }
@@ -258,7 +258,7 @@ Page {
                 Label {
                   id: departureLabel
                   visible: !walking
-                  font.pixelSize: Theme.fontSizeExtraSmall
+                  font.pixelSize: Theme.fontSizeSmall
                   color: Theme.highlightColor
                   Component.onCompleted: {
                     if(!walking) {
@@ -304,7 +304,7 @@ Page {
                 Label {
                   id: arrivalLabel
                   visible: !walking
-                  font.pixelSize: Theme.fontSizeExtraSmall
+                  font.pixelSize: Theme.fontSizeSmall
                   color: Theme.highlightColor
                   Component.onCompleted: {
                     if(!walking) {
