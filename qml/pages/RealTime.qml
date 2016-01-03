@@ -51,7 +51,7 @@ Page {
       width: parent.width
 
       PageHeader {
-        title: qsTr("Travels from") + " " + stopName
+        title: qsTr("Travels from %1").arg(stopName)
       }
 
       BusyIndicator {
@@ -78,7 +78,7 @@ Page {
 
             Label {
               id: platformLabel
-              text: qsTr("Platform") + " " + name
+              text: qsTr("Platform %1").arg(name)
               color: Theme.highlightColor
             }
 

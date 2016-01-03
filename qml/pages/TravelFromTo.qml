@@ -69,12 +69,12 @@ Page {
         title: qsTr("Journey information")
       }
       Label {
-        text: qsTr("From") + " " + fromName
+        text: qsTr("From %1").arg(fromName)
         font.pixelSize: Theme.fontSizeSmall
         color: Theme.highlightColor
       }
       Label {
-        text: qsTr("To") + " " + toName
+        text: qsTr("To %1").arg(toName)
         font.pixelSize: Theme.fontSizeSmall
         color: Theme.highlightColor
       }
@@ -352,7 +352,7 @@ Page {
                   visible: walking
                   font.pixelSize: Theme.fontSizeSmall
                   color: Theme.highlightColor
-                  text: qsTr("Walking %L1").arg(traveltime)
+                  text: qsTr("Walking %1").arg(traveltime)
                 }
               }
             }

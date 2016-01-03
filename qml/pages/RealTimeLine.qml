@@ -38,7 +38,7 @@ Page {
           width: parent.width
           PageHeader {
             id: pageHeader
-            title: linenumber + " " + destination + " " + qsTr("from") + " " + stopName
+            title: qsTr("%1 %2 from %3").arg(linenumber).arg(destination).arg(stopName)
           }
           BusyIndicator {
             id: searchIndicator

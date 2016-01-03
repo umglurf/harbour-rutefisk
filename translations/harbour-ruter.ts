@@ -15,38 +15,34 @@
 <context>
     <name>FindFromTo</name>
     <message>
-        <source>Travel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>from</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>to</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Search destination</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error getting stops</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Travel from %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search start point</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FindFromToStreet</name>
     <message>
-        <source>House numbers in</source>
+        <source>Error getting houses</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Error getting houses</source>
+        <source>House numbers in %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -88,14 +84,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Travels from</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Platform</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>sec</source>
         <translation type="unfinished"></translation>
     </message>
@@ -105,6 +93,14 @@
     </message>
     <message>
         <source>Error getting stop information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travels from %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Platform %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -131,7 +127,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>from</source>
+        <source>%1 %2 from %3</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -139,14 +135,6 @@
     <name>TravelFromTo</name>
     <message>
         <source>Journey information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>From</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>To</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -166,11 +154,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Walking %L1</source>
+        <source>Walking</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Walking</source>
+        <source>From %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Walking %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

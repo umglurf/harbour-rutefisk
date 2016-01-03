@@ -35,7 +35,7 @@ Page {
     width: findFromToPage.width
 
     PageHeader {
-      title: qsTr("Travel") + " " + (fromID ? qsTr("from") + " " + fromName : qsTr("to")) + " " + toName
+      title: fromID ? qsTr("Travel from %1").arg(fromName) : qsTr("Travel to %1").arg(toName)
     }
 
     Row {
@@ -43,7 +43,7 @@ Page {
       SearchField {
         id: searchField
         width: parent.width - searchIndicator.width - Theme.paddingSmall
-        placeholderText: fromID ? qsTr("Search destination") : qsTr("Search start")
+        placeholderText: fromID ? qsTr("Search destination") : qsTr("Search start point")
 
         Binding {
           target: findFromToPage

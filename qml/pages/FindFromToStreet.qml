@@ -34,7 +34,7 @@ Page {
     width: parent.width
 
     PageHeader {
-      title: qsTr("House numbers in") + " " + streetName
+      title: qsTr("House numbers in %1").arg(streetName)
     }
 
     BusyIndicator {
