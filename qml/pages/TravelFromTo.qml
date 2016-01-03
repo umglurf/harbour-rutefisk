@@ -271,6 +271,33 @@ Page {
               Row {
                 Item {
                   visible: !walking
+                  height: departureDeviationLabel.height
+                  width: departureDeviationLabel.height * 2 + Theme.paddingLarge
+                }
+                Label {
+                  id: departureDeviationLabel
+                  visible: !walking
+                  font.pixelSize: Theme.fontSizeExtraSmall
+                  color: Theme.highlightColor
+                  Component.onCompleted: {
+                    if(!walking) {
+                        if(DepartureStop['Deviations'].length > 0) {
+                          var deviations = [];
+                          for(var i=0; i < DepartureStop['Deviations'].length; i++) {
+                            deviations.push(DepartureStop['Deviations'][i]['Header'])
+                          }
+                          text = deviations.join("\n");
+                        } else {
+                            parent.visible = false;
+                        }
+                      }
+                  }
+                }
+              }
+
+              Row {
+                Item {
+                  visible: !walking
                   height: arrivalLabel.height
                   width: arrivalLabel.height * 2 + Theme.paddingSmall
                 }
@@ -283,6 +310,33 @@ Page {
                     if(!walking) {
                       text = ArrivalStop['Name'] + ": " + arrival
                     }
+                  }
+                }
+              }
+
+              Row {
+                Item {
+                  visible: !walking
+                  height: arrivalDeviationLabel.height
+                  width: arrivalDeviationLabel.height * 2 + Theme.paddingLarge
+                }
+                Label {
+                  id: arrivalDeviationLabel
+                  visible: !walking
+                  font.pixelSize: Theme.fontSizeExtraSmall
+                  color: Theme.highlightColor
+                  Component.onCompleted: {
+                    if(!walking) {
+                        if(ArrivalStop['Deviations'].length > 0) {
+                          var deviations = [];
+                          for(var i=0; i < ArrivalStop['Deviations'].length; i++) {
+                            deviations.push(ArrivalStop['Deviations'][i]['Header'])
+                          }
+                          text = deviations.join("\n");
+                        } else {
+                            parent.visible = false;
+                        }
+                      }
                   }
                 }
               }
@@ -326,7 +380,7 @@ Page {
           error = false;
           var data = JSON.parse(xhr.responseText);
           travelModel.clear();
-          if(data.hasOwnProperty('ReisError')) {
+          if(data['ReisError'] && data['ReisError'].hasOwnProperty('Description') ) {
             searchIndicator.visible = false;
             searchIndicator.running = false;
               error = true;

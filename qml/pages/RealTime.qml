@@ -121,6 +121,31 @@ Page {
                   onClicked: {
                       pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": stopID, "stopName": realTimePage.stopName, "linenumber": linenumber, "destination": destination });
                   }
+
+                }
+                Column {
+                  Repeater {
+                    Component.onCompleted: {
+                      model.update(deviations);
+                    }
+
+                    model: ListModel {
+                      function update(deviations) {
+                        this.clear();
+                        for(var deviation in deviations) {
+                          if(deviations.hasOwnProperty(deviation)) {
+                            this.append({"deviation": deviations[deviation]});
+                          }
+                        }
+                      }
+                    }
+
+                    delegate: Label {
+                      text: deviation
+                      font.pixelSize: Theme.fontSizeExtraSmall
+                      color: Theme.secondaryHighlightColor
+                    }
+                  }
                 }
 
                 Grid {
@@ -221,6 +246,10 @@ Page {
               travels[platform]['lines'][line]['origin'] = data[index]['MonitoredVehicleJourney']['OriginName'] ? data[index]['MonitoredVehicleJourney']['OriginName'] : "";
               travels[platform]['lines'][line]['departures'] = {}
               travels[platform]['lines'][line]['stopID'] = stopID
+              travels[platform]['lines'][line]['deviations'] = {}
+            }
+            for(var deviationindex=0; deviationindex < data[index]['Extensions']['Deviations'].length; deviationindex++) {
+              travels[platform]['lines'][line]['deviations'][data[index]['Extensions']['Deviations'][deviationindex]['ID']] = data[index]['Extensions']['Deviations'][deviationindex]['Header'];
             }
             var departure = new Date(data[index]['MonitoredVehicleJourney']['MonitoredCall']['ExpectedArrivalTime']);
             var timestr;
