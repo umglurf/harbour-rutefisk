@@ -118,21 +118,26 @@ Page {
 
     model: travelModel
 
-    delegate: ListItem {
-      height: linesItemColumn.height
+    delegate: Column {
+      //height: linesItemColumn.height
       width: parent.width
 
-      onClicked: {
-        linesColumn.visible = !linesColumn.visible;
-        linesGrid.visible = !linesGrid.visible;
-      }
 
       Column {
         id: linesItemColumn
         width: parent.width
-        Label {
-          id: travelTimeLabel
-          text: departure + " - " + arrival + " (" + traveltime + ")"
+        ListItem {
+          id: linesListItem
+          contentHeight: travelTimeLabel.height
+          Label {
+            id: travelTimeLabel
+            text: departure + " - " + arrival + " (" + traveltime + ")"
+            color: linesListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+          }
+          onClicked: {
+            linesColumn.visible = !linesColumn.visible;
+            linesGrid.visible = !linesGrid.visible;
+          }
         }
         Grid {
           id: linesGrid
@@ -255,16 +260,22 @@ Page {
                   height: departureLabel.height
                   width: departureLabel.height + Theme.paddingLarge
                 }
-                Label {
-                  id: departureLabel
-                  visible: !walking
-                  font.pixelSize: Theme.fontSizeSmall
-                  color: Theme.highlightColor
-                  Component.onCompleted: {
-                    if(!walking) {
-                      text = DepartureStop['Name'] + ": " + departure
+                BackgroundItem {
+                    id: arrivalListItem
+                    visible: !walking
+                    contentHeight: departureLabel.height
+                    height: departureLabel.height
+                    onClicked: {
+                      pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": DepartureStop['ID'], "stopName": DepartureStop['Name'], "linenumber": LineName, "destination": Destination });
                     }
-                  }
+                    Label {
+                      id: departureLabel
+                      visible: !walking
+                      font.pixelSize: Theme.fontSizeSmall
+                      //color: Theme.highlightColor
+                      color: arrivalListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+                      text: walking ? "" : DepartureStop['Name'] + ": " + departure
+                    }
                 }
               }
 
@@ -306,11 +317,7 @@ Page {
                   visible: !walking
                   font.pixelSize: Theme.fontSizeSmall
                   color: Theme.highlightColor
-                  Component.onCompleted: {
-                    if(!walking) {
-                      text = ArrivalStop['Name'] + ": " + arrival
-                    }
-                  }
+                  text: walking ? "" : ArrivalStop['Name'] + ": " + arrival
                 }
               }
 
