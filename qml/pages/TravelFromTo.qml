@@ -220,6 +220,9 @@ Page {
               var min = traveltime - (hour * 60);
               data['TravelProposals'][index]['traveltime'] = hour + qsTr("h") + " " + min + qsTr("min");
             }
+            if(!data['TravelProposals'][index].hasOwnProperty('WalkingTime')) {
+                data['TravelProposals'][index]['WalkingTime'] = false
+            }
             travelModel.append(data['TravelProposals'][index]);
           };
         } else if(xhr.readyState == 4 && xhr.status == 0) {
