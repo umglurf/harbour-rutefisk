@@ -72,6 +72,10 @@
         <source>Error getting stops</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Search using gps</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RealTime</name>

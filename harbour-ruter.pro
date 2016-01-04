@@ -22,6 +22,7 @@ OTHER_FILES += qml/harbour-ruter.qml \
     qml/pages/MainPage.qml \
     qml/pages/RealTime.qml \
     qml/icons/*.svg \
+    qml/scripts/*.js \
     rpm/harbour-ruter.changes.in \
     rpm/harbour-ruter.spec \
     rpm/harbour-ruter.yaml \

@@ -16,7 +16,9 @@ This file is part of harbour-ruter.
 */
 
 import QtQuick 2.0
+import QtPositioning 5.2
 import Sailfish.Silica 1.0
+import "../scripts/gpsconvert.js" as GPSConvert
 
 Page {
   id: mainpage
@@ -24,6 +26,21 @@ Page {
 
   onSearchStringChanged: {
     placesModel.update();
+  }
+
+  PositionSource {
+    id: positionSource
+    active: false
+
+    onPositionChanged: {
+      if(position.latitudeValid && position.longitudeValid) {
+        gpsIndicator.running = false;
+        var xy = new Array(2);
+        var zone = Math.floor ((position.coordinate.longitude + 180.0) / 6) + 1;
+        zone = GPSConvert.LatLonToUTMXY (GPSConvert.DegToRad (position.coordinate.latitude), GPSConvert.DegToRad (position.coordinate.longitude), zone, xy);
+        placesModel.update_gps(Math.floor(xy[0]),Math.floor(xy[1]));
+      }
+    }
   }
 
   Column {
@@ -50,6 +67,22 @@ Page {
       }
       BusyIndicator {
         id: searchIndicator
+        running: false
+        size: BusyIndicatorSize.Small
+        anchors.verticalCenter: parent.verticalCenter
+      }
+    }
+
+    Row {
+      Button {
+        text: qsTr("Search using gps")
+        onClicked: {
+          gpsIndicator.running = true;
+          positionSource.update();
+        }
+      }
+      BusyIndicator {
+        id: gpsIndicator
         running: false
         size: BusyIndicatorSize.Small
         anchors.verticalCenter: parent.verticalCenter
@@ -166,6 +199,34 @@ Page {
         xhr.open("GET", "http://reisapi.ruter.no/Place/GetPlaces/" + searchString, true);
         xhr.send();
       }
+    }
+    function update_gps(x,y) {
+      xhr.abort();
+      errorLabel.visible = false;
+      gpsIndicator.running = true;
+      xhr.onreadystatechange = function() {
+        if(xhr.readyState == 4 && xhr.status == 200) {
+          errorLabel.visible = false;
+          var data = JSON.parse(xhr.responseText);
+          var l = data.length;
+          placesModel.clear();
+          for(var index=0; index < l; index++) {
+            placesModel.append(data[index]);
+          };
+          gpsIndicator.running = false
+        } else if(xhr.readyState == 4 && xhr.status == 0) {
+          gpsIndicator.running = false
+          errorLabel.visible = true;
+          errorLabel.text = qsTr("Error getting stops");
+        }
+      };
+      var url = "http://reisapi.ruter.no/Place/GetStopsByArea/?";
+      url = url + "xmin=" + (x-100);
+      url = url + "&xmax=" + (x+100);
+      url = url + "&ymin=" + (y-100);
+      url = url + "&ymax=" + (y+100);
+      xhr.open("GET", url, true);
+      xhr.send();
     }
   }
 }
