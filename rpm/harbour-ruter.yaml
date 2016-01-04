@@ -1,5 +1,5 @@
 Name: harbour-ruter
-Summary: Unofficial Ruter app
+Summary: Unofficial Ruter travel information application
 Version: 0.1
 Release: 1
 # The contents of the Group field should be one of the groups listed here:
@@ -12,7 +12,7 @@ License: GPLv3
 Sources:
 - '%{name}-%{version}.tar.bz2'
 Description: |
-  Unofficial Ruter application for travel information using ruter.no
+  Unofficial Ruter application for travel information using the norwegian provider Ruter (http://www.ruter.no)
 Configure: none
 # The qtc5 builder inserts macros to allow QtCreator to have fine
 # control over qmake/make execution
