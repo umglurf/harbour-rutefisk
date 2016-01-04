@@ -25,16 +25,41 @@ Page {
   property string searchString
 
   onSearchStringChanged: {
+    stop_gps_search();
     placesModel.update();
+  }
+
+  function start_gps_search() {
+      gpsIndicator.running = true;
+      positionSource.start();
+      gpsSearchTimer.restart();
+
+  }
+
+  function stop_gps_search() {
+      gpsIndicator.running = false;
+      positionSource.stop();
+      gpsSearchTimer.stop();
+  }
+
+  Timer {
+      id: gpsSearchTimer
+      interval: 60000
+      repeat: false
+      triggeredOnStart: false
+
+      onTriggered: {
+          stop_gps_search();
+      }
   }
 
   PositionSource {
     id: positionSource
     active: false
+    updateInterval: 1000
 
     onPositionChanged: {
       if(position.latitudeValid && position.longitudeValid) {
-        gpsIndicator.running = false;
         var xy = new Array(2);
         var zone = Math.floor ((position.coordinate.longitude + 180.0) / 6) + 1;
         zone = GPSConvert.LatLonToUTMXY (GPSConvert.DegToRad (position.coordinate.latitude), GPSConvert.DegToRad (position.coordinate.longitude), zone, xy);
@@ -77,8 +102,7 @@ Page {
       Button {
         text: qsTr("Search using gps")
         onClicked: {
-          gpsIndicator.running = true;
-          positionSource.update();
+            start_gps_search();
         }
       }
       BusyIndicator {
@@ -172,6 +196,7 @@ Page {
   ListModel {
     id: placesModel
     property var xhr: new XMLHttpRequest()
+    property int gpsOffset: 500
 
     function update() {
       xhr.abort();
@@ -203,28 +228,29 @@ Page {
     function update_gps(x,y) {
       xhr.abort();
       errorLabel.visible = false;
-      gpsIndicator.running = true;
       xhr.onreadystatechange = function() {
         if(xhr.readyState == 4 && xhr.status == 200) {
           errorLabel.visible = false;
           var data = JSON.parse(xhr.responseText);
-          var l = data.length;
+          if(data.length == 0) {
+              return;
+          }
           placesModel.clear();
-          for(var index=0; index < l; index++) {
+          for(var index=0; index < data.length; index++) {
             placesModel.append(data[index]);
           };
-          gpsIndicator.running = false
+          stop_gps_search();
         } else if(xhr.readyState == 4 && xhr.status == 0) {
-          gpsIndicator.running = false
+          stop_gps_search();
           errorLabel.visible = true;
           errorLabel.text = qsTr("Error getting stops");
         }
       };
       var url = "http://reisapi.ruter.no/Place/GetStopsByArea/?";
-      url = url + "xmin=" + (x-100);
-      url = url + "&xmax=" + (x+100);
-      url = url + "&ymin=" + (y-100);
-      url = url + "&ymax=" + (y+100);
+      url = url + "xmin=" + (x-gpsOffset);
+      url = url + "&xmax=" + (x+gpsOffset);
+      url = url + "&ymin=" + (y-gpsOffset);
+      url = url + "&ymax=" + (y+gpsOffset);
       xhr.open("GET", url, true);
       xhr.send();
     }
