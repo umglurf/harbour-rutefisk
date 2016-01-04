@@ -122,7 +122,6 @@ Page {
 
     delegate: ListItem {
       id: linesListItem
-      height: linesItemColumn.height
       contentHeight: linesItemColumn.height
       width: parent.width
 
@@ -132,7 +131,7 @@ Page {
       }
 
       menu: ContextMenu {
-        hasContent: linesColumn.visible
+        //hasContent: linesColumn.visible
         Repeater {
           model: Stages
           delegate: MenuItem {
