@@ -1,3 +1,15 @@
+/*
+Copyright Information
+
+The documents, images, and other materials on the Chuck Taylor Web site are copyright © 1997-2003 by Charles L. Taylor, unless otherwise noted.
+
+Visitors are permitted to download the materials located on the Chuck Taylor Web site to their own systems, on a temporary basis, for the purpose of viewing them or, in the case of software applications, using them in accordance with their intended purpose.
+
+Republishing or redistribution of any of the materials located on the Chuck Taylor Web site requires permission from Charles L. Taylor. 
+
+http://home.hiwaay.net/~taylorc/about/copyright.html
+*/
+
 var pi = 3.14159265358979;
 
 /* Ellipsoid model constants (actual values here are for WGS84) */
