@@ -1,4 +1,6 @@
 /*
+http://home.hiwaay.net/~taylorc/about/copyright.html :
+
 Copyright Information
 
 The documents, images, and other materials on the Chuck Taylor Web site are copyright © 1997-2003 by Charles L. Taylor, unless otherwise noted.
@@ -7,7 +9,11 @@ Visitors are permitted to download the materials located on the Chuck Taylor Web
 
 Republishing or redistribution of any of the materials located on the Chuck Taylor Web site requires permission from Charles L. Taylor. 
 
-http://home.hiwaay.net/~taylorc/about/copyright.html
+
+http://home.hiwaay.net/~taylorc/toolbox/geography/geoutm.html :
+
+Programmers: The JavaScript source code in this document may be copied and reused without restriction.
+
 */
 
 var pi = 3.14159265358979;
