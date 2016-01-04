@@ -10,24 +10,24 @@
 #   - translation filenames have to be changed
 
 # The name of your application
-TARGET = harbour-ruter
+TARGET = harbour-rutefisk
 
 CONFIG += sailfishapp
 
-SOURCES += src/harbour-ruter.cpp
+SOURCES += src/harbour-rutefisk.cpp
 
-OTHER_FILES += qml/harbour-ruter.qml \
+OTHER_FILES += qml/harbour-fisk.qml \
     qml/cover/CoverPage.qml \
     qml/cover/cover.svg \
     qml/pages/MainPage.qml \
     qml/pages/RealTime.qml \
     qml/icons/*.svg \
     qml/scripts/*.js \
-    rpm/harbour-ruter.changes.in \
-    rpm/harbour-ruter.spec \
-    rpm/harbour-ruter.yaml \
+    rpm/harbour-rutefisk.changes.in \
+    rpm/harbour-rutefisk.spec \
+    rpm/harbour-rutefisk.yaml \
     translations/*.ts \
-    harbour-ruter.desktop
+    harbour-rutefisk.desktop
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
 
@@ -39,7 +39,7 @@ CONFIG += sailfishapp_i18n
 # planning to localize your app, remember to comment out the
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
-TRANSLATIONS += translations/harbour-ruter-nb.ts
+TRANSLATIONS += translations/harbour-rutefisk-nb.ts
 
 DISTFILES += \  
     qml/pages/RealTimeLine.qml \

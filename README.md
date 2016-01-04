@@ -1,2 +1,2 @@
-# harbour-ruter
+# Rutefisk
 Unofficial Ruter app for SailfishOS
