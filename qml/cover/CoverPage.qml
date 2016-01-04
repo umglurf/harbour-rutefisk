@@ -20,10 +20,16 @@ import Sailfish.Silica 1.0
 
 CoverBackground {
     id: cover
-    //anchors.fill: parent
-    //transparent: true
+    state: "MAIN_VIEW"
+    property var stopID
+    property string linenumber
+    property string destination
+    property ListModel travelModel
+    property string fromName
+    property string toName
 
     Image {
+      id: coverImage
       source: "cover.svg";
       anchors.fill: parent
       opacity: 0.8
@@ -55,11 +61,12 @@ CoverBackground {
           Label {
             text: line
             color: Theme.primaryColor
+            font.pixelSize: Theme.fontSizeMedium
             truncationMode: TruncationMode.Fade
           }
           Label {
             text: departure
-            font.pixelSize: Theme.fontSizeExtraSmall
+            font.pixelSize: Theme.fontSizeSmall
             color: Theme.primaryColor
             truncationMode: TruncationMode.Fade
           }
@@ -134,30 +141,141 @@ CoverBackground {
         triggeredOnStart: true
 
         onTriggered: {
-
-            if(pageStack.currentPage.stopID) {
-              departuresModel.clear();
-              if(pageStack.currentPage.linenumber) {
-                departuresModel.update(pageStack.currentPage.stopID, pageStack.currentPage.linenumber, pageStack.currentPage.destination);
-              } else {
-                for(var i=0; i < pageStack.currentPage.stopID.length; i++) {
-                  departuresModel.update(pageStack.currentPage.stopID[i], 0, "");
-                }
-              }
-            } else {
-                departuresModel.clear();
+          departuresModel.clear();
+          if(state == "REALTIME_LINE_VIEW") {
+            departuresModel.update(stopID, linenumber, destination);
+          } else {
+            for(var i=0; i < stopID.length; i++) {
+              departuresModel.update(stopID[i], 0, "");
             }
+          }
         }
     }
 
-    onStatusChanged: {
-        if(cover.status == Cover.Active) {
-            departureTimer.stop();
-            departureTimer.start();
-        } else {
-            departureTimer.stop();
-            departuresModel.clear();
+    SilicaListView {
+      id: travelList
+      model: travelModel
+
+      property real itemHeight: Theme.itemSizeExtraSmall
+
+      clip: true
+      interactive: false
+      x: Theme.paddingMedium
+      y: Theme.paddingMedium + Theme.paddingSmall
+      width: parent.width - 2*x
+      height: parent.height - 2*Theme.paddingSmall
+      spacing: Theme.paddingSmall
+
+      header: Column {
+        width: parent.width
+
+        Label {
+          text: fromName
+          font.pixelSize: Theme.fontSizeMedium
+          color: Theme.primaryColor
         }
+        Label {
+          text: toName
+          font.pixelSize: Theme.fontSizeMedium
+          color: Theme.primaryColor
+        }
+      }
+      delegate:  Column {
+        width: parent.width
+
+        Item {
+          width: parent.width
+          height: Theme.paddingSmall
+        }
+        Label {
+          id: travelTimeLabel
+          text: departure + " - " + arrival
+          color: Theme.primaryColor
+          truncationMode: TruncationMode.Fade
+        }
+      }
+    }
+
+    Component.onCompleted: {
+        applicationWindow.coverPage = this;
+    }
+
+    states: [
+        State {
+            name: "MAIN_VIEW"
+            StateChangeScript {
+                name: "stopTimerClearModel"
+                script: {
+                    departureTimer.stop();
+                    departuresModel.clear();
+                }
+            }
+            PropertyChanges {
+                target: coverImage;
+                visible: true
+            }
+            PropertyChanges {
+                target: realTimeList;
+                visible: false
+            }
+            PropertyChanges {
+                target: travelList;
+                visible: false
+            }
+        },
+        State {
+            name: "REALTIME_VIEW"
+            PropertyChanges {
+                target: coverImage;
+                visible: false
+            }
+            PropertyChanges {
+                target: realTimeList;
+                visible: true
+            }
+            PropertyChanges {
+                target: travelList;
+                visible: false
+            }
+            StateChangeScript {
+                name: "restartTimer"
+                script: departureTimer.restart();
+            }
+        },
+        State {
+            name: "REALTIME_LINE_VIEW"
+            extend: "REALTIME_VIEW"
+        },
+        State {
+            name: "TRAVEL_VIEW"
+            PropertyChanges {
+                target: coverImage;
+                visible: false
+            }
+            PropertyChanges {
+                target: realTimeList;
+                visible: false
+            }
+            PropertyChanges {
+                target: travelList;
+                visible: true
+            }
+            StateChangeScript {
+                name: "stopTimer"
+                script: departureTimer.stop();
+            }
+        }
+
+    ]
+
+    onStatusChanged: {
+      if(state == "REALTIME_VIEW" || state == "REALTIME_LINE_VIEW") {
+        if(cover.status == Cover.Activating) {
+          departureTimer.restart();
+        } else if (cover.status == Cover.Deactivating){
+          departureTimer.stop();
+        }
+      }
     }
 }
 

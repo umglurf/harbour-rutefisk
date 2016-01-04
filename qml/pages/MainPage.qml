@@ -29,6 +29,12 @@ Page {
     placesModel.update();
   }
 
+  onStatusChanged: {
+    if(status == PageStatus.Active && applicationWindow.coverPage) {
+      applicationWindow.coverPage.state = "MAIN_VIEW";
+    }
+  }
+
   function start_gps_search() {
       gpsIndicator.running = true;
       positionSource.start();
@@ -191,7 +197,6 @@ Page {
       searchField.forceActiveFocus();
     }
   }
-
 
   ListModel {
     id: placesModel

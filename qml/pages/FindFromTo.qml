@@ -30,6 +30,12 @@ Page {
     placesModel.update();
   }
 
+  onStatusChanged: {
+    if(status == PageStatus.Active) {
+      applicationWindow.coverPage.state = "MAIN_VIEW";
+    }
+  }
+
   Column {
     id: headerContainer
     width: findFromToPage.width
@@ -117,7 +123,6 @@ Page {
       searchField.forceActiveFocus();
     }
   }
-
 
   ListModel {
     id: placesModel

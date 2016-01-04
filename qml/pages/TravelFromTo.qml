@@ -44,6 +44,16 @@ Page {
   property bool tram: true
   property BusyIndicator searchIndicator
 
+  onStatusChanged: {
+    if(status == PageStatus.Active) {
+      applicationWindow.coverPage.state = "TRAVEL_VIEW";
+      applicationWindow.coverPage.travelModel = travelModel;
+      applicationWindow.coverPage.fromName = fromName;
+      applicationWindow.coverPage.toName = toName;
+    }
+  }
+
+
   SilicaFlickable {
     anchors.fill: parent
     visible: error

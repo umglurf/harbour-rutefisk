@@ -92,6 +92,15 @@ Page {
       realTimeLineModel.update();
   }
 
+  onStatusChanged: {
+    if(status == PageStatus.Active) {
+      applicationWindow.coverPage.state = "REALTIME_LINE_VIEW";
+      applicationWindow.coverPage.stopID = realTimeLinePage.stopID;
+      applicationWindow.coverPage.linenumber = realTimeLinePage.linenumber;
+      applicationWindow.coverPage.destination = realTimeLinePage.destination;
+    }
+  }
+
   ListModel {
     id: realTimeLineModel
 

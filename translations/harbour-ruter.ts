@@ -49,6 +49,18 @@
 <context>
     <name>MainPage</name>
     <message>
+        <source>Ruter travel information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search stop or street</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search using gps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Realtime info</source>
         <translation type="unfinished"></translation>
     </message>
@@ -61,19 +73,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ruter travel information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search stop or street</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Error getting stops</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search using gps</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

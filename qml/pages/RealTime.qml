@@ -217,6 +217,13 @@ Page {
     }
   }
 
+  onStatusChanged: {
+    if(status == PageStatus.Active) {
+      applicationWindow.coverPage.state = "REALTIME_VIEW";
+      applicationWindow.coverPage.stopID = stopID;
+    }
+  }
+
   ListModel {
     id: realTimeModel
 

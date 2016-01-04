@@ -29,6 +29,12 @@ Page {
   property bool streetFrom: false
   property bool streetTo: false
 
+  onStatusChanged: {
+    if(status == PageStatus.Active) {
+      applicationWindow.coverPage.state = "MAIN_VIEW";
+    }
+  }
+
   Column {
     id: headerContainer
     width: parent.width
@@ -111,7 +117,6 @@ Page {
       streetModel.update();
     }
   }
-
 
   ListModel {
     id: streetModel
