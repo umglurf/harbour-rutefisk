@@ -57,10 +57,6 @@
         <translation>Søk stopp eller gate</translation>
     </message>
     <message>
-        <source>Search using gps</source>
-        <translation>Søk med GPS</translation>
-    </message>
-    <message>
         <source>Realtime info</source>
         <translation>Sanntidsinformasjon</translation>
     </message>
@@ -75,6 +71,30 @@
     <message>
         <source>Error getting stops</source>
         <translation>Feil oppstod ved henting av stopp</translation>
+    </message>
+    <message>
+        <source>Start GPS search</source>
+        <translation>Start GPS-søk</translation>
+    </message>
+    <message>
+        <source>GPS update interval</source>
+        <translation>GPS oppdateringsintervall</translation>
+    </message>
+    <message>
+        <source>s</source>
+        <translation>s</translation>
+    </message>
+    <message>
+        <source>GPS search grid size</source>
+        <translation>GPS søkenettstørrelse</translation>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation>metre</translation>
+    </message>
+    <message>
+        <source>Stop GPS search</source>
+        <translation>Stopp GPS-søk</translation>
     </message>
 </context>
 <context>

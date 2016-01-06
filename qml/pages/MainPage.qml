@@ -23,190 +23,294 @@ import "../scripts/gpsconvert.js" as GPSConvert
 Page {
   id: mainpage
   property string searchString
+  property Label errorLabel
+  property BusyIndicator searchIndicator
+  property BusyIndicator gpsSearchIndicator
+  property Row textSearch
+  property Column gpsSearch
+  property int gpsOffset: 300
+  property int gpsUpdateInterval: 3000
+
+  states: [
+    State {
+      name: "TEXT_SEARCH"
+      PropertyChanges {
+        target: textSearch
+        visible: true
+      }
+      PropertyChanges {
+        target: gpsSearch
+        visible: false
+      }
+      PropertyChanges {
+        target: gpsSearchIndicator
+        running: false
+      }
+      StateChangeScript {
+        name: "stopGps"
+        script: {
+          positionSource.stop();
+        }
+      }
+    },
+    State {
+      name: "GPS_SEARCH"
+      PropertyChanges {
+        target: textSearch
+        visible: false
+      }
+      PropertyChanges {
+        target: gpsSearch
+        visible: true
+      }
+      PropertyChanges {
+        target: gpsSearchIndicator
+        running: true
+      }
+      StateChangeScript {
+        name: "startGps"
+        script: {
+          positionSource.start();
+        }
+      }
+    }
+  ]
 
   onSearchStringChanged: {
-    stop_gps_search();
     placesModel.update();
   }
 
+  onGpsOffsetChanged: {
+    positionSource.do_search();
+  }
+
   onStatusChanged: {
-    if(status == PageStatus.Active && applicationWindow.coverPage) {
-      applicationWindow.coverPage.state = "MAIN_VIEW";
-    }
-  }
-
-  function start_gps_search() {
-      gpsIndicator.running = true;
-      positionSource.start();
-      gpsSearchTimer.restart();
-
-  }
-
-  function stop_gps_search() {
-      gpsIndicator.running = false;
-      positionSource.stop();
-      gpsSearchTimer.stop();
-  }
-
-  Timer {
-      id: gpsSearchTimer
-      interval: 60000
-      repeat: false
-      triggeredOnStart: false
-
-      onTriggered: {
-          stop_gps_search();
+    if(status == PageStatus.Active) {
+      if(state  == "GPS_SEARCH") {
+        positionSource.start();
       }
+      if(applicationWindow.coverPage) {
+        applicationWindow.coverPage.state = "MAIN_VIEW";
+      }
+    } else if(status == PageStatus.Deactivating) {
+      positionSource.stop();
+    }
   }
 
   PositionSource {
     id: positionSource
     active: false
-    updateInterval: 1000
+    updateInterval: mainpage.gpsUpdateInterval
 
-    onPositionChanged: {
-      if(position.latitudeValid && position.longitudeValid) {
+    function do_search() {
+      if(position.latitudeValid && position.longitudeValid && active) {
         var xy = new Array(2);
         var zone = Math.floor ((position.coordinate.longitude + 180.0) / 6) + 1;
         zone = GPSConvert.LatLonToUTMXY (GPSConvert.DegToRad (position.coordinate.latitude), GPSConvert.DegToRad (position.coordinate.longitude), zone, xy);
         placesModel.update_gps(Math.floor(xy[0]),Math.floor(xy[1]));
       }
     }
+
+    onPositionChanged: {
+      do_search();
+    }
   }
 
-  Column {
-    id: headerContainer
-    width: mainpage.width
+  SilicaFlickable {
+    anchors.fill: parent
 
-    PageHeader {
-      title: qsTr("Ruter travel information")
-    }
-
-
-    Row {
-      width: parent.width
-      SearchField {
-        id: searchField
-        width: parent.width - searchIndicator.width - Theme.paddingSmall
-        placeholderText: qsTr("Search stop or street")
-
-        Binding {
-          target: mainpage
-          property: "searchString"
-          value: searchField.text
-        }
-      }
-      BusyIndicator {
-        id: searchIndicator
-        running: false
-        size: BusyIndicatorSize.Small
-        anchors.verticalCenter: parent.verticalCenter
-      }
-    }
-
-    Row {
-      Button {
-        text: qsTr("Search using gps")
+    PullDownMenu {
+      MenuItem {
+        text: qsTr("Start GPS search")
         onClicked: {
-            start_gps_search();
+          if(mainpage.state == "TEXT_SEARCH") {
+            mainpage.state = "GPS_SEARCH";
+            text = qsTr("Stop GPS search");
+          } else if(mainpage.state == "GPS_SEARCH") {
+            mainpage.state = "TEXT_SEARCH";
+            text = qsTr("Start GPS search");
+          }
         }
       }
-      BusyIndicator {
-        id: gpsIndicator
-        running: false
-        size: BusyIndicatorSize.Small
-        anchors.verticalCenter: parent.verticalCenter
+    }
+
+    Column {
+      id: headerContainer
+      width: parent.width
+
+      PageHeader {
+        title: qsTr("Ruter travel information")
+      }
+
+      Row {
+        width: parent.width
+        SearchField {
+          id: searchField
+          width: parent.width - searchIndicator.width - Theme.paddingSmall
+          placeholderText: qsTr("Search stop or street")
+
+          Binding {
+            target: mainpage
+            property: "searchString"
+            value: searchField.text
+          }
+        }
+        BusyIndicator {
+          id: searchIndicator
+          running: false
+          size: BusyIndicatorSize.Small
+          //anchors.verticalCenter: parent.verticalCenter
+          Component.onCompleted: {
+            mainpage.searchIndicator = this
+          }
+        }
+        Component.onCompleted: {
+          mainpage.textSearch = this;
+        }
+      }
+
+      Column {
+        width: parent.width
+        visible: false
+        BusyIndicator {
+          anchors.horizontalCenter: parent.horizontalCenter
+          running: false
+          size: BusyIndicatorSize.Small
+          Component.onCompleted: {
+            mainpage.gpsSearchIndicator = this;
+          }
+        }
+        Slider {
+          anchors.horizontalCenter: parent.horizontalCenter
+          width: parent.width
+          minimumValue: 1000
+          maximumValue: 30000
+          stepSize: 1000.0
+          label: qsTr("GPS update interval")
+          valueText: (value / 1000).toFixed(0) + qsTr("s")
+          onValueChanged: {
+            mainpage.gpsUpdateInterval = value.toFixed(0);
+          }
+          Component.onCompleted: {
+            value = mainpage.gpsUpdateInterval;
+          }
+        }
+        Slider {
+          anchors.horizontalCenter: parent.horizontalCenter
+          width: parent.width
+          minimumValue: 0
+          maximumValue: 2000
+          stepSize: 50.0
+          label: qsTr("GPS search grid size")
+          valueText: value + qsTr("meters")
+          onValueChanged: {
+            mainpage.gpsOffset = value.toFixed(0);
+          }
+          Component.onCompleted: {
+            value = mainpage.gpsOffset;
+          }
+        }
+        Component.onCompleted: {
+          mainpage.gpsSearch = this;
+        }
+      }
+
+      Label {
+        id: errorLabel
+        visible: false
+        Component.onCompleted: {
+          mainpage.errorLabel = this;
+        }
+      }
+
+      Item {
+          height: Theme.paddingLarge;
+      }
+
+    }
+
+    SilicaListView {
+      id: placesList
+      model: placesModel
+      anchors.top:  headerContainer.bottom
+      anchors.bottom: parent.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+
+      delegate: ListItem {
+        id: listItem
+        Label {
+          x: Theme.horizontalPageMargin
+          anchors.verticalCenter: parent.verticalCenter
+          text: Name + (PlaceType == "Street" ? " (" + District + ")" : "" )
+          font.capitalization: Font.Capitalize
+          color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+        }
+
+        menu: ContextMenu {
+          MenuItem {
+            text: qsTr("Realtime info")
+            visible: PlaceType == 'Stop' || PlaceType == 'Area'
+            onClicked: show_realtime()
+          }
+          MenuItem {
+            text: qsTr("Travel from here")
+            onClicked: {
+              if(PlaceType == "Street") {
+                pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetFrom": true});
+              } else {
+                pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"fromID": ID, "fromName": Name});
+              }
+            }
+          }
+          MenuItem {
+            text: qsTr("Travel to here")
+            onClicked: {
+              if(PlaceType == "Street") {
+                pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetTo": true});
+              } else {
+                pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"toID": ID, "toName": Name});
+              }
+            }
+          }
+        }
+
+        onClicked: {
+          if(PlaceType == "Street") {
+            pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetFrom": true});
+          } else {
+            show_realtime();
+          }
+        }
+
+        function show_realtime() {
+          if(PlaceType == "Stop") {
+            pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": [ID], "stopName": Name, "autorefresh": false});
+          } else if(PlaceType == "Area") {
+            var id = [];
+            for(var i=0; i < Stops.count; i++) {
+              id.push(Stops.get(i)['ID']);
+            }
+            pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": id, "stopName": Name, "autorefresh": false});
+          }
+        }
       }
     }
-
-    Label {
-      id: errorLabel
-      visible: false
-    }
-
   }
 
-  SilicaListView {
-    id: placesList
-    model: placesModel
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.bottom: parent.bottom
-    anchors.top: headerContainer.bottom
-
-    delegate: ListItem {
-      id: listItem
-      Label {
-        x: Theme.horizontalPageMargin
-        anchors.verticalCenter: parent.verticalCenter
-        text: Name + (PlaceType == "Street" ? " (" + District + ")" : "" )
-        font.capitalization: Font.Capitalize
-        color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
-      }
-
-      menu: ContextMenu {
-        MenuItem {
-          text: qsTr("Realtime info")
-          visible: PlaceType == 'Stop' || PlaceType == 'Area'
-          onClicked: show_realtime()
-        }
-        MenuItem {
-          text: qsTr("Travel from here")
-          onClicked: {
-            if(PlaceType == "Street") {
-              pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetFrom": true});
-            } else {
-              pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"fromID": ID, "fromName": Name});
-            }
-          }
-        }
-        MenuItem {
-          text: qsTr("Travel to here")
-          onClicked: {
-            if(PlaceType == "Street") {
-              pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetTo": true});
-            } else {
-              pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"toID": ID, "toName": Name});
-            }
-          }
-        }
-      }
-
-      onClicked: {
-        if(PlaceType == "Street") {
-          pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetFrom": true});
-        } else {
-          show_realtime();
-        }
-      }
-
-      function show_realtime() {
-        if(PlaceType == "Stop") {
-          pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": [ID], "stopName": Name, "autorefresh": false});
-        } else if(PlaceType == "Area") {
-          var id = [];
-          for(var i=0; i < Stops.count; i++) {
-            id.push(Stops.get(i)['ID']);
-          }
-          pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": id, "stopName": Name, "autorefresh": false});
-        }
-      }
-    }
-
-    Component.onCompleted: {
-      searchField.forceActiveFocus();
-    }
+  Component.onCompleted: {
+    searchField.forceActiveFocus();
+    state = "TEXT_SEARCH";
   }
 
   ListModel {
     id: placesModel
     property var xhr: new XMLHttpRequest()
-    property int gpsOffset: 500
 
     function update() {
       xhr.abort();
-      errorLabel.visible = false
-      searchIndicator.running = true
+      errorLabel.visible = false;
+      searchIndicator.running = true;
       xhr.onreadystatechange = function() {
         if(xhr.readyState == 4 && xhr.status == 200) {
           errorLabel.visible = false;
@@ -216,15 +320,16 @@ Page {
           for(var index=0; index < l; index++) {
             placesModel.append(data[index]);
           };
-          searchIndicator.running = false
+          searchIndicator.running = false;
         } else if(xhr.readyState == 4 && xhr.status == 0) {
-          searchIndicator.running = false
+          searchIndicator.running = false;
           errorLabel.visible = true;
           errorLabel.text = qsTr("Error getting stops");
         }
       };
       if(searchString == "") {
         placesModel.clear();
+        searchIndicator.running = false;
       } else {
         xhr.open("GET", "http://reisapi.ruter.no/Place/GetPlaces/" + searchString, true);
         xhr.send();
@@ -238,24 +343,22 @@ Page {
           errorLabel.visible = false;
           var data = JSON.parse(xhr.responseText);
           if(data.length == 0) {
-              return;
+            return;
           }
           placesModel.clear();
           for(var index=0; index < data.length; index++) {
             placesModel.append(data[index]);
           };
-          stop_gps_search();
         } else if(xhr.readyState == 4 && xhr.status == 0) {
-          stop_gps_search();
           errorLabel.visible = true;
           errorLabel.text = qsTr("Error getting stops");
         }
       };
       var url = "http://reisapi.ruter.no/Place/GetStopsByArea/?";
-      url = url + "xmin=" + (x-gpsOffset);
-      url = url + "&xmax=" + (x+gpsOffset);
-      url = url + "&ymin=" + (y-gpsOffset);
-      url = url + "&ymax=" + (y+gpsOffset);
+      url = url + "xmin=" + (x-mainpage.gpsOffset);
+      url = url + "&xmax=" + (x+mainpage.gpsOffset);
+      url = url + "&ymin=" + (y-mainpage.gpsOffset);
+      url = url + "&ymax=" + (y+mainpage.gpsOffset);
       xhr.open("GET", url, true);
       xhr.send();
     }
