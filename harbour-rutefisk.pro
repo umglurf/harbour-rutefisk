@@ -16,7 +16,7 @@ CONFIG += sailfishapp
 
 SOURCES += src/harbour-rutefisk.cpp
 
-OTHER_FILES += qml/harbour-fisk.qml \
+OTHER_FILES += qml/harbour-rutefisk.qml \
     qml/cover/CoverPage.qml \
     qml/cover/cover.svg \
     qml/pages/MainPage.qml \
