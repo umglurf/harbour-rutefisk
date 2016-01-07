@@ -199,42 +199,42 @@
 <context>
     <name>RealTimeLine</name>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="47"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="49"/>
         <source>%1 %2 from %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="62"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="70"/>
         <source>Add to favorites</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="83"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="91"/>
         <source>Error adding favorite</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="88"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="96"/>
         <source>Auto Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="95"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="103"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="162"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="171"/>
         <source>sec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="164"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="173"/>
         <source>min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="179"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="189"/>
         <source>Error getting stop information</source>
         <translation type="unfinished"></translation>
     </message>

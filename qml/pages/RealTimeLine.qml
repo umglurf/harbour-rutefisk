@@ -27,6 +27,8 @@ Page {
   property string destination
   property bool autorefresh: false
   property BusyIndicator searchIndicator
+  property Label errorLabel
+
   ConfigurationValue {
     id: favoritesConfig
     key: "/apps/rutefisk/favorites"
@@ -54,6 +56,12 @@ Page {
             Component.onCompleted: {
                 realTimeLinePage.searchIndicator = this;
             }
+          }
+          Label {
+              visible: false
+              Component.onCompleted: {
+                  realTimeLinePage.errorLabel = this;
+              }
           }
       }
 
@@ -139,6 +147,7 @@ Page {
     function update() {
       searchIndicator.visible = true;
       searchIndicator.running = true;
+      errorLabel.visible = false;
       var xhr = new XMLHttpRequest()
       xhr.onreadystatechange = function() {
         if(xhr.readyState == 4 && xhr.status == 200) {
@@ -176,7 +185,8 @@ Page {
           searchIndicator.visible = false;
           searchIndicator.running = false;
           realTimeLineModel.clear();
-          realTimeLineModel.append({"departure": qsTr("Error getting stop information")});
+          errorLabel.visible = true;
+          errorLabel.text = qsTr("Error getting stop information");
         }
       };
       xhr.open("GET", "http://reisapi.ruter.no/StopVisit/GetDepartures/" + realTimeLinePage.stopID, true);
