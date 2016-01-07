@@ -124,7 +124,17 @@ CoverBackground {
                   departure = departure + timestr + " ";
                 }
                 travels[lines_sorted[index]]['departure'] = departure;
-                departuresModel.append(travels[lines_sorted[index]]);
+                var updated = false;
+                for(var mindex = 0; mindex < departuresModel.count && departuresModel.count > 0; mindex++) {
+                    if(departuresModel.get(mindex)['line'] == travels[lines_sorted[index]]['line']) {
+                        departuresModel.set(mindex, travels[lines_sorted[index]]);
+                        updated = true;
+                        break;
+                    }
+                }
+                if(!updated) {
+                  departuresModel.append(travels[lines_sorted[index]]);
+                }
               }
             }
           }
@@ -135,13 +145,14 @@ CoverBackground {
 
     Timer {
         id: departureTimer
-        interval: 30000
+        //interval: 30000
+        interval: 3000
         repeat: true
         running: false
         triggeredOnStart: true
 
         onTriggered: {
-          departuresModel.clear();
+          //departuresModel.clear();
           if(state == "REALTIME_LINE_VIEW") {
             departuresModel.update(stopID, linenumber, destination);
           } else {
@@ -240,6 +251,10 @@ CoverBackground {
             StateChangeScript {
                 name: "restartTimer"
                 script: departureTimer.restart();
+            }
+            StateChangeScript {
+                name: "clearModel"
+                script: departuresModel.clear();
             }
         },
         State {
