@@ -145,14 +145,12 @@ CoverBackground {
 
     Timer {
         id: departureTimer
-        //interval: 30000
-        interval: 3000
+        interval: 30000
         repeat: true
         running: false
         triggeredOnStart: true
 
         onTriggered: {
-          //departuresModel.clear();
           if(state == "REALTIME_LINE_VIEW") {
             departuresModel.update(stopID, linenumber, destination);
           } else {
