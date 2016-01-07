@@ -311,6 +311,7 @@ Page {
 
   ListModel {
     id: placesModel
+    dynamicRoles: true
     property var xhr: new XMLHttpRequest()
 
     function update() {
