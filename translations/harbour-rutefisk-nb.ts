@@ -13,6 +13,21 @@
     </message>
 </context>
 <context>
+    <name>Favorites</name>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoritter</translation>
+    </message>
+    <message>
+        <source>%1 %2 from %3</source>
+        <translation>%1 %2 fra %3</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Fjern</translation>
+    </message>
+</context>
+<context>
     <name>FindFromTo</name>
     <message>
         <source>Search destination</source>
@@ -96,6 +111,10 @@
         <source>Stop GPS search</source>
         <translation>Stopp GPS-søk</translation>
     </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoritter</translation>
+    </message>
 </context>
 <context>
     <name>RealTime</name>
@@ -127,6 +146,10 @@
         <source>Platform %1</source>
         <translation>Plattform %1</translation>
     </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Legg til favoritter</translation>
+    </message>
 </context>
 <context>
     <name>RealTimeLine</name>
@@ -154,32 +177,16 @@
         <source>%1 %2 from %3</source>
         <translation>%1 %2 fra %3</translation>
     </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Legg til favoritter</translation>
+    </message>
 </context>
 <context>
     <name>TravelFromTo</name>
     <message>
         <source>Journey information</source>
         <translation>Reiseinformasjon</translation>
-    </message>
-    <message>
-        <source>Search options</source>
-        <translation>Søkeopsjoner</translation>
-    </message>
-    <message>
-        <source>min</source>
-        <translation>min</translation>
-    </message>
-    <message>
-        <source>h</source>
-        <translation>t</translation>
-    </message>
-    <message>
-        <source>Error getting travel search result</source>
-        <translation>Feil oppstod ved henting av reisesøkeresultat</translation>
-    </message>
-    <message>
-        <source>Walking</source>
-        <translation>Gange</translation>
     </message>
     <message>
         <source>From %1</source>
@@ -190,12 +197,40 @@
         <translation>Til %1</translation>
     </message>
     <message>
+        <source>Add to favorites</source>
+        <translation>Legg til favoritter</translation>
+    </message>
+    <message>
+        <source>Search options</source>
+        <translation>Søkeopsjoner</translation>
+    </message>
+    <message>
+        <source>Realtime for %1 %2</source>
+        <translation>Sanntidsinformasjon for %1 %2</translation>
+    </message>
+    <message>
+        <source>Walking</source>
+        <translation>Gange</translation>
+    </message>
+    <message>
         <source>Walking %1</source>
         <translation>Gange %1</translation>
     </message>
     <message>
-        <source>Realtime for %1 %2</source>
-        <translation>Sanntid for %1 %2</translation>
+        <source>min</source>
+        <translation>min</translation>
+    </message>
+    <message>
+        <source>h</source>
+        <translation>h</translation>
+    </message>
+    <message>
+        <source>Error getting travel search result</source>
+        <translation>Feil ved henting av søkeresultat</translation>
+    </message>
+    <message>
+        <source>Error adding favorite</source>
+        <translation>Feil ved innlegging av favoritt</translation>
     </message>
 </context>
 <context>

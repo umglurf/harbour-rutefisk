@@ -17,6 +17,7 @@ This file is part of harbour-rutefisk.
 
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
+import org.nemomobile.configuration 1.0
 import Sailfish.Silica 1.0
 
 Page {
@@ -51,6 +52,12 @@ Page {
       applicationWindow.coverPage.fromName = fromName;
       applicationWindow.coverPage.toName = toName;
     }
+  }
+
+  ConfigurationValue {
+    id: favoritesConfig
+    key: "/apps/rutefisk/favorites"
+    defaultValue: "[]"
   }
 
 
@@ -98,8 +105,47 @@ Page {
         }
       }
     }
-
     PullDownMenu {
+      MenuItem {
+        text: qsTr("Add to favorites");
+        onClicked: {
+          var favorite = {
+            "type": "journey",
+            "fromID": fromID,
+            "fromName": fromName,
+            "toID": toID,
+            "toName": toName,
+            "isafter": isafter,
+            "changemargin": changemargin,
+            "changepunish": changepunish,
+            "walkingfactor": walkingfactor,
+            "maxwalkingminutes": maxwalkingminutes,
+            "airportbus": airportbus,
+            "airporttrain": airporttrain,
+            "bus": bus,
+            "train": train,
+            "boat": boat,
+            "metro": metro,
+            "tram": tram
+          };
+          try {
+            var favorites = JSON.parse(favoritesConfig.value);
+            for(var i=0; i < favorites.length; i++) {
+              var val = JSON.parse(favorites[i]);
+              if(val['type'] == 'journey' && val['fromID'] == fromID && val['toID'] == toID ) {
+                favorites[i] = JSON.stringify(favorite);
+                favoritesConfig.value = JSON.stringify(favorites);
+                return;
+              }
+            }
+            favorites.push(JSON.stringify(favorite));
+            favoritesConfig.value = JSON.stringify(favorites);
+          } catch(err) {
+            error = true;
+            errorstring = qsTr("Error adding favorite");
+          }
+        }
+      }
       MenuItem {
         text: qsTr("Search options");
         onClicked: {

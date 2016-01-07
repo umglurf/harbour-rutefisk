@@ -16,6 +16,7 @@ This file is part of harbour-rutefisk.
 */
 
 import QtQuick 2.0
+import org.nemomobile.configuration 1.0
 import Sailfish.Silica 1.0
 
 Page {
@@ -24,6 +25,12 @@ Page {
   property string stopName
   property bool autorefresh
 
+  ConfigurationValue {
+    id: favoritesConfig
+    key: "/apps/rutefisk/favorites"
+    defaultValue: "[]"
+  }
+
   SilicaFlickable {
     id: realTimeList
     anchors.fill: parent
@@ -31,6 +38,30 @@ Page {
 
 
     PullDownMenu {
+      MenuItem {
+        text: qsTr("Add to favorites");
+        onClicked: {
+          var favorite = {
+            "type": "realTime",
+            "stopID": stopID,
+            "stopName": stopName
+          };
+          try {
+            var favorites = JSON.parse(favoritesConfig.value);
+            for(var i=0; i < favorites.length; i++) {
+              var val = JSON.parse(favorites[i]);
+              if(val['type'] == 'realTime' && val['stopID'].join("-") == stopID.join("-")) {
+                return;
+              }
+            }
+            favorites.push(JSON.stringify(favorite));
+            favoritesConfig.value = JSON.stringify(favorites);
+          } catch(err) {
+            errorLabel.visible = true;
+            errorLabel.text = qsTr("Error adding favorite");
+          }
+        }
+      }
       MenuItem {
         text: qsTr("Auto Refresh");
         onClicked: {

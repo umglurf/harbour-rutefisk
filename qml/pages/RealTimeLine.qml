@@ -16,6 +16,7 @@ This file is part of harbour-rutefisk.
 */
 
 import QtQuick 2.0
+import org.nemomobile.configuration 1.0
 import Sailfish.Silica 1.0
 
 Page {
@@ -26,6 +27,11 @@ Page {
   property string destination
   property bool autorefresh: false
   property BusyIndicator searchIndicator
+  ConfigurationValue {
+    id: favoritesConfig
+    key: "/apps/rutefisk/favorites"
+    defaultValue: "[]"
+  }
 
   SilicaGridView {
       id: realTimeLineList
@@ -52,6 +58,32 @@ Page {
       }
 
       PullDownMenu {
+        MenuItem {
+          text: qsTr("Add to favorites");
+          onClicked: {
+            var favorite = {
+              "type": "realTimeLine",
+              "stopID": stopID,
+              "stopName": stopName,
+              "linenumber": linenumber,
+              "destination": destination
+            };
+            try {
+              var favorites = JSON.parse(favoritesConfig.value);
+              for(var i=0; i < favorites.length; i++) {
+                var val = JSON.parse(favorites[i]);
+                if(val['type'] == 'realTimeLine' && val['stopID'] == stopID && val['linenumber'] == linenumber && val['destination'] == destination) {
+                  return;
+                }
+              }
+              favorites.push(JSON.stringify(favorite));
+              favoritesConfig.value = JSON.stringify(favorites);
+            } catch(err) {
+              realTimeLineModel.clear();
+              realTimeLineModel.append({"departure": qsTr("Error adding favorite")});
+            }
+          }
+        }
         MenuItem {
           text: qsTr("Auto Refresh");
           onClicked: {

@@ -15,6 +15,24 @@
     </message>
 </context>
 <context>
+    <name>Favorites</name>
+    <message>
+        <location filename="../qml/pages/Favorites.qml" line="39"/>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Favorites.qml" line="73"/>
+        <source>%1 %2 from %3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Favorites.qml" line="105"/>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FindFromTo</name>
     <message>
         <location filename="../qml/pages/FindFromTo.qml" line="44"/>
@@ -58,12 +76,12 @@
 <context>
     <name>MainPage</name>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="142"/>
+        <location filename="../qml/pages/MainPage.qml" line="148"/>
         <source>Ruter travel information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="150"/>
+        <location filename="../qml/pages/MainPage.qml" line="156"/>
         <source>Search stop or street</source>
         <translation type="unfinished"></translation>
     </message>
@@ -79,43 +97,48 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="189"/>
+        <location filename="../qml/pages/MainPage.qml" line="136"/>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/MainPage.qml" line="195"/>
         <source>GPS update interval</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="190"/>
+        <location filename="../qml/pages/MainPage.qml" line="196"/>
         <source>s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="204"/>
+        <location filename="../qml/pages/MainPage.qml" line="210"/>
         <source>GPS search grid size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="205"/>
+        <location filename="../qml/pages/MainPage.qml" line="211"/>
         <source>meters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="252"/>
+        <location filename="../qml/pages/MainPage.qml" line="258"/>
         <source>Realtime info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="257"/>
+        <location filename="../qml/pages/MainPage.qml" line="263"/>
         <source>Travel from here</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="267"/>
+        <location filename="../qml/pages/MainPage.qml" line="273"/>
         <source>Travel to here</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="327"/>
-        <location filename="../qml/pages/MainPage.qml" line="353"/>
+        <location filename="../qml/pages/MainPage.qml" line="333"/>
+        <location filename="../qml/pages/MainPage.qml" line="360"/>
         <source>Error getting stops</source>
         <translation type="unfinished"></translation>
     </message>
@@ -123,37 +146,42 @@
 <context>
     <name>RealTime</name>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="35"/>
+        <location filename="../qml/pages/RealTime.qml" line="42"/>
+        <source>Add to favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealTime.qml" line="66"/>
         <source>Auto Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="42"/>
+        <location filename="../qml/pages/RealTime.qml" line="73"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="54"/>
+        <location filename="../qml/pages/RealTime.qml" line="85"/>
         <source>Travels from %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="81"/>
+        <location filename="../qml/pages/RealTime.qml" line="112"/>
         <source>Platform %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="265"/>
+        <location filename="../qml/pages/RealTime.qml" line="296"/>
         <source>sec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="267"/>
+        <location filename="../qml/pages/RealTime.qml" line="298"/>
         <source>min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="291"/>
+        <location filename="../qml/pages/RealTime.qml" line="322"/>
         <source>Error getting stop information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -161,32 +189,37 @@
 <context>
     <name>RealTimeLine</name>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="41"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="47"/>
         <source>%1 %2 from %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="56"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="62"/>
+        <source>Add to favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealTimeLine.qml" line="88"/>
         <source>Auto Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="63"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="95"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="130"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="162"/>
         <source>sec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="132"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="164"/>
         <source>min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="147"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="179"/>
         <source>Error getting stop information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -194,56 +227,66 @@
 <context>
     <name>TravelFromTo</name>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="80"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="87"/>
         <source>Journey information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="83"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="90"/>
         <source>From %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="88"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="95"/>
         <source>To %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="104"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="110"/>
+        <source>Add to favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/TravelFromTo.qml" line="145"/>
+        <source>Error adding favorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/TravelFromTo.qml" line="150"/>
         <source>Search options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="149"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="195"/>
         <source>Realtime for %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="187"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="233"/>
         <source>Walking</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="375"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="421"/>
         <source>Walking %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="417"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="421"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="435"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="439"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="463"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="467"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="481"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="485"/>
         <source>min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="421"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="439"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="467"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="485"/>
         <source>h</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="452"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="498"/>
         <source>Error getting travel search result</source>
         <translation type="unfinished"></translation>
     </message>

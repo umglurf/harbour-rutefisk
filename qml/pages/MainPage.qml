@@ -132,6 +132,12 @@ Page {
           }
         }
       }
+      MenuItem {
+          text: qsTr("Favorites")
+          onClicked: {
+              pageStack.push(Qt.resolvedUrl("Favorites.qml"));
+          }
+      }
     }
 
     Column {
