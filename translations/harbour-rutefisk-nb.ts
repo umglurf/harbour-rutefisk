@@ -26,6 +26,10 @@
         <source>Remove</source>
         <translation>Fjern</translation>
     </message>
+    <message>
+        <source>Error removing item</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FindFromTo</name>
@@ -150,6 +154,10 @@
         <source>Add to favorites</source>
         <translation>Legg til favoritter</translation>
     </message>
+    <message>
+        <source>Error adding favorite</source>
+        <translation type="unfinished">Feil ved innlegging av favoritt</translation>
+    </message>
 </context>
 <context>
     <name>RealTimeLine</name>
@@ -180,6 +188,10 @@
     <message>
         <source>Add to favorites</source>
         <translation>Legg til favoritter</translation>
+    </message>
+    <message>
+        <source>Error adding favorite</source>
+        <translation type="unfinished">Feil ved innlegging av favoritt</translation>
     </message>
 </context>
 <context>

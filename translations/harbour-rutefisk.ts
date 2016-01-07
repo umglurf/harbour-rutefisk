@@ -17,18 +17,23 @@
 <context>
     <name>Favorites</name>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="39"/>
+        <location filename="../qml/pages/Favorites.qml" line="45"/>
         <source>Favorites</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="73"/>
+        <location filename="../qml/pages/Favorites.qml" line="79"/>
         <source>%1 %2 from %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="105"/>
+        <location filename="../qml/pages/Favorites.qml" line="111"/>
         <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Favorites.qml" line="142"/>
+        <source>Error removing item</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -137,8 +142,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="333"/>
-        <location filename="../qml/pages/MainPage.qml" line="360"/>
+        <location filename="../qml/pages/MainPage.qml" line="334"/>
+        <location filename="../qml/pages/MainPage.qml" line="361"/>
         <source>Error getting stops</source>
         <translation type="unfinished"></translation>
     </message>
@@ -148,6 +153,11 @@
     <message>
         <location filename="../qml/pages/RealTime.qml" line="42"/>
         <source>Add to favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealTime.qml" line="61"/>
+        <source>Error adding favorite</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -196,6 +206,11 @@
     <message>
         <location filename="../qml/pages/RealTimeLine.qml" line="62"/>
         <source>Add to favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealTimeLine.qml" line="83"/>
+        <source>Error adding favorite</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
