@@ -28,7 +28,7 @@
     </message>
     <message>
         <source>Error removing item</source>
-        <translation type="unfinished"></translation>
+        <translation>En feil oppstod ved fjerning av innslag</translation>
     </message>
 </context>
 <context>
@@ -156,7 +156,7 @@
     </message>
     <message>
         <source>Error adding favorite</source>
-        <translation type="unfinished">Feil ved innlegging av favoritt</translation>
+        <translation>Feil ved innlegging av favoritt</translation>
     </message>
 </context>
 <context>
@@ -191,7 +191,7 @@
     </message>
     <message>
         <source>Error adding favorite</source>
-        <translation type="unfinished">Feil ved innlegging av favoritt</translation>
+        <translation>Feil ved innlegging av favoritt</translation>
     </message>
 </context>
 <context>
@@ -243,6 +243,10 @@
     <message>
         <source>Error adding favorite</source>
         <translation>Feil ved innlegging av favoritt</translation>
+    </message>
+    <message>
+        <source>Switch from and to</source>
+        <translation>Bytt fra og til</translation>
     </message>
 </context>
 <context>

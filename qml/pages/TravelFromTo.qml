@@ -147,6 +147,19 @@ Page {
         }
       }
       MenuItem {
+          text: qsTr("Switch from and to")
+          onClicked: {
+              var f = fromID;
+              var fn = fromName;
+              fromID = toID;
+              fromName = toName;
+              toID = f;
+              toName = fn;
+              travelModel.update();
+          }
+      }
+
+      MenuItem {
         text: qsTr("Search options");
         onClicked: {
           pageStack.push(Qt.resolvedUrl("TravelFromToOptions.qml"), {
