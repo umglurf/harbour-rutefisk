@@ -106,7 +106,7 @@ CoverBackground {
               lines_sorted.sort();
               var now = new Date();
               for(var index=0; index < lines_sorted.length; index++) {
-                travels[lines_sorted[index]]['departures'].sort();
+                travels[lines_sorted[index]]['departures'].sort(function(a, b) { return a.getTime() - b.getTime() });
                 var departures = travels[lines_sorted[index]]['departures'];
                 var departure = "";
                 for(var i=0; i < departures.length && i < 3; i++) {
