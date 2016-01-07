@@ -473,11 +473,11 @@ Page {
             data['TravelProposals'][index]['departure'] = departure.toLocaleTimeString(Qt.locale(), "HH:mm");
             var traveltime = ( arrival.getTime() - departure.getTime() ) / 1000 / 60;
             if(traveltime < 60) {
-              data['TravelProposals'][index]['traveltime'] = traveltime + qsTr("min");
+              data['TravelProposals'][index]['traveltime'] = traveltime.toFixed(0) + qsTr("min");
             } else {
               var hour = Math.floor((traveltime / 60));
               var min = traveltime - (hour * 60);
-              data['TravelProposals'][index]['traveltime'] = hour + qsTr("h") + " " + min + qsTr("min");
+              data['TravelProposals'][index]['traveltime'] = hour + qsTr("h") + " " + min.toFixed(0) + qsTr("min");
             }
             for(var stageindex=0; stageindex < data['TravelProposals'][index]['Stages'].length; stageindex++) {
               if(data['TravelProposals'][index]['Stages'][stageindex].hasOwnProperty('WalkingTime')) {
@@ -491,11 +491,11 @@ Page {
               data['TravelProposals'][index]['Stages'][stageindex]['departure'] = departure.toLocaleTimeString(Qt.locale(), "HH:mm");
               var traveltime = ( arrival.getTime() - departure.getTime() ) / 1000 / 60;
               if(traveltime < 60) {
-                data['TravelProposals'][index]['Stages'][stageindex]['traveltime'] = traveltime + qsTr("min");
+                data['TravelProposals'][index]['Stages'][stageindex]['traveltime'] = traveltime.toFixed(0) + qsTr("min");
               } else {
                 var hour = Math.floor((traveltime / 60));
                 var min = traveltime - (hour * 60);
-                data['TravelProposals'][index]['Stages'][stageindex]['traveltime'] = hour + qsTr("h") + " " + min + qsTr("min");
+                data['TravelProposals'][index]['Stages'][stageindex]['traveltime'] = hour + qsTr("h") + " " + min.toFixed(0) + qsTr("min");
               }
             }
 
