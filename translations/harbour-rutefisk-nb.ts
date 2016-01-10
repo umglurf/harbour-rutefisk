@@ -195,6 +195,64 @@
     </message>
 </context>
 <context>
+    <name>RealTimeMenuItem</name>
+    <message>
+        <source>Realtime for %1 %2</source>
+        <translation>Sanntidsinformasjon for %1 %2</translation>
+    </message>
+</context>
+<context>
+    <name>ShowStops</name>
+    <message>
+        <source>Stops for %1 %2</source>
+        <translation>Stopp for %1 %2</translation>
+    </message>
+    <message>
+        <source>Arrival: %1</source>
+        <translation>Ankomst: %1</translation>
+    </message>
+    <message>
+        <source>Departure: %1</source>
+        <translation>Avgang: %1</translation>
+    </message>
+    <message>
+        <source>Realtime info from %1</source>
+        <translation>Sanntidsinformasjon for %1</translation>
+    </message>
+    <message>
+        <source>Realtime info for %1 %2 from %3</source>
+        <translation>Sanntidsinformasjon for %1 %2 fra %3</translation>
+    </message>
+    <message>
+        <source>Error getting stops</source>
+        <translation>Feil oppstod ved henting av stopp</translation>
+    </message>
+    <message>
+        <source>Travel from %1</source>
+        <translation>Reis fra %1</translation>
+    </message>
+    <message>
+        <source>Travel to %2</source>
+        <translation>Reis til %2</translation>
+    </message>
+    <message>
+        <source>%1 (%2)</source>
+        <translation>%1 (%2)</translation>
+    </message>
+    <message>
+        <source>min</source>
+        <translation>min</translation>
+    </message>
+    <message>
+        <source>h</source>
+        <translation>h</translation>
+    </message>
+    <message>
+        <source>Lines: %1</source>
+        <translation>Linjer: %1</translation>
+    </message>
+</context>
+<context>
     <name>TravelFromTo</name>
     <message>
         <source>Journey information</source>
@@ -247,6 +305,10 @@
     <message>
         <source>Switch from and to</source>
         <translation>Bytt fra og til</translation>
+    </message>
+    <message>
+        <source>Show all stops for %1 %2</source>
+        <translation>Vis alle stopp for %1 %2</translation>
     </message>
 </context>
 <context>

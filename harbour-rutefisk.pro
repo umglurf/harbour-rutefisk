@@ -47,5 +47,6 @@ DISTFILES += \
     qml/pages/TravelFromTo.qml \
     qml/pages/TravelFromToOptions.qml \
     qml/pages/FindFromToStreet.qml \
-    qml/pages/Favorites.qml
+    qml/pages/Favorites.qml \
+    qml/pages/ShowStops.qml
 

@@ -200,7 +200,6 @@ Page {
       }
 
       menu: ContextMenu {
-        //hasContent: linesColumn.visible
         Repeater {
           model: Stages
           delegate: MenuItem {
@@ -208,6 +207,23 @@ Page {
             text: walking ? "" : qsTr("Realtime for %1 %2").arg(LineName).arg(Destination)
             onClicked: {
               pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": DepartureStop['ID'], "stopName": DepartureStop['Name'], "linenumber": LineName, "destination": Destination });
+            }
+          }
+        }
+        Repeater {
+          model: Stages
+          delegate: MenuItem {
+            visible: !walking
+            text: walking ? "" : qsTr("Show all stops for %1 %2").arg(LineName).arg(Destination)
+            onClicked: {
+              pageStack.push(Qt.resolvedUrl("ShowStops.qml"), {
+                                 "tripID": TourID,
+                                 "departureTime": new Date(DepartureTime),
+                                 "departureID": DepartureStop['ID'],
+                                 "arrivalID": ArrivalStop['ID'],
+                                 "lineNumber": LineName,
+                                 "destination": Destination
+                             });
             }
           }
         }
