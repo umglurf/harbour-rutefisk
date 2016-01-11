@@ -138,7 +138,12 @@ CoverBackground {
               }
             }
           }
-          xhr.open("GET", "http://reisapi.ruter.no/StopVisit/GetDepartures/" + stopID, true);
+          var url = "http://reisapi.ruter.no/StopVisit/GetDepartures/";
+          url = url + stopID;
+          if(linenumber > 0) {
+            url = url + '?linenames=' + linenumber;
+          }
+          xhr.open("GET", url, true);
           xhr.send();
         }
     }

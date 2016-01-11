@@ -189,7 +189,10 @@ Page {
           errorLabel.text = qsTr("Error getting stop information");
         }
       };
-      xhr.open("GET", "http://reisapi.ruter.no/StopVisit/GetDepartures/" + realTimeLinePage.stopID, true);
+      var url = "http://reisapi.ruter.no/StopVisit/GetDepartures/";
+      url = url + realTimeLinePage.stopID;
+      url = url + '?linenames=' + realTimeLinePage.linenumber;
+      xhr.open("GET", url, true);
       xhr.send();
     }
   }
