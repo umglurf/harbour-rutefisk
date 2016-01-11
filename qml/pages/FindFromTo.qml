@@ -17,6 +17,7 @@ This file is part of harbour-rutefisk.
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "../scripts/rutefisk.js" as RuteFisk
 
 Page {
   id: findFromToPage
@@ -141,6 +142,7 @@ Page {
           for(var index=0; index < l; index++) {
             placesModel.append(data[index]);
           };
+          RuteFisk.add_district(placesModel);
           searchIndicator.running = false;
         } else if(xhr.readyState == 4 && xhr.status == 0) {
           searchIndicator.running = false;

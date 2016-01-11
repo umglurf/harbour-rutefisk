@@ -19,6 +19,7 @@ import QtQuick 2.0
 import QtPositioning 5.2
 import Sailfish.Silica 1.0
 import "../scripts/gpsconvert.js" as GPSConvert
+import "../scripts/rutefisk.js" as RuteFisk
 
 Page {
   id: mainpage
@@ -248,7 +249,7 @@ Page {
         Label {
           x: Theme.horizontalPageMargin
           anchors.verticalCenter: parent.verticalCenter
-          text: Name + (PlaceType == "Street" ? " (" + District + ")" : "" )
+          text: Name
           font.capitalization: Font.Capitalize
           color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
         }
@@ -263,7 +264,7 @@ Page {
             text: qsTr("Travel from here")
             onClicked: {
               if(PlaceType == "Street") {
-                pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetFrom": true});
+                pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name, "streetFrom": true});
               } else {
                 pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"fromID": ID, "fromName": Name});
               }
@@ -273,7 +274,7 @@ Page {
             text: qsTr("Travel to here")
             onClicked: {
               if(PlaceType == "Street") {
-                pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetTo": true});
+                pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name, "streetTo": true});
               } else {
                 pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"toID": ID, "toName": Name});
               }
@@ -283,7 +284,7 @@ Page {
 
         onClicked: {
           if(PlaceType == "Street") {
-            pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name + " (" + District + ")", "streetFrom": true});
+            pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name, "streetFrom": true});
           } else {
             show_realtime();
           }
@@ -327,6 +328,7 @@ Page {
           for(var index=0; index < l; index++) {
             placesModel.append(data[index]);
           };
+          RuteFisk.add_district(placesModel);
           searchIndicator.running = false;
         } else if(xhr.readyState == 4 && xhr.status == 0) {
           searchIndicator.running = false;
@@ -356,6 +358,7 @@ Page {
           for(var index=0; index < data.length; index++) {
             placesModel.append(data[index]);
           };
+          RuteFisk.add_district(placesModel);
         } else if(xhr.readyState == 4 && xhr.status == 0) {
           errorLabel.visible = true;
           errorLabel.text = qsTr("Error getting stops");
