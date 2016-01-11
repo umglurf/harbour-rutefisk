@@ -11,7 +11,9 @@ Implemented features
  * Realtime information for a given line from a stop
  * Realtime information in cover
  * Search journey between stop and/or addresses
+ * Show all stops for a journey part
  * Show deviation information in both realtime information and in journey information
+ * Favorites
 
 Roadmap
 -------
