@@ -32,6 +32,7 @@ Page {
   onStatusChanged: {
     if(status == PageStatus.Active) {
       applicationWindow.coverPage.state = "MAIN_VIEW";
+      favoritesModel.update();
     }
   }
 
@@ -56,9 +57,17 @@ Page {
           id: favoritesModel
           dynamicRoles: true
           Component.onCompleted: {
+              update();
+          }
+
+          function update() {
+              favoritesModel.clear();
               var favorites = JSON.parse(favoritesConfig.value);
               for(var i=0; i < favorites.length; i++) {
                 var val = JSON.parse(favorites[i]);
+                if(val['type'] == 'realTime') {
+                  val['stopID'] = JSON.stringify(val['stopID']); //avoid array getting lost in ListModel
+                }
                 append(val);
               }
           }
@@ -101,7 +110,8 @@ Page {
                                  "tram": tram
                                });
               } else if(type == "realTime") {
-                pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": stopID, "stopName": stopName});
+                var s = JSON.parse(stopID);
+                pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": s, "stopName": stopName});
               } else if(type == "realTimeLine") {
                 pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": stopID, "stopName": stopName, "linenumber": linenumber, "destination": destination });
               }

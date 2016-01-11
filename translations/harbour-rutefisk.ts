@@ -17,22 +17,22 @@
 <context>
     <name>Favorites</name>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="45"/>
+        <location filename="../qml/pages/Favorites.qml" line="46"/>
         <source>Favorites</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="79"/>
+        <location filename="../qml/pages/Favorites.qml" line="88"/>
         <source>%1 %2 from %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="111"/>
+        <location filename="../qml/pages/Favorites.qml" line="121"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="142"/>
+        <location filename="../qml/pages/Favorites.qml" line="152"/>
         <source>Error removing item</source>
         <translation type="unfinished"></translation>
     </message>
