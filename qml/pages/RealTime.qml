@@ -63,16 +63,23 @@ Page {
         }
       }
       MenuItem {
-        text: qsTr("Auto Refresh");
+        text: autorefresh ? qsTr("Stop auto refresh") : qsTr("Auto Refresh");
         onClicked: {
-            autorefresh = true
-            realTimeTimer.start();
+          if(autorefresh) {
+              realTimeTimer.stop();
+          } else {
+              realTimeTimer.start();
+          }
+          autorefresh = !autorefresh;
         }
       }
       MenuItem {
         text: qsTr("Refresh");
         onClicked: {
-          pageStack.replace(Qt.resolvedUrl("RealTime.qml"), { "stopID": stopID, "stopName": stopName, "autorefresh": autorefresh}, PageStackAction.Immediate);
+          //pageStack.replace(Qt.resolvedUrl("RealTime.qml"), { "stopID": stopID, "stopName": stopName, "autorefresh": autorefresh}, PageStackAction.Immediate);
+          for(var stopIndex=0; stopIndex < realTimePage.stopID.length; stopIndex++) {
+            realTimeModel.update(realTimePage.stopID[stopIndex]);
+          }
         }
       }
     }
@@ -99,121 +106,111 @@ Page {
 
       Column {
         width: parent.width
-
         Repeater {
-          id: realTimePlatforms
           model: realTimeModel
 
-          delegate: Column {
-            width: parent.width
+          delegate: Item {
+            width: realTimePage.width
+            height: platformHeader.height + lineView.height
 
-            Label {
-              id: platformLabel
+            SectionHeader {
+              id: platformHeader
               text: qsTr("Platform %1").arg(name)
-              color: Theme.highlightColor
             }
 
-            Repeater {
-              id: realTimeLines
+            SilicaListView {
+              id: lineView
+              anchors.top: platformHeader.bottom
+              anchors.right: parent.right
+              anchors.left: parent.left
+              model: lines
+              interactive: false
+              property int maxHeight: 0
+              height: maxHeight * lines.count
 
-              Component.onCompleted: {
-                model.update(lines);
-              }
-
-              model: ListModel {
-
-                function update(lines) {
-                  this.clear();
-                  var lines_sorted = [];
-                  for(var line in lines) {
-                    if(lines.hasOwnProperty(line)) {
-                      lines_sorted.push(line);
-                    }
-                  }
-                  lines_sorted.sort();
-                  for(var i=0; i < lines_sorted.length; i++) {
-                    this.append(lines[lines_sorted[i]]);
-                  }
-                }
-              }
-
-              delegate: Column {
+              delegate: ListItem {
+                id: listItem
                 width: parent.width
-
-                BackgroundItem {
-                  width: lineLabel.width
-                  height: lineLabel.height
-                  Label {
-                    id: lineLabel
-                    text: linenumber + " " + destination
-                    font.pixelSize: Theme.fontSizeSmall
-                    //color: Theme.highlightColor
-                  }
-                  onClicked: {
-                      pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": stopID, "stopName": realTimePage.stopName, "linenumber": linenumber, "destination": destination });
-                  }
-
-                }
+                contentHeight: contentColumn.height
                 Column {
-                  Repeater {
-                    Component.onCompleted: {
-                      model.update(deviations);
+                  id: contentColumn
+                  width: parent.width
+                  Row {
+                    width: parent.width
+                    Item {
+                      width: Theme.paddingMedium
+                      height: lineDataColumn.height
                     }
-
-                    model: ListModel {
-                      function update(deviations) {
-                        this.clear();
-                        for(var deviation in deviations) {
-                          if(deviations.hasOwnProperty(deviation)) {
-                            this.append({"deviation": deviations[deviation]});
+                    Column {
+                      id: lineDataColumn
+                      width: parent.width - Theme.paddingSmall
+                      Label {
+                        text: linenumber + " " + destination
+                        color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+                      }
+                      Row {
+                        visible: false
+                        width: parent.width
+                        Item {
+                          width: Theme.paddingMedium
+                          height: Theme.paddingMedium
+                        }
+                        Label {
+                          color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+                          font.pixelSize: Theme.fontSizeExtraSmall
+                          Component.onCompleted: {
+                            var dev = [];
+                            for(var key in deviations) {
+                              if(deviations.hasOwnProperty(key)) {
+                                dev.push(deviations[key]);
+                              }
+                            }
+                            if(dev.length > 0) {
+                              parent.visible = true;
+                              text = dev.join("\n");
+                            }
                           }
                         }
                       }
-                    }
+                      Row {
+                        width: parent.width
+                        Item {
+                          width: Theme.paddingMedium
+                          height: departuresGrid.height
+                        }
 
-                    delegate: Label {
-                      text: deviation
-                      font.pixelSize: Theme.fontSizeExtraSmall
-                      color: Theme.secondaryHighlightColor
+                        Grid {
+                          id: departuresGrid
+                          property int maxwidth: Theme.itemSizeSmall
+                          width: parent.width - Theme.paddingMedium
+                          columnSpacing: Theme.paddingMedium
+                          columns: width / maxwidth
+
+                          Repeater {
+                            model: departures
+
+                            delegate: Label {
+                              text: timestring
+                              color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+                              font.pixelSize: Theme.fontSizeSmall
+
+                              Component.onCompleted: {
+                                if(width > departuresGrid.maxwidth) {
+                                  departuresGrid.maxwidth = width;
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
-
-                Grid {
-                  width: parent.width
-                  columnSpacing: Theme.fontSizeExtraSmall
-                  columns: width / Theme.itemSizeSmall
-
-                  Repeater {
-                    id: realTimeDepartures
-
-                    Component.onCompleted: {
-                      model.update(departures);
-                    }
-
-                    model: ListModel {
-
-                      function update(departures) {
-                        this.clear();
-                        var departures_sorted = [];
-                        for(var departure in departures) {
-                          if(departures.hasOwnProperty(departure)) {
-                            departures_sorted.push(departure);
-                          }
-                        }
-                        departures_sorted.sort();
-                        for(var i=0; i < departures_sorted.length; i++) {
-                          this.append(departures[departures_sorted[i]]);
-                        }
-                      }
-                    }
-
-                    delegate:  Label {
-                      text: timestring
-                      font.pixelSize: Theme.fontSizeExtraSmall
-                      color: Theme.secondaryHighlightColor
-                    }
-                  }
+                Component.onCompleted: {
+                  lineView.maxHeight = listItem.height > lineView.maxHeight ? listItem.height : lineView.maxHeight;
+                }
+                onClicked: {
+                  pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": stopID, "stopName": realTimePage.stopName, "linenumber": linenumber, "destination": destination });
                 }
               }
             }
@@ -223,22 +220,20 @@ Page {
     }
 
     Timer {
-        id: realTimeTimer
-        interval: 30000
-        repeat: false
-        triggeredOnStart: false
+      id: realTimeTimer
+      interval: 30000
+      repeat: true
+      triggeredOnStart: false
 
-        onTriggered: {
-          if(Qt.application.state == Qt.ApplicationActive) {
-            pageStack.replace(Qt.resolvedUrl("RealTime.qml"), { "stopID": stopID, "stopName": stopName, "autorefresh": autorefresh}, PageStackAction.Immediate);
-          } else {
-              realTimeTimer.repeat = true;
-              realTimeTimer.start();
-          }
+      onTriggered: {
+        for(var stopIndex=0; stopIndex < realTimePage.stopID.length; stopIndex++) {
+          realTimeModel.update(realTimePage.stopID[stopIndex]);
         }
+      }
     }
 
     Component.onCompleted: {
+      realTimeModel.clear();
       for(var stopIndex=0; stopIndex < realTimePage.stopID.length; stopIndex++) {
         realTimeModel.update(realTimePage.stopID[stopIndex]);
       }
@@ -252,6 +247,11 @@ Page {
     if(status == PageStatus.Active) {
       applicationWindow.coverPage.state = "REALTIME_VIEW";
       applicationWindow.coverPage.stopID = stopID;
+      if(autorefresh) {
+          realTimeTimer.start();
+      }
+    } else if(status == PageStatus.Deactivating) {
+        realTimeTimer.stop();
     }
   }
 
@@ -268,26 +268,35 @@ Page {
           var travels = {};
           var data = JSON.parse(xhr.responseText);
           var l = data.length;
+          var lines = {};
           for(var index=0; index < l; index++) {
             var line = data[index]['MonitoredVehicleJourney']['PublishedLineName'] + data[index]['MonitoredVehicleJourney']['DestinationName'];
             var platform = data[index]['MonitoredVehicleJourney']['MonitoredCall']['DeparturePlatformName'];
 
             if(!travels.hasOwnProperty(platform)) {
               travels[platform] = {};
-              travels[platform]['name'] = platform
-              travels[platform]['lines'] = {}
+              travels[platform]['name'] = platform;
+              travels[platform]['lines'] = [];
             }
-            if(!travels[platform]['lines'].hasOwnProperty(line)) {
-              travels[platform]['lines'][line] = {}
-              travels[platform]['lines'][line]['linenumber'] = data[index]['MonitoredVehicleJourney']['PublishedLineName'];
-              travels[platform]['lines'][line]['destination'] = data[index]['MonitoredVehicleJourney']['DestinationName'];
-              travels[platform]['lines'][line]['origin'] = data[index]['MonitoredVehicleJourney']['OriginName'] ? data[index]['MonitoredVehicleJourney']['OriginName'] : "";
-              travels[platform]['lines'][line]['departures'] = {}
-              travels[platform]['lines'][line]['stopID'] = stopID
-              travels[platform]['lines'][line]['deviations'] = {}
+            var lineIndex = 0;
+            if(lines.hasOwnProperty(line)) {
+              lineIndex = lines[line];
+            } else {
+              lineIndex = travels[platform]['lines'].length;
+              lines[line] = lineIndex;
+              var line = {};
+              line['line'] = data[index]['MonitoredVehicleJourney']['PublishedLineName'] + data[index]['MonitoredVehicleJourney']['DestinationName'];
+              line['lineColor'] = "#" + data[index]['Extensions']['LineColour'];
+              line['linenumber'] = data[index]['MonitoredVehicleJourney']['PublishedLineName'];
+              line['destination'] = data[index]['MonitoredVehicleJourney']['DestinationName'];
+              line['origin'] = data[index]['MonitoredVehicleJourney']['OriginName'] ? data[index]['MonitoredVehicleJourney']['OriginName'] : "";
+              line['departures'] = [];
+              line['stopID'] = stopID
+              line['deviations'] = {};
+              travels[platform]['lines'].push(line);
             }
             for(var deviationindex=0; deviationindex < data[index]['Extensions']['Deviations'].length; deviationindex++) {
-              travels[platform]['lines'][line]['deviations'][data[index]['Extensions']['Deviations'][deviationindex]['ID']] = data[index]['Extensions']['Deviations'][deviationindex]['Header'];
+              travels[platform]['lines'][lineIndex]['deviations'][data[index]['Extensions']['Deviations'][deviationindex]['ID']] = data[index]['Extensions']['Deviations'][deviationindex]['Header'];
             }
             var departure = new Date(data[index]['MonitoredVehicleJourney']['MonitoredCall']['ExpectedArrivalTime']);
             var timestr;
@@ -300,8 +309,7 @@ Page {
             } else {
               timestr = departure.toLocaleTimeString(Qt.locale(), "HH:mm");
             }
-            travels[platform]['lines'][line]['departures'][departure.getTime()] = data[index]['MonitoredVehicleJourney']['MonitoredCall'];
-            travels[platform]['lines'][line]['departures'][departure.getTime()]['timestring'] = timestr;
+            travels[platform]['lines'][lineIndex]['departures'].push({"timestring": timestr});
           }
           var platforms = []
           for(var platform in travels) {
@@ -311,7 +319,20 @@ Page {
           }
           platforms.sort();
           for(var i=0; i < platforms.length; i++) {
-            realTimeModel.append(travels[platforms[i]]);
+            var updated = false;
+            for(var mindex = 0; mindex < realTimeModel.count; mindex++) {
+                if(realTimeModel.get(mindex).name == travels[platforms[i]]['name']) {
+                    realTimeModel.get(mindex).lines.clear();
+                    for(var linesIndex = 0; linesIndex < travels[platforms[i]]['lines'].length; linesIndex++) {
+                      realTimeModel.get(mindex).lines.append(travels[platforms[i]]['lines'][linesIndex]);
+                    }
+                    updated = true;
+                    break;
+                }
+            }
+            if(!updated) {
+              realTimeModel.append(travels[platforms[i]]);
+            }
           }
           searchIndicator.visible = false;
           searchIndicator.running = false;
