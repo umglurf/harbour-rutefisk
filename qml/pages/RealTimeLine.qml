@@ -112,7 +112,12 @@ Page {
       }
 
       delegate: Label {
-        Component.onCompleted: realTimeLineList.cellHeight = height
+        Component.onCompleted: {
+            realTimeLineList.cellHeight = height;
+            if(width + Theme.paddingSmall> realTimeLineList.cellWidth) {
+                realTimeLineList.cellWidth = width + Theme.paddingSmall;
+            }
+        }
         text: departure
         color: Theme.highlightColor
         font.pixelSize: Theme.fontSizeSmall
