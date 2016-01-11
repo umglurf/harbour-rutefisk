@@ -330,7 +330,7 @@ Page {
           };
           RuteFisk.add_district(placesModel);
           searchIndicator.running = false;
-        } else if(xhr.readyState == 4 && xhr.status == 0) {
+        } else if(xhr.readyState == 4) {
           searchIndicator.running = false;
           errorLabel.visible = true;
           errorLabel.text = qsTr("Error getting stops");
