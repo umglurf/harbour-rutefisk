@@ -93,10 +93,14 @@ Page {
           }
         }
         MenuItem {
-          text: qsTr("Auto Refresh");
+          text: autorefresh ? qsTr("Stop auto refresh") : qsTr("Auto Refresh");
           onClicked: {
-            autorefresh = true
-            realTimeLineTimer.start();
+            if(autorefresh) {
+              realTimeLineTimer.stop();
+            } else {
+              realTimeLineTimer.start();
+            }
+            autorefresh = !autorefresh;
           }
         }
         MenuItem {
@@ -122,9 +126,7 @@ Page {
     triggeredOnStart: false
 
     onTriggered: {
-      if(Qt.application.state == Qt.ApplicationActive) {
-        realTimeLineModel.update();
-      }
+      realTimeLineModel.update();
     }
   }
 
@@ -138,6 +140,11 @@ Page {
       applicationWindow.coverPage.stopID = realTimeLinePage.stopID;
       applicationWindow.coverPage.linenumber = realTimeLinePage.linenumber;
       applicationWindow.coverPage.destination = realTimeLinePage.destination;
+      if(autorefresh) {
+        realTimeTimer.start();
+      }
+    } else if(status == PageStatus.Deactivating) {
+      realTimeLineTimer.stop();
     }
   }
 

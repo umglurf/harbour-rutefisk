@@ -123,12 +123,28 @@
 <context>
     <name>RealTime</name>
     <message>
+        <source>Add to favorites</source>
+        <translation>Legg til favoritter</translation>
+    </message>
+    <message>
+        <source>Error adding favorite</source>
+        <translation>Feil ved innlegging av favoritt</translation>
+    </message>
+    <message>
         <source>Auto Refresh</source>
         <translation>Automatisk oppfriskning</translation>
     </message>
     <message>
         <source>Refresh</source>
         <translation>Oppfrisk</translation>
+    </message>
+    <message>
+        <source>Travels from %1</source>
+        <translation>Avganger fra %1</translation>
+    </message>
+    <message>
+        <source>Platform %1</source>
+        <translation>Plattform %1</translation>
     </message>
     <message>
         <source>sec</source>
@@ -143,20 +159,8 @@
         <translation>Feil oppstod ved henting av stoppinformasjon</translation>
     </message>
     <message>
-        <source>Travels from %1</source>
-        <translation>Reis fra %1</translation>
-    </message>
-    <message>
-        <source>Platform %1</source>
-        <translation>Plattform %1</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>Legg til favoritter</translation>
-    </message>
-    <message>
-        <source>Error adding favorite</source>
-        <translation>Feil ved innlegging av favoritt</translation>
+        <source>Stop auto refresh</source>
+        <translation>Stopp automatisk oppfriskning</translation>
     </message>
 </context>
 <context>
@@ -192,6 +196,10 @@
     <message>
         <source>Error adding favorite</source>
         <translation>Feil ved innlegging av favoritt</translation>
+    </message>
+    <message>
+        <source>Stop auto refresh</source>
+        <translation>Stopp automatisk oppfriskning</translation>
     </message>
 </context>
 <context>

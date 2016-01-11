@@ -166,32 +166,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="73"/>
+        <location filename="../qml/pages/RealTime.qml" line="66"/>
+        <source>Stop auto refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealTime.qml" line="77"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="85"/>
+        <location filename="../qml/pages/RealTime.qml" line="92"/>
         <source>Travels from %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="112"/>
+        <location filename="../qml/pages/RealTime.qml" line="118"/>
         <source>Platform %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="296"/>
+        <location filename="../qml/pages/RealTime.qml" line="300"/>
         <source>sec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="298"/>
+        <location filename="../qml/pages/RealTime.qml" line="302"/>
         <source>min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="322"/>
+        <location filename="../qml/pages/RealTime.qml" line="338"/>
         <source>Error getting stop information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -219,22 +224,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="103"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="96"/>
+        <source>Stop auto refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealTimeLine.qml" line="107"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="171"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="175"/>
         <source>sec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="173"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="177"/>
         <source>min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="189"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="193"/>
         <source>Error getting stop information</source>
         <translation type="unfinished"></translation>
     </message>
