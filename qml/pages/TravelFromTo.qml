@@ -530,7 +530,7 @@ Page {
       var url = "http://reisapi.ruter.no/Travel/GetTravels/?"
       url = url + "fromplace=" + travelFromToPage.fromID;
       url = url + "&toplace=" + travelFromToPage.toID;
-      url = url + "&isafter=false";
+      url = url + "&isafter=" + travelFromToPage.isafter;
       url = url + "&time=" + travelFromToPage.date.toLocaleDateString(Qt.locale(), "ddMMyyyy") + travelFromToPage.time.toLocaleTimeString(Qt.locale(), "hhmmss");
       url = url + "&changemargin=" + travelFromToPage.changemargin;
       url = url + "&changepunish=" + travelFromToPage.changepunish;
