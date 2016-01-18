@@ -81,69 +81,69 @@
 <context>
     <name>MainPage</name>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="149"/>
+        <location filename="../qml/pages/MainPage.qml" line="151"/>
         <source>Ruter travel information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="157"/>
+        <location filename="../qml/pages/MainPage.qml" line="159"/>
         <source>Search stop or street</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="125"/>
-        <location filename="../qml/pages/MainPage.qml" line="132"/>
+        <location filename="../qml/pages/MainPage.qml" line="127"/>
+        <location filename="../qml/pages/MainPage.qml" line="134"/>
         <source>Start GPS search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="129"/>
+        <location filename="../qml/pages/MainPage.qml" line="131"/>
         <source>Stop GPS search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="137"/>
+        <location filename="../qml/pages/MainPage.qml" line="139"/>
         <source>Favorites</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="197"/>
+        <location filename="../qml/pages/MainPage.qml" line="202"/>
         <source>GPS update interval</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="198"/>
+        <location filename="../qml/pages/MainPage.qml" line="203"/>
         <source>s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="212"/>
+        <location filename="../qml/pages/MainPage.qml" line="217"/>
         <source>GPS search grid size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="213"/>
+        <location filename="../qml/pages/MainPage.qml" line="218"/>
         <source>meters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="260"/>
+        <location filename="../qml/pages/MainPage.qml" line="265"/>
         <source>Realtime info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="265"/>
+        <location filename="../qml/pages/MainPage.qml" line="270"/>
         <source>Travel from here</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="275"/>
+        <location filename="../qml/pages/MainPage.qml" line="280"/>
         <source>Travel to here</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="337"/>
-        <location filename="../qml/pages/MainPage.qml" line="365"/>
+        <location filename="../qml/pages/MainPage.qml" line="342"/>
+        <location filename="../qml/pages/MainPage.qml" line="370"/>
         <source>Error getting stops</source>
         <translation type="unfinished"></translation>
     </message>

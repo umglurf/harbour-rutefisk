@@ -25,6 +25,7 @@ Page {
   id: mainpage
   property string searchString
   property Label errorLabel
+  property SearchField searchField
   property BusyIndicator searchIndicator
   property BusyIndicator gpsSearchIndicator
   property Row textSearch
@@ -72,6 +73,7 @@ Page {
         name: "startGps"
         script: {
           positionSource.start();
+          searchField.focus = false;
         }
       }
     }
@@ -161,6 +163,9 @@ Page {
             target: mainpage
             property: "searchString"
             value: searchField.text
+          }
+          Component.onCompleted: {
+              mainpage.searchField = this;
           }
         }
         BusyIndicator {
