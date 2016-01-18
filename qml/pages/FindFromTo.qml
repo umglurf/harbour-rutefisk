@@ -51,6 +51,7 @@ Page {
         id: searchField
         width: parent.width - searchIndicator.width - Theme.paddingSmall
         placeholderText: fromID ? qsTr("Search destination") : qsTr("Search start point")
+        inputMethodHints: Qt.ImhNone
 
         Binding {
           target: findFromToPage
@@ -153,7 +154,7 @@ Page {
       if(searchString == "") {
         placesModel.clear();
       } else {
-        xhr.open("GET", "http://reisapi.ruter.no/Place/GetPlaces/" + searchString, true);
+        xhr.open("GET", "http://reisapi.ruter.no/Place/GetPlaces/" + searchString.trim(), true);
         xhr.send();
       }
     }

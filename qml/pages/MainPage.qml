@@ -155,6 +155,7 @@ Page {
           id: searchField
           width: parent.width - searchIndicator.width - Theme.paddingSmall
           placeholderText: qsTr("Search stop or street")
+          inputMethodHints: Qt.ImhNone
 
           Binding {
             target: mainpage
@@ -340,7 +341,7 @@ Page {
         placesModel.clear();
         searchIndicator.running = false;
       } else {
-        xhr.open("GET", "http://reisapi.ruter.no/Place/GetPlaces/" + searchString, true);
+        xhr.open("GET", "http://reisapi.ruter.no/Place/GetPlaces/" + searchString.trim(), true);
         xhr.send();
       }
     }
