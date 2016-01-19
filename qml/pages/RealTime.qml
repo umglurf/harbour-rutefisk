@@ -280,11 +280,11 @@ Page {
               travels[platform]['lines'] = [];
             }
             var lineIndex = 0;
-            if(lines.hasOwnProperty(line)) {
-              lineIndex = lines[line];
+            if(lines.hasOwnProperty(platform+line)) {
+              lineIndex = lines[platform+line];
             } else {
               lineIndex = travels[platform]['lines'].length;
-              lines[line] = lineIndex;
+              lines[platform+line] = lineIndex;
               var line = {};
               line['line'] = data[index]['MonitoredVehicleJourney']['PublishedLineName'] + data[index]['MonitoredVehicleJourney']['DestinationName'];
               line['lineColor'] = "#" + data[index]['Extensions']['LineColour'];
