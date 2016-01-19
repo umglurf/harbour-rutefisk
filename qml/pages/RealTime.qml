@@ -125,8 +125,7 @@ Page {
               anchors.left: parent.left
               model: lines
               interactive: false
-              property int maxHeight: 0
-              height: maxHeight * lines.count
+              height: Theme.paddingMedium
 
               delegate: ListItem {
                 id: listItem
@@ -158,7 +157,7 @@ Page {
                         Label {
                           color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
                           font.pixelSize: Theme.fontSizeExtraSmall
-                          Component.onCompleted: {
+                          text: {
                             var dev = [];
                             for(var key in deviations) {
                               if(deviations.hasOwnProperty(key)) {
@@ -167,7 +166,9 @@ Page {
                             }
                             if(dev.length > 0) {
                               parent.visible = true;
-                              text = dev.join("\n");
+                              return dev.join("\n");
+                            } else {
+                                return "";
                             }
                           }
                         }
@@ -207,7 +208,7 @@ Page {
                   }
                 }
                 Component.onCompleted: {
-                  lineView.maxHeight = listItem.height > lineView.maxHeight ? listItem.height : lineView.maxHeight;
+                  lineView.height = lineView.height + listItem.height;
                 }
                 onClicked: {
                   pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": stopID, "stopName": realTimePage.stopName, "linenumber": linenumber, "destination": destination });

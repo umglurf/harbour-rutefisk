@@ -142,8 +142,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="342"/>
-        <location filename="../qml/pages/MainPage.qml" line="370"/>
+        <location filename="../qml/pages/MainPage.qml" line="343"/>
+        <location filename="../qml/pages/MainPage.qml" line="371"/>
         <source>Error getting stops</source>
         <translation type="unfinished"></translation>
     </message>
@@ -186,17 +186,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="305"/>
+        <location filename="../qml/pages/RealTime.qml" line="306"/>
         <source>sec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="307"/>
+        <location filename="../qml/pages/RealTime.qml" line="308"/>
         <source>min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="343"/>
+        <location filename="../qml/pages/RealTime.qml" line="344"/>
         <source>Error getting stop information</source>
         <translation type="unfinished"></translation>
     </message>
