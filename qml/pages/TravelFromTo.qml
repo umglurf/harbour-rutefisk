@@ -19,6 +19,7 @@ import QtQuick 2.0
 import QtGraphicalEffects 1.0
 import org.nemomobile.configuration 1.0
 import Sailfish.Silica 1.0
+import "../scripts/rutefisk.js" as RuteFisk
 
 Page {
   id: travelFromToPage
@@ -485,9 +486,11 @@ Page {
             return;
           }
           for(var index=0; index < data['TravelProposals'].length; index++) {
-            var arrival = new Date(data['TravelProposals'][index]['ArrivalTime']);
+            //var arrival = new Date(data['TravelProposals'][index]['ArrivalTime']);
+            var arrival = RuteFisk.non_tz_date_parse(data['TravelProposals'][index]['ArrivalTime']);
             data['TravelProposals'][index]['arrival'] = arrival.toLocaleTimeString(Qt.locale(), "HH:mm");
-            var departure = new Date(data['TravelProposals'][index]['DepartureTime']);
+            //var departure = new Date(data['TravelProposals'][index]['DepartureTime']);
+            var departure = RuteFisk.non_tz_date_parse(data['TravelProposals'][index]['DepartureTime']);
             data['TravelProposals'][index]['departure'] = departure.toLocaleTimeString(Qt.locale(), "HH:mm");
             var traveltime = ( arrival.getTime() - departure.getTime() ) / 1000 / 60;
             if(traveltime < 60) {
@@ -503,9 +506,9 @@ Page {
               } else {
                 data['TravelProposals'][index]['Stages'][stageindex]['walking'] = false
               }
-              var arrival = new Date(data['TravelProposals'][index]['Stages'][stageindex]['ArrivalTime']);
+              var arrival = RuteFisk.non_tz_date_parse(data['TravelProposals'][index]['Stages'][stageindex]['ArrivalTime']);
               data['TravelProposals'][index]['Stages'][stageindex]['arrival'] = arrival.toLocaleTimeString(Qt.locale(), "HH:mm");
-              var departure = new Date(data['TravelProposals'][index]['Stages'][stageindex]['DepartureTime']);
+              var departure = RuteFisk.non_tz_date_parse(data['TravelProposals'][index]['Stages'][stageindex]['DepartureTime']);
               data['TravelProposals'][index]['Stages'][stageindex]['departure'] = departure.toLocaleTimeString(Qt.locale(), "HH:mm");
               var traveltime = ( arrival.getTime() - departure.getTime() ) / 1000 / 60;
               if(traveltime < 60) {

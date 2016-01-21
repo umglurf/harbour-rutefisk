@@ -34,9 +34,28 @@ function add_district(listModel) {
   }
 }
 
-Date.prototype.dst = function() {
-  var julOffset = new Date(this.getFullYear(), 6, 1).getTimezoneOffset();
-  console.log("jul offset " + julOffset);
-  console.log("this offset " + this.getTimezoneOffset());
-  return this.getTimezoneOffset() == julOffset;
+function non_tz_date_parse(timestr) {
+  var pat = /([A-Z]+|[+-][0-9]{2}:[0-9]{2})$/;
+  if(pat.test(timestr)) {
+    return Date.new(timestr);
+  } else {
+    var ts;
+    var date = new Date();
+    if(date.getMonth() < 2) {
+      ts = 'CET';
+    } else if(date.getMonth() == 2) {
+      var lastSunday = new Date(date.getFullYear(), 2, 31, 1);
+      lastSunday.setDate(lastSunday.getDate()-lastSunday.getDay());
+      ts = date < lastSunday ? 'CET' : 'CEST';
+    } else if(date.getMonth() < 9) {
+      ts = 'CEST';
+    } else if(date.getMonth() == 9) {
+      var lastSunday = new Date(date.getFullYear(), 9, 31, 1);
+      lastSunday.setDate(lastSunday.getDate()-lastSunday.getDay());
+      ts = date < lastSunday ? 'CEST' : 'CET';
+    } else {
+      ts = 'CET';
+    }
+    return new Date(timestr + ts);
+  }
 }

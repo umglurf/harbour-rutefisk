@@ -324,76 +324,76 @@
 <context>
     <name>TravelFromTo</name>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="88"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="89"/>
         <source>Journey information</source>
         <translation>Resinformation</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="91"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="92"/>
         <source>From %1</source>
         <translation>Från %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="96"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="97"/>
         <source>To %1</source>
         <translation>Till %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="111"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="112"/>
         <source>Add to favorites</source>
         <translation>Lägg till i Favoriter</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="146"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="147"/>
         <source>Error adding favorite</source>
         <translation>Kunde inte lägga till favorit</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="151"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="152"/>
         <source>Switch from and to</source>
         <translation>Byt riktning</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="164"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="165"/>
         <source>Search options</source>
         <translation>Sökalternativ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="209"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="210"/>
         <source>Realtime for %1 %2</source>
         <translation>Realtid för %1 %2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="219"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="220"/>
         <source>Show all stops for %1 %2</source>
         <translation>Visa alla hållplatser för %1 %2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="264"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="265"/>
         <source>Walking</source>
         <translation>Promenad</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="452"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="453"/>
         <source>Walking %1</source>
         <translation>Promenad %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="494"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="498"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="512"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="516"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="497"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="501"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="515"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="519"/>
         <source>min</source>
         <translation>min</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="498"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="516"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="501"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="519"/>
         <source>h</source>
         <translation>tim</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="529"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="532"/>
         <source>Error getting travel search result</source>
         <translation>Kunde inte hämta sökresultat</translation>
     </message>
