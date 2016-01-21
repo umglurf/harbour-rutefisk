@@ -43,6 +43,7 @@ Page {
   property bool boat: true
   property bool metro: true
   property bool tram: true
+  property var lines: new Array()
   property BusyIndicator searchIndicator
 
   onStatusChanged: {
@@ -180,7 +181,8 @@ Page {
                            "train": train,
                            "boat": boat,
                            "metro": metro,
-                           "tram": tram
+                           "tram": tram,
+                           "lines": lines
                          });
         }
       }
@@ -559,6 +561,9 @@ Page {
         transport.push("Tram");
       }
       url = url + "&transporttypes=" + transport.join(",");
+      if(lines.length > 0) {
+          url = url + "&linenames=" + lines.join(",");
+      }
       xhr.open("GET", url, true);
       xhr.send();
     }

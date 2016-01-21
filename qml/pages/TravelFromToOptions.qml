@@ -40,6 +40,8 @@ Page {
   property bool boat: true
   property bool metro: true
   property bool tram: true
+  property var lines: new Array()
+  property var available_lines: new Object()
 
   onDateChanged: {
     datestring = date.toLocaleDateString(Qt.locale())
@@ -47,6 +49,35 @@ Page {
   onTimeChanged: {
     timestring = time.toLocaleTimeString(Qt.locale())
   }
+
+  Component.onCompleted: {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if(xhr.readyState == 4 && xhr.status == 200) {
+        var data = JSON.parse(xhr.responseText);
+        for(var index=0; index < data.length; index++) {
+          if(lines.indexOf(data[index]['Name']) == -1) {
+            available_lines[data[index]['Name']] = 1;
+          } else {
+            available_lines[data[index]['Name']] = 0;
+          }
+        };
+      };
+    };
+    xhr.open("GET", "http://reisapi.ruter.no/Line/GetLines", true);
+    xhr.send();
+  }
+
+  ListModel {
+    id: linesModel
+
+    Component.onCompleted: {
+        for(var i=0; i < lines.length; i++) {
+            append({"line": lines[i]});
+        }
+    }
+  }
+
 
   SilicaFlickable {
     anchors.fill: parent
@@ -65,6 +96,10 @@ Page {
       Button {
         text: qsTr("Search")
         onClicked: {
+          var l = [];
+          for(var i = 0; i < linesModel.count; i++) {
+              l.push(linesModel.get(i).line);
+          }
           pageStack.push(Qt.resolvedUrl("TravelFromTo.qml"), {
                            "fromID": fromID,
                            "fromName": fromName,
@@ -83,7 +118,8 @@ Page {
                            "train": train,
                            "boat": boat,
                            "metro": metro,
-                           "tram": tram
+                           "tram": tram,
+                           "lines": l
                          });
         }
       }
@@ -140,6 +176,74 @@ Page {
         Component {
           id: timePicker
           TimePickerDialog { }
+        }
+      }
+
+      SectionHeader {
+        text: qsTr("Lines")
+      }
+
+      TextField {
+        id: newLineTextField
+        width: Theme.itemSizeSmall * 4
+        placeholderText: qsTr("Add line number")
+
+        onTextChanged: {
+          errorHighlight = false;
+        }
+
+        EnterKey.enabled: text.length > 0
+        EnterKey.iconSource: "image://theme/icon-m-enter-accept"
+        EnterKey.onClicked: {
+          if(available_lines.hasOwnProperty(newLineTextField.text)) {
+            newLineTextField.errorHighlight = false;
+            if(available_lines[newLineTextField.text] == 1) {
+              linesModel.append({"line": newLineTextField.text});
+              available_lines[newLineTextField.text] = 0;
+              newLineTextField.text = "";
+            } else {
+              newLineTextField.errorHighlight = true;
+            }
+          } else {
+            newLineTextField.errorHighlight = true;
+          }
+        }
+      }
+
+      SilicaListView {
+        id: linesListView
+        width: parent.width
+        property int maxHeight: 0
+        height: maxHeight * linesModel.count
+
+        model: linesModel
+
+        delegate: ListItem {
+          id: listItem
+          height: lineLabel.height
+
+
+          Label {
+            id: lineLabel
+            text: line
+            color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+          }
+
+          RemorseItem {
+            id: remorse
+          }
+
+          onClicked: {
+            var idx = index;
+            remorse.execute(listItem, qsTr("Removing"), function() {
+              available_lines[linesModel.get(idx).line] = 1;
+              linesModel.remove(idx);
+            });
+          }
+
+          Component.onCompleted: {
+            linesListView.maxHeight = listItem.height > linesListView.maxHeight ? listItem.height : linesListView.maxHeight;
+          }
         }
       }
 

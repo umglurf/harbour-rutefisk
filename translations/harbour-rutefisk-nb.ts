@@ -16,19 +16,19 @@
     <name>Favorites</name>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished">Favoritter</translation>
+        <translation>Favoritter</translation>
     </message>
     <message>
         <source>%1 %2 from %3</source>
-        <translation type="unfinished">%1 %2 fra %3</translation>
+        <translation>%1 %2 fra %3</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Fjern</translation>
     </message>
     <message>
         <source>Error removing item</source>
-        <translation type="unfinished"></translation>
+        <translation>Feil ved fjerning av element</translation>
     </message>
 </context>
 <context>
@@ -326,20 +326,16 @@
         <translation>Reisesøkopsjoner</translation>
     </message>
     <message>
+        <source>Search</source>
+        <translation>Søk</translation>
+    </message>
+    <message>
         <source>Travel time</source>
         <translation>Reisetid</translation>
     </message>
     <message>
-        <source>Change date</source>
-        <translation>Endre dato</translation>
-    </message>
-    <message>
-        <source>Change time</source>
-        <translation>Endre tid</translation>
-    </message>
-    <message>
         <source>Travel is to start after selected time and date or before</source>
-        <translation>Reisen skal starte før angitt tid eller etter angitt tid</translation>
+        <translation>Reisen starter etter angitt tid og dato eller før</translation>
     </message>
     <message>
         <source>Before</source>
@@ -350,28 +346,24 @@
         <translation>Etter</translation>
     </message>
     <message>
-        <source>Change options</source>
-        <translation>Overgangsinstillinger</translation>
+        <source>Change date</source>
+        <translation>Endre dato</translation>
     </message>
     <message>
-        <source>Minutes needed for interchange</source>
-        <translation>Antall minutter for overgang</translation>
+        <source>Change time</source>
+        <translation>Endre tid</translation>
     </message>
     <message>
-        <source>Walking</source>
-        <translation>Gange</translation>
+        <source>Lines</source>
+        <translation>Linjer</translation>
     </message>
     <message>
-        <source>Walking speed</source>
-        <translation>Ganghastighet</translation>
+        <source>Add line number</source>
+        <translation>Legg til linje</translation>
     </message>
     <message>
-        <source>m/min</source>
-        <translation>m/min</translation>
-    </message>
-    <message>
-        <source>Maximum minutes to walk to a stop</source>
-        <translation>Maksimalt antall minutter å gå til en stopp</translation>
+        <source>Removing</source>
+        <translation>Fjerner</translation>
     </message>
     <message>
         <source>Transport types</source>
@@ -406,12 +398,32 @@
         <translation>Flytog</translation>
     </message>
     <message>
-        <source>Search</source>
-        <translation>Søk</translation>
+        <source>Change options</source>
+        <translation>Overgangsopsjoner</translation>
+    </message>
+    <message>
+        <source>Minutes needed for interchange</source>
+        <translation>Nødvendig antall minutter mellom overgang</translation>
     </message>
     <message>
         <source>Minutes punishment for an interchange</source>
-        <translation>Straffeminutter for overgang</translation>
+        <translation>Straffeminutter for bytte</translation>
+    </message>
+    <message>
+        <source>Walking</source>
+        <translation>Gange</translation>
+    </message>
+    <message>
+        <source>Walking speed</source>
+        <translation>Ganghastighet</translation>
+    </message>
+    <message>
+        <source>m/min</source>
+        <translation>m/min</translation>
+    </message>
+    <message>
+        <source>Maximum minutes to walk to a stop</source>
+        <translation>Maksimalt antall minutter å gå til et stopp</translation>
     </message>
 </context>
 </TS>
