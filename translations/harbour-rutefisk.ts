@@ -196,17 +196,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="322"/>
+        <location filename="../qml/pages/RealTime.qml" line="326"/>
         <source>sec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="324"/>
+        <location filename="../qml/pages/RealTime.qml" line="328"/>
         <source>min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="360"/>
+        <location filename="../qml/pages/RealTime.qml" line="364"/>
         <source>Error getting stop information</source>
         <translation type="unfinished"></translation>
     </message>

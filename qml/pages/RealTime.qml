@@ -226,6 +226,10 @@ Page {
                 Component.onCompleted: {
                   lineView.height = lineView.height + listItem.height;
                 }
+                Component.onDestruction: {
+                  lineView.height = lineView.height - listItem.height;
+                }
+
                 onClicked: {
                   pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": stopID, "stopName": realTimePage.stopName, "linenumber": linenumber, "destination": destination });
                 }
