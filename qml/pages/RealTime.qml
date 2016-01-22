@@ -18,6 +18,7 @@ This file is part of harbour-rutefisk.
 import QtQuick 2.0
 import org.nemomobile.configuration 1.0
 import Sailfish.Silica 1.0
+import "../scripts/rutefisk.js" as RuteFisk
 
 Page {
   id: realTimePage
@@ -299,7 +300,7 @@ Page {
             for(var deviationindex=0; deviationindex < data[index]['Extensions']['Deviations'].length; deviationindex++) {
               travels[platform]['lines'][lineIndex]['deviations'][data[index]['Extensions']['Deviations'][deviationindex]['ID']] = data[index]['Extensions']['Deviations'][deviationindex]['Header'];
             }
-            var departure = new Date(data[index]['MonitoredVehicleJourney']['MonitoredCall']['ExpectedArrivalTime']);
+            var departure = RuteFisk.non_tz_date_parse(data[index]['MonitoredVehicleJourney']['MonitoredCall']['ExpectedArrivalTime']);
             var timestr;
             if(departure.getTime() - now.getTime() < (1000 * 60 * 10)) { // 10 minutes, 1000 usec * 60 sec * 10
               if(departure.getTime() - now.getTime() < (1000 * 60)) { // 1 minute, 1000 usec * 60 sec

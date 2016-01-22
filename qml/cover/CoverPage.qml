@@ -17,6 +17,7 @@ This file is part of harbour-rutefisk.
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "../scripts/rutefisk.js" as RuteFisk
 
 CoverBackground {
     id: cover
@@ -101,7 +102,7 @@ CoverBackground {
                   travels[line]['line'] = line;
                   travels[line]['departures'] = [];
                 }
-                travels[line]['departures'].push(new Date(data[index]['MonitoredVehicleJourney']['MonitoredCall']['ExpectedArrivalTime']));
+                travels[line]['departures'].push(RuteFisk.non_tz_date_parse(data[index]['MonitoredVehicleJourney']['MonitoredCall']['ExpectedArrivalTime']));
               }
               lines_sorted.sort();
               var now = new Date();

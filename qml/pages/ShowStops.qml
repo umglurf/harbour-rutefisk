@@ -19,6 +19,7 @@ import QtQuick 2.0
 import QtGraphicalEffects 1.0
 import org.nemomobile.configuration 1.0
 import Sailfish.Silica 1.0
+import "../scripts/rutefisk.js" as RuteFisk
 
 Page {
   id: showStopsPage
@@ -179,13 +180,13 @@ Page {
           var startTime;
           var runTime;
           for(var index=0; index < data['Stops'].length; index++) {
-            data['Stops'][index]['arrivalTime'] = new Date(data['Stops'][index]['ArrivalTime']).toLocaleTimeString(Qt.locale(), "HH:mm");
-            data['Stops'][index]['departureTime'] = new Date(data['Stops'][index]['DepartureTime']).toLocaleTimeString(Qt.locale(), "HH:mm");
+            data['Stops'][index]['arrivalTime'] = RuteFisk.non_tz_date_parse(data['Stops'][index]['ArrivalTime']).toLocaleTimeString(Qt.locale(), "HH:mm");
+            data['Stops'][index]['departureTime'] = RuteFisk.non_tz_date_parse(data['Stops'][index]['DepartureTime']).toLocaleTimeString(Qt.locale(), "HH:mm");
             if(index == 0) {
-              startTime = new Date(data['Stops'][index]['DepartureTime']);
+              startTime = RuteFisk.non_tz_date_parse(data['Stops'][index]['DepartureTime']);
               runTime = 0;
             } else {
-              runTime = (new Date(data['Stops'][index]['ArrivalTime']) - startTime) / 1000 / 60;
+              runTime = (RuteFisk.non_tz_date_parse(data['Stops'][index]['ArrivalTime']) - startTime) / 1000 / 60;
             }
             if(runTime < 60) {
               data['Stops'][index]['runTime'] = runTime.toFixed(0) + qsTr("min");

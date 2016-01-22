@@ -37,7 +37,7 @@ function add_district(listModel) {
 function non_tz_date_parse(timestr) {
   var pat = /([A-Z]+|[+-][0-9]{2}:[0-9]{2})$/;
   if(pat.test(timestr)) {
-    return Date.new(timestr);
+    return new Date(timestr);
   } else {
     var ts;
     var date = new Date();

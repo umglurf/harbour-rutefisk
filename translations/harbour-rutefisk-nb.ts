@@ -203,13 +203,6 @@
     </message>
 </context>
 <context>
-    <name>RealTimeMenuItem</name>
-    <message>
-        <source>Realtime for %1 %2</source>
-        <translation>Sanntidsinformasjon for %1 %2</translation>
-    </message>
-</context>
-<context>
     <name>ShowStops</name>
     <message>
         <source>Stops for %1 %2</source>
