@@ -366,7 +366,7 @@ Page {
                   visible: !walking
                   font.pixelSize: Theme.fontSizeSmall
                   color: Theme.highlightColor
-                  text: walking ? "" : DepartureStop['Name'] + ": " + departure
+                  text: walking ? "" : qsTr("%1: %2 %3").arg(DepartureStop['Name']).arg(departure).arg(DepartureStop['Zone'].length == 0 ? '' : qsTr("Zone %1").arg(DepartureStop['Zone']) )
                 }
               }
 
@@ -408,7 +408,7 @@ Page {
                   visible: !walking
                   font.pixelSize: Theme.fontSizeSmall
                   color: Theme.highlightColor
-                  text: walking ? "" : ArrivalStop['Name'] + ": " + arrival
+                  text: walking ? "" : qsTr("%1: %2 %3").arg(ArrivalStop['Name']).arg(departure).arg(ArrivalStop['Zone'].length == 0 ? '' : qsTr("Zone %1").arg(ArrivalStop['Zone']) )
                 }
               }
 

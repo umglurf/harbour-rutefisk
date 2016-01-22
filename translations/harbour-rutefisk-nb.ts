@@ -252,6 +252,10 @@
         <source>Lines: %1</source>
         <translation>Linjer: %1</translation>
     </message>
+    <message>
+        <source>Zone %1</source>
+        <translation>Sone %1</translation>
+    </message>
 </context>
 <context>
     <name>TravelFromTo</name>
@@ -310,6 +314,14 @@
     <message>
         <source>Show all stops for %1 %2</source>
         <translation>Vis alle stopp for %1 %2</translation>
+    </message>
+    <message>
+        <source>%1: %2 %3</source>
+        <translation>%1 %2 %3</translation>
+    </message>
+    <message>
+        <source>Zone %1</source>
+        <translation>Sone %1</translation>
     </message>
 </context>
 <context>

@@ -277,38 +277,43 @@
         <translation>Linjer: %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="135"/>
+        <location filename="../qml/pages/ShowStops.qml" line="139"/>
+        <source>Zone %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ShowStops.qml" line="150"/>
         <source>Realtime info from %1</source>
         <translation>Realtidsinfo från %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="141"/>
+        <location filename="../qml/pages/ShowStops.qml" line="156"/>
         <source>Realtime info for %1 %2 from %3</source>
         <translation>Realtidsinfo för %1 %2 från %3</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="147"/>
+        <location filename="../qml/pages/ShowStops.qml" line="162"/>
         <source>Travel from %1</source>
         <translation>Res från %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="153"/>
+        <location filename="../qml/pages/ShowStops.qml" line="168"/>
         <source>Travel to %2</source>
         <translation>Res till %2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="192"/>
-        <location filename="../qml/pages/ShowStops.qml" line="196"/>
+        <location filename="../qml/pages/ShowStops.qml" line="207"/>
+        <location filename="../qml/pages/ShowStops.qml" line="211"/>
         <source>min</source>
         <translation>min</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="196"/>
+        <location filename="../qml/pages/ShowStops.qml" line="211"/>
         <source>h</source>
         <translation>tim</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="204"/>
+        <location filename="../qml/pages/ShowStops.qml" line="219"/>
         <source>Error getting stops</source>
         <translation>Kunde inte hämta hållplatser</translation>
     </message>
@@ -364,6 +369,18 @@
         <location filename="../qml/pages/TravelFromTo.qml" line="265"/>
         <source>Walking</source>
         <translation>Promenad</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/TravelFromTo.qml" line="369"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="411"/>
+        <source>%1: %2 %3</source>
+        <translation type="unfinished">%1 %2 %3</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/TravelFromTo.qml" line="369"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="411"/>
+        <source>Zone %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/TravelFromTo.qml" line="453"/>

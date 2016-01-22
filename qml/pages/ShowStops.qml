@@ -78,10 +78,10 @@ Page {
             height: departureLabel.height
           }
           Label {
-              visible: arrivalTime == departureTime
-              text: arrivalTime
-              color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
-              font.pixelSize: Theme.fontSizeSmall
+            visible: arrivalTime == departureTime
+            text: arrivalTime
+            color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+            font.pixelSize: Theme.fontSizeSmall
           }
           Label {
             id: arrivalLabel
@@ -114,14 +114,29 @@ Page {
             height: linesLabel.height
           }
           Label {
-              id: linesLabel
-              text: {
-                  var lines = [];
-                  for(var i=0; i < Lines.count; i++) {
-                      lines.push(Lines.get(i).Name);
-                  }
-                  return qsTr("Lines: %1").arg(lines.join(", "));
+            id: linesLabel
+            text: {
+              var lines = [];
+              for(var i=0; i < Lines.count; i++) {
+                lines.push(Lines.get(i).Name);
               }
+              return qsTr("Lines: %1").arg(lines.join(", "));
+            }
+            color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+            font.pixelSize: Theme.fontSizeSmall
+          }
+        }
+        Row {
+          width: parent.width
+          visible: Zone.length > 0
+
+          Item {
+            width: Theme.paddingLarge
+            height: zoneLabel.height
+          }
+          Label {
+              id: zoneLabel
+              text: qsTr("Zone %1").arg(Zone)
               color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
               font.pixelSize: Theme.fontSizeSmall
           }
