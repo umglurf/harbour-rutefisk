@@ -99,7 +99,7 @@
     <message>
         <location filename="../qml/pages/MainPage.qml" line="127"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="137"/>
@@ -158,7 +158,7 @@
     <message>
         <location filename="../qml/pages/RealTime.qml" line="53"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <location filename="../qml/pages/RealTime.qml" line="59"/>
@@ -221,7 +221,7 @@
     <message>
         <location filename="../qml/pages/RealTimeLine.qml" line="81"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <location filename="../qml/pages/RealTimeLine.qml" line="87"/>
@@ -269,53 +269,53 @@
     <message>
         <location filename="../qml/pages/Settings.qml" line="55"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="59"/>
         <source>Realtime information automatic refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisk uppdatering av realtidsinformation</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="64"/>
         <source>On</source>
-        <translation type="unfinished"></translation>
+        <translation>På</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="64"/>
         <source>Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Av</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="65"/>
         <source>Default setting for automatic refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardinställning för automatisk uppdatering</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="82"/>
         <location filename="../qml/pages/Settings.qml" line="117"/>
         <source>Refresh interval in seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppdateringsintervall i sekunder</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="94"/>
         <source>Cover page</source>
-        <translation type="unfinished"></translation>
+        <translation>Programminiatyr</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="99"/>
         <source>Always</source>
-        <translation type="unfinished"></translation>
+        <translation>Alltid</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="99"/>
         <source>Only when visible</source>
-        <translation type="unfinished"></translation>
+        <translation>Endast vid synlig</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="100"/>
         <source>Automatically refresh cover page realtime information</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppdatera miniatyrens realtidsinformation automatiskt</translation>
     </message>
 </context>
 <context>
@@ -392,7 +392,7 @@
     <message>
         <location filename="../qml/pages/TravelFromTo.qml" line="89"/>
         <source>Journey information</source>
-        <translation>Resinformation</translation>
+        <translation>Reseinformation</translation>
     </message>
     <message>
         <location filename="../qml/pages/TravelFromTo.qml" line="92"/>
@@ -407,7 +407,7 @@
     <message>
         <location filename="../qml/pages/TravelFromTo.qml" line="112"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <location filename="../qml/pages/TravelFromTo.qml" line="118"/>
