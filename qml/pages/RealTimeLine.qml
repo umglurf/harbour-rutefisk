@@ -26,7 +26,7 @@ Page {
   property string stopName
   property string linenumber
   property string destination
-  property bool autorefresh: false
+  property bool autorefresh: realTimeAutoRefresh.value
   property BusyIndicator searchIndicator
   property Label errorLabel
 
@@ -34,6 +34,16 @@ Page {
     id: favoritesConfig
     key: "/apps/rutefisk/favorites"
     defaultValue: "[]"
+  }
+  ConfigurationValue {
+    id: realTimeAutoRefresh
+    key: "/apps/rutefisk/realtime/autorefresh"
+    defaultValue: false
+  }
+  ConfigurationValue {
+    id: realTimeAutoRefreshInterval
+    key: "/apps/rutefisk/realtime/autorefreshinterval"
+    defaultValue: 30
   }
 
   SilicaGridView {
@@ -67,6 +77,12 @@ Page {
       }
 
       PullDownMenu {
+        MenuItem {
+          text: qsTr("Settings")
+          onClicked: {
+            pageStack.push(Qt.resolvedUrl("Settings.qml"));
+          }
+        }
         MenuItem {
           text: qsTr("Add to favorites");
           onClicked: {
@@ -127,7 +143,7 @@ Page {
 
   Timer {
     id: realTimeLineTimer
-    interval: 30000
+    interval: realTimeAutoRefreshInterval.value * 1000
     repeat: true
     triggeredOnStart: false
 
@@ -147,7 +163,7 @@ Page {
       applicationWindow.coverPage.linenumber = realTimeLinePage.linenumber;
       applicationWindow.coverPage.destination = realTimeLinePage.destination;
       if(autorefresh) {
-        realTimeTimer.start();
+        realTimeLineTimer.start();
       }
     } else if(status == PageStatus.Deactivating) {
       realTimeLineTimer.stop();

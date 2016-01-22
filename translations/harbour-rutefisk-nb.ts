@@ -119,6 +119,10 @@
         <source>Favorites</source>
         <translation>Favoritter</translation>
     </message>
+    <message>
+        <source>Settings</source>
+        <translation>Instillinger</translation>
+    </message>
 </context>
 <context>
     <name>RealTime</name>
@@ -162,6 +166,10 @@
         <source>Stop auto refresh</source>
         <translation>Stopp automatisk oppfriskning</translation>
     </message>
+    <message>
+        <source>Settings</source>
+        <translation>Instillinger</translation>
+    </message>
 </context>
 <context>
     <name>RealTimeLine</name>
@@ -200,6 +208,53 @@
     <message>
         <source>Stop auto refresh</source>
         <translation>Stopp automatisk oppfriskning</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Instillinger</translation>
+    </message>
+</context>
+<context>
+    <name>Settings</name>
+    <message>
+        <source>Settings</source>
+        <translation>Instillinger</translation>
+    </message>
+    <message>
+        <source>Realtime information automatic refresh</source>
+        <translation>Automatisk oppfriskning for sanntidsinformasjon</translation>
+    </message>
+    <message>
+        <source>Default setting for automatic refresh</source>
+        <translation>Standard instilling for automatisk oppfriskning</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>På</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Av</translation>
+    </message>
+    <message>
+        <source>Refresh interval in seconds</source>
+        <translation>Oppfriskningsintervall i sekunder</translation>
+    </message>
+    <message>
+        <source>Cover page</source>
+        <translation>Omslag</translation>
+    </message>
+    <message>
+        <source>Always</source>
+        <translation>Alltid</translation>
+    </message>
+    <message>
+        <source>Only when visible</source>
+        <translation>Bare når synlig</translation>
+    </message>
+    <message>
+        <source>Automatically refresh cover page realtime information</source>
+        <translation>Oppfrisk sanntidsinformasjon på omslag automatisk</translation>
     </message>
 </context>
 <context>
@@ -322,6 +377,10 @@
     <message>
         <source>Zone %1</source>
         <translation>Sone %1</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Instillinger</translation>
     </message>
 </context>
 <context>

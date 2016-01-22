@@ -109,6 +109,12 @@ Page {
     }
     PullDownMenu {
       MenuItem {
+          text: qsTr("Settings")
+          onClicked: {
+              pageStack.push(Qt.resolvedUrl("Settings.qml"));
+          }
+      }
+      MenuItem {
         text: qsTr("Add to favorites");
         onClicked: {
           var favorite = {

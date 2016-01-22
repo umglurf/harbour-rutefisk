@@ -124,6 +124,12 @@ Page {
 
     PullDownMenu {
       MenuItem {
+          text: qsTr("Settings")
+          onClicked: {
+              pageStack.push(Qt.resolvedUrl("Settings.qml"));
+          }
+      }
+      MenuItem {
         text: qsTr("Start GPS search")
         onClicked: {
           if(mainpage.state == "TEXT_SEARCH") {
@@ -298,13 +304,13 @@ Page {
 
         function show_realtime() {
           if(PlaceType == "Stop") {
-            pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": [ID], "stopName": Name, "autorefresh": false});
+            pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": [ID], "stopName": Name });
           } else if(PlaceType == "Area") {
             var id = [];
             for(var i=0; i < Stops.count; i++) {
               id.push(Stops.get(i)['ID']);
             }
-            pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": id, "stopName": Name, "autorefresh": false});
+            pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": id, "stopName": Name });
           }
         }
       }

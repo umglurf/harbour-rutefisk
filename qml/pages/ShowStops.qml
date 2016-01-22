@@ -149,7 +149,7 @@ Page {
         MenuItem {
           text: qsTr("Realtime info from %1").arg(Name)
           onClicked: {
-            pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": [ID], "stopName": Name, "autorefresh": false });
+            pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": [ID], "stopName": Name });
           }
         }
         MenuItem {

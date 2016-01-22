@@ -24,12 +24,22 @@ Page {
   id: realTimePage
   property var stopID
   property string stopName
-  property bool autorefresh
+  property bool autorefresh: realTimeAutoRefresh.value
 
   ConfigurationValue {
     id: favoritesConfig
     key: "/apps/rutefisk/favorites"
     defaultValue: "[]"
+  }
+  ConfigurationValue {
+    id: realTimeAutoRefresh
+    key: "/apps/rutefisk/realtime/autorefresh"
+    defaultValue: false
+  }
+  ConfigurationValue {
+    id: realTimeAutoRefreshInterval
+    key: "/apps/rutefisk/realtime/autorefreshinterval"
+    defaultValue: 30
   }
 
   SilicaFlickable {
@@ -39,6 +49,12 @@ Page {
 
 
     PullDownMenu {
+      MenuItem {
+          text: qsTr("Settings")
+          onClicked: {
+              pageStack.push(Qt.resolvedUrl("Settings.qml"));
+          }
+      }
       MenuItem {
         text: qsTr("Add to favorites");
         onClicked: {
@@ -77,7 +93,6 @@ Page {
       MenuItem {
         text: qsTr("Refresh");
         onClicked: {
-          //pageStack.replace(Qt.resolvedUrl("RealTime.qml"), { "stopID": stopID, "stopName": stopName, "autorefresh": autorefresh}, PageStackAction.Immediate);
           for(var stopIndex=0; stopIndex < realTimePage.stopID.length; stopIndex++) {
             realTimeModel.update(realTimePage.stopID[stopIndex]);
           }
@@ -223,7 +238,7 @@ Page {
 
     Timer {
       id: realTimeTimer
-      interval: 30000
+      interval: realTimeAutoRefreshInterval.value * 1000
       repeat: true
       triggeredOnStart: false
 
