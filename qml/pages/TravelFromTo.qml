@@ -16,7 +16,6 @@ This file is part of harbour-rutefisk.
 */
 
 import QtQuick 2.0
-import QtGraphicalEffects 1.0
 import org.nemomobile.configuration 1.0
 import Sailfish.Silica 1.0
 import "../scripts/rutefisk.js" as RuteFisk
@@ -270,39 +269,10 @@ Page {
                 color: Theme.highlightColor
                 text: walking ? qsTr("Walking") : LineName
               }
-              Item {
+              TransportIcon {
                 height: lineLabel.height
                 width: lineLabel.height
-                Image {
-                  id: lineIcon
-                  anchors.fill: parent
-                  Component.onCompleted: {
-                    if(Transportation == "0") { //walking
-                      parent.visible = false
-                    } else if(Transportation == "1") { //airportbus
-                      source = "../icons/bus.svg"
-                    } else if(Transportation == "2") { //bus
-                      source = "../icons/bus.svg"
-                    } else if(Transportation == "3") { //dummy
-                      parent.visible = false
-                    } else if(Transportation == "4") { //airporttrain
-                      source = "../icons/train.svg"
-                    } else if(Transportation == "5") { //boat
-                      source = "../icons/boat.svg"
-                    } else if(Transportation == "6") { //train
-                      source = "../icons/train.svg"
-                    } else if(Transportation == "7") { //tram
-                      source = "../icons/tram.svg"
-                    } else if(Transportation == "8") { //metro
-                      source = "../icons/metro.svg"
-                    }
-                  }
-                }
-                ColorOverlay {
-                  anchors.fill: lineIcon
-                  source: lineIcon
-                  color: Theme.highlightColor
-                }
+                transportation: Transportation
               }
             }
           }
@@ -317,41 +287,12 @@ Page {
 
             delegate: Column {
               Row {
-                Item {
-                  visible: !walking
-                  height: lineLabel.height
-                  width: lineLabel.height
-                  Image {
-                    id: lineIcon
-                    anchors.fill: parent
-                    Component.onCompleted: {
-                      if(Transportation == "0") { //walking
-                        parent.visible = false
-                      } else if(Transportation == "1") { //airportbus
-                        source = "../icons/bus.svg"
-                      } else if(Transportation == "2") { //bus
-                        source = "../icons/bus.svg"
-                      } else if(Transportation == "3") { //dummy
-                        parent.visible = false
-                      } else if(Transportation == "4") { //airporttrain
-                        source = "../icons/train.svg"
-                      } else if(Transportation == "5") { //boat
-                        source = "../icons/boat.svg"
-                      } else if(Transportation == "6") { //train
-                        source = "../icons/train.svg"
-                      } else if(Transportation == "7") { //tram
-                        source = "../icons/tram.svg"
-                      } else if(Transportation == "8") { //metro
-                        source = "../icons/metro.svg"
-                      }
-                    }
+                  TransportIcon {
+                      visible: !walking
+                      height: lineLabel.height
+                      width: lineLabel.height
+                      transportation: Transportation
                   }
-                  ColorOverlay {
-                    anchors.fill: lineIcon
-                    source: lineIcon
-                    color: Theme.highlightColor
-                  }
-                }
                 Label {
                   id: lineLabel
                   visible: !walking
