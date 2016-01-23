@@ -165,7 +165,7 @@ Page {
                         TransportIcon {
                             width: lineLabel.height
                             height: lineLabel.height
-                            transportation: RuteFisk.lines[linenumber] === undefined ? "3" : RuteFisk.lines[linenumber]
+                            transportation: RuteFisk.lines[lineRef] === undefined ? "3" : RuteFisk.lines[lineRef]
                         }
                         Label {
                           id: lineLabel
@@ -320,6 +320,7 @@ Page {
               line['line'] = data[index]['MonitoredVehicleJourney']['PublishedLineName'] + data[index]['MonitoredVehicleJourney']['DestinationName'];
               line['lineColor'] = "#" + data[index]['Extensions']['LineColour'];
               line['linenumber'] = data[index]['MonitoredVehicleJourney']['PublishedLineName'];
+              line['lineRef'] = data[index]['MonitoredVehicleJourney']['LineRef'];
               line['destination'] = data[index]['MonitoredVehicleJourney']['DestinationName'];
               line['origin'] = data[index]['MonitoredVehicleJourney']['OriginName'] ? data[index]['MonitoredVehicleJourney']['OriginName'] : "";
               line['departures'] = [];

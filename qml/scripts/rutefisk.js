@@ -63,6 +63,7 @@ function non_tz_date_parse(timestr) {
 }
 
 var lines = {};
+var lineNumbers = {};
 var lines_finished = false;
 if (!lines_finished) {
     get_lines();
@@ -75,7 +76,8 @@ function get_lines() {
       lines_finished = true;
       var data = JSON.parse(xhr.responseText);
       for(var index=0; index < data.length; index++) {
-          lines[data[index]['Name']] = data[index]['Transportation'];
+          lines[data[index]['ID']] = data[index]['Transportation'];
+          lineNumbers[data[index]['Name']] = data[index]['ID'];
       };
     };
   };

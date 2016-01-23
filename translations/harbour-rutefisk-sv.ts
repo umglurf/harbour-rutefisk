@@ -196,17 +196,17 @@
         <translation>Plattform %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="337"/>
+        <location filename="../qml/pages/RealTime.qml" line="338"/>
         <source>sec</source>
         <translation>sek</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="339"/>
+        <location filename="../qml/pages/RealTime.qml" line="340"/>
         <source>min</source>
         <translation>min</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="375"/>
+        <location filename="../qml/pages/RealTime.qml" line="376"/>
         <source>Error getting stop information</source>
         <translation>Kunde inte hämta hållplatsinformation</translation>
     </message>

@@ -52,8 +52,8 @@ Page {
   }
 
   Component.onCompleted: {
-    for(var line in RuteFisk.lines) {
-        if(RuteFisk.lines.hasOwnProperty(line)) {
+    for(var line in RuteFisk.lineNumbers) {
+        if(RuteFisk.lineNumbers.hasOwnProperty(line)) {
           if(lines.indexOf(line) == -1) {
             available_lines[line] = 1;
           } else {
