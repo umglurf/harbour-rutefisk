@@ -484,133 +484,133 @@
 <context>
     <name>TravelFromToOptions</name>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="93"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="88"/>
         <source>Travel search options</source>
         <translation>Sökalternativ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="97"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="92"/>
         <source>Search</source>
         <translation>Sök</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="128"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="123"/>
         <source>Travel time</source>
         <translation>Restid</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="131"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="126"/>
         <source>Travel is to start after selected time and date or before</source>
         <translation>Resan skall starta efter eller före angiven tid och datum</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="132"/>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="139"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="127"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="134"/>
         <source>Before</source>
         <translation>Före</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="137"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="132"/>
         <source>After</source>
         <translation>Efter</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="149"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="144"/>
         <source>Change date</source>
         <translation>Ändra datum</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="168"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="163"/>
         <source>Change time</source>
         <translation>Ändra tid</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="183"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="178"/>
         <source>Lines</source>
         <translation>Linjer</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="189"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="184"/>
         <source>Add line number</source>
         <translation>Lägg till linjenummer</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="238"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="233"/>
         <source>Removing</source>
         <translation>Tar bort</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="251"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="246"/>
         <source>Transport types</source>
         <translation>Transporttyp</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="254"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="249"/>
         <source>Bus</source>
         <translation>Buss</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="261"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="256"/>
         <source>Metro</source>
         <translation>T-bana</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="268"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="263"/>
         <source>Tram</source>
         <translation>Spårvagn</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="275"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="270"/>
         <source>Train</source>
         <translation>Tåg</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="282"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="277"/>
         <source>Boat</source>
         <translation>Båt</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="289"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="284"/>
         <source>Airport bus</source>
         <translation>Flygplatsbuss</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="296"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="291"/>
         <source>Airport train</source>
         <translation>Flygplatståg</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="304"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="299"/>
         <source>Change options</source>
         <translation>Ändra alternativ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="312"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="307"/>
         <source>Minutes needed for interchange</source>
         <translation>Minuter som behövs för byte</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="327"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="322"/>
         <source>Minutes punishment for an interchange</source>
         <translation>Tidstillägg för ett byte</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="338"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="333"/>
         <source>Walking</source>
         <translation>Promenad</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="346"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="341"/>
         <source>Walking speed</source>
         <translation>Gånghastighet</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="347"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="342"/>
         <source>m/min</source>
         <translation>m/min</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromToOptions.qml" line="361"/>
+        <location filename="../qml/pages/TravelFromToOptions.qml" line="356"/>
         <source>Maximum minutes to walk to a stop</source>
         <translation>Maxtid för promenad till en hållplats</translation>
     </message>

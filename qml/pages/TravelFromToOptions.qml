@@ -17,6 +17,7 @@ This file is part of harbour-rutefisk.
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "../scripts/rutefisk.js" as RuteFisk
 
 Page {
   id: travelFromToOptionsPage
@@ -51,30 +52,24 @@ Page {
   }
 
   Component.onCompleted: {
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-      if(xhr.readyState == 4 && xhr.status == 200) {
-        var data = JSON.parse(xhr.responseText);
-        for(var index=0; index < data.length; index++) {
-          if(lines.indexOf(data[index]['Name']) == -1) {
-            available_lines[data[index]['Name']] = 1;
+    for(var line in RuteFisk.lines) {
+        if(RuteFisk.lines.hasOwnProperty(line)) {
+          if(lines.indexOf(line) == -1) {
+            available_lines[line] = 1;
           } else {
-            available_lines[data[index]['Name']] = 0;
+            available_lines[line] = 0;
           }
-        };
-      };
-    };
-    xhr.open("GET", "http://reisapi.ruter.no/Line/GetLines", true);
-    xhr.send();
+        }
+    }
   }
 
   ListModel {
     id: linesModel
 
     Component.onCompleted: {
-        for(var i=0; i < lines.length; i++) {
-            append({"line": lines[i]});
-        }
+      for(var i=0; i < lines.length; i++) {
+        append({"line": lines[i]});
+      }
     }
   }
 
@@ -98,7 +93,7 @@ Page {
         onClicked: {
           var l = [];
           for(var i = 0; i < linesModel.count; i++) {
-              l.push(linesModel.get(i).line);
+            l.push(linesModel.get(i).line);
           }
           pageStack.push(Qt.resolvedUrl("TravelFromTo.qml"), {
                            "fromID": fromID,

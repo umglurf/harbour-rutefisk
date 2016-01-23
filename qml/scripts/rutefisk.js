@@ -15,6 +15,8 @@ This file is part of harbour-rutefisk.
     along with harbour-rutefisk.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+.pragma library
+
 function add_district(listModel) {
   var places = {};
   for(var i=0; i < listModel.count; i++) {
@@ -58,4 +60,23 @@ function non_tz_date_parse(timestr) {
     }
     return new Date(timestr + ts);
   }
+}
+
+var lines = {};
+var lines_finished = false;
+if (!lines_finished) {
+  console.log("Getting lines");
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if(xhr.readyState == 4 && xhr.status == 200) {
+      lines_finished = true;
+      console.log("Got line data");
+      var data = JSON.parse(xhr.responseText);
+      for(var index=0; index < data.length; index++) {
+          lines[data[index]['Name']] = data[index]['Transportation'];
+      };
+    };
+  };
+  xhr.open("GET", "http://reisapi.ruter.no/Line/GetLines", true);
+  xhr.send();
 }
