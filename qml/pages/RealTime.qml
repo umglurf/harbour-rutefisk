@@ -153,21 +153,29 @@ Page {
                   Row {
                     width: parent.width
                     Item {
-                      width: Theme.paddingMedium
+                      width: Theme.paddingSmall
                       height: lineDataColumn.height
                     }
                     Column {
                       id: lineDataColumn
                       width: parent.width - Theme.paddingSmall
-                      Label {
-                        text: linenumber + " " + destination
-                        color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+                      Row {
+                        TransportIcon {
+                            width: lineLabel.height
+                            height: lineLabel.height
+                            transportation: RuteFisk.lines[linenumber] === undefined ? "3" : RuteFisk.lines[linenumber]
+                        }
+                        Label {
+                          id: lineLabel
+                          text: linenumber + " " + destination
+                          color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+                        }
                       }
                       Row {
                         visible: false
                         width: parent.width
                         Item {
-                          width: Theme.paddingMedium
+                          width: Theme.paddingLarge
                           height: Theme.paddingMedium
                         }
                         Label {
@@ -192,14 +200,14 @@ Page {
                       Row {
                         width: parent.width
                         Item {
-                          width: Theme.paddingMedium
+                          width: Theme.paddingLarge
                           height: departuresGrid.height
                         }
 
                         Grid {
                           id: departuresGrid
                           property int maxwidth: Theme.itemSizeSmall
-                          width: parent.width - Theme.paddingMedium
+                          width: parent.width - Theme.paddingLarge
                           columnSpacing: Theme.paddingMedium
                           columns: width / maxwidth
 
@@ -280,6 +288,7 @@ Page {
     id: realTimeModel
 
     function update(stopID) {
+      RuteFisk.get_lines();
       var xhr = new XMLHttpRequest()
       searchIndicator.visible = true;
       searchIndicator.running = true;

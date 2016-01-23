@@ -169,6 +169,7 @@ Page {
       MenuItem {
         text: qsTr("Search options");
         onClicked: {
+          RuteFisk.get_lines();
           pageStack.push(Qt.resolvedUrl("TravelFromToOptions.qml"), {
                            "fromID": fromID,
                            "fromName": fromName,

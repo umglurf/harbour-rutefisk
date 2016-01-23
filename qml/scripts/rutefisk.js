@@ -65,18 +65,22 @@ function non_tz_date_parse(timestr) {
 var lines = {};
 var lines_finished = false;
 if (!lines_finished) {
-  console.log("Getting lines");
+    get_lines();
+}
+
+function get_lines() {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if(xhr.readyState == 4 && xhr.status == 200) {
       lines_finished = true;
-      console.log("Got line data");
       var data = JSON.parse(xhr.responseText);
       for(var index=0; index < data.length; index++) {
           lines[data[index]['Name']] = data[index]['Transportation'];
       };
     };
   };
-  xhr.open("GET", "http://reisapi.ruter.no/Line/GetLines", true);
-  xhr.send();
+  if(!lines_finished) {
+    xhr.open("GET", "http://reisapi.ruter.no/Line/GetLines", true);
+    xhr.send();
+  }
 }

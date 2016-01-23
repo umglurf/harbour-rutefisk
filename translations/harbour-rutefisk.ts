@@ -196,17 +196,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="326"/>
+        <location filename="../qml/pages/RealTime.qml" line="335"/>
         <source>sec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="328"/>
+        <location filename="../qml/pages/RealTime.qml" line="337"/>
         <source>min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="364"/>
+        <location filename="../qml/pages/RealTime.qml" line="373"/>
         <source>Error getting stop information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -430,53 +430,53 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="215"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="216"/>
         <source>Realtime for %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="225"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="226"/>
         <source>Show all stops for %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="270"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="271"/>
         <source>Walking</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="316"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="358"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="317"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="359"/>
         <source>%1: %2 %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="316"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="358"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="317"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="359"/>
         <source>Zone %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="400"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="401"/>
         <source>Walking %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="444"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="448"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="462"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="466"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="445"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="449"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="463"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="467"/>
         <source>min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="448"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="466"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="449"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="467"/>
         <source>h</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="479"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="480"/>
         <source>Error getting travel search result</source>
         <translation type="unfinished"></translation>
     </message>
