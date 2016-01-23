@@ -20,7 +20,7 @@ import QtGraphicalEffects 1.0
 import Sailfish.Silica 1.0
 
 Item {
-  property string transportation
+  property string transportation: "3"
   visible: transportation != "0" && transportation != "3"
 
   Image {
@@ -37,13 +37,13 @@ Item {
         return "";
       } else if(transportation == "4") { //airporttrain
         return "../icons/train.svg";
-      } else if(Transportation == "5") { //boat
+      } else if(transportation == "5") { //boat
         return "../icons/boat.svg";
-      } else if(Transportation == "6") { //train
+      } else if(transportation == "6") { //train
         return "../icons/train.svg";
-      } else if(Transportation == "7") { //tram
+      } else if(transportation == "7") { //tram
         return "../icons/tram.svg";
-      } else if(Transportation == "8") { //metro
+      } else if(transportation == "8") { //metro
         return "../icons/metro.svg";
       }
     }
