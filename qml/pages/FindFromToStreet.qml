@@ -53,6 +53,8 @@ Page {
     Label {
       id: errorLabel
       visible: false
+      color: Theme.highlightColor
+      font.family: Theme.fontFamilyHeading
     }
 
   }

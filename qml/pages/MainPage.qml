@@ -237,6 +237,8 @@ Page {
       Label {
         id: errorLabel
         visible: false
+        color: Theme.highlightColor
+        font.family: Theme.fontFamilyHeading
         Component.onCompleted: {
           mainpage.errorLabel = this;
         }

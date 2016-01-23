@@ -22,17 +22,17 @@
         <translation>Favoriter</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="88"/>
+        <location filename="../qml/pages/Favorites.qml" line="90"/>
         <source>%1 %2 from %3</source>
         <translation>%1 %2 från %3</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="121"/>
+        <location filename="../qml/pages/Favorites.qml" line="123"/>
         <source>Remove</source>
         <translation>Ta bort</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="152"/>
+        <location filename="../qml/pages/Favorites.qml" line="154"/>
         <source>Error removing item</source>
         <translation>Kunde inte ta bort objektet</translation>
     </message>
@@ -60,7 +60,7 @@
         <translation>Sök startpunkt</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FindFromTo.qml" line="151"/>
+        <location filename="../qml/pages/FindFromTo.qml" line="153"/>
         <source>Error getting stops</source>
         <translation>Kunde inte hämta hållplatser</translation>
     </message>
@@ -73,7 +73,7 @@
         <translation>Husnummer i %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FindFromToStreet.qml" line="142"/>
+        <location filename="../qml/pages/FindFromToStreet.qml" line="144"/>
         <source>Error getting houses</source>
         <translation>Kunde inte hämta adresser</translation>
     </message>
@@ -132,23 +132,23 @@
         <translation>meter</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="271"/>
+        <location filename="../qml/pages/MainPage.qml" line="273"/>
         <source>Realtime info</source>
         <translation>Realtidsinfo</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="276"/>
+        <location filename="../qml/pages/MainPage.qml" line="278"/>
         <source>Travel from here</source>
         <translation>Res härifrån</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="286"/>
+        <location filename="../qml/pages/MainPage.qml" line="288"/>
         <source>Travel to here</source>
         <translation>Res hit</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="348"/>
-        <location filename="../qml/pages/MainPage.qml" line="376"/>
+        <location filename="../qml/pages/MainPage.qml" line="350"/>
+        <location filename="../qml/pages/MainPage.qml" line="378"/>
         <source>Error getting stops</source>
         <translation>Kunde inte hämta hållplatser</translation>
     </message>
@@ -191,22 +191,22 @@
         <translation>Resor från %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="134"/>
+        <location filename="../qml/pages/RealTime.qml" line="136"/>
         <source>Platform %1</source>
         <translation>Plattform %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="335"/>
+        <location filename="../qml/pages/RealTime.qml" line="337"/>
         <source>sec</source>
         <translation>sek</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="337"/>
+        <location filename="../qml/pages/RealTime.qml" line="339"/>
         <source>min</source>
         <translation>min</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="373"/>
+        <location filename="../qml/pages/RealTime.qml" line="375"/>
         <source>Error getting stop information</source>
         <translation>Kunde inte hämta hållplatsinformation</translation>
     </message>
@@ -219,47 +219,47 @@
         <translation>%1 %2 från %3</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="81"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="83"/>
         <source>Settings</source>
         <translation>Inställningar</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="87"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="89"/>
         <source>Add to favorites</source>
         <translation>Lägg till i Favoriter</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="108"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="110"/>
         <source>Error adding favorite</source>
         <translation>Kunde inte lägga till favorit</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="113"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="115"/>
         <source>Auto Refresh</source>
         <translation>Uppdatera automatiskt</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="113"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="115"/>
         <source>Stop auto refresh</source>
         <translation>Stoppa automatisk uppdatering</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="124"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="126"/>
         <source>Refresh</source>
         <translation>Uppdatera</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="200"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="202"/>
         <source>sec</source>
         <translation>sek</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="202"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="204"/>
         <source>min</source>
         <translation>min</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeLine.qml" line="218"/>
+        <location filename="../qml/pages/RealTimeLine.qml" line="220"/>
         <source>Error getting stop information</source>
         <translation>Kunde inte hämta hållplatsinformation</translation>
     </message>
@@ -326,63 +326,63 @@
         <translation>Hållplatser för %1 %2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="70"/>
+        <location filename="../qml/pages/ShowStops.qml" line="72"/>
         <source>%1 (%2)</source>
         <translation>%1 (%2)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="89"/>
+        <location filename="../qml/pages/ShowStops.qml" line="91"/>
         <source>Arrival: %1</source>
         <translation>Ankomst: %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="102"/>
+        <location filename="../qml/pages/ShowStops.qml" line="104"/>
         <source>Departure: %1</source>
         <translation>Avgång: %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="123"/>
+        <location filename="../qml/pages/ShowStops.qml" line="125"/>
         <source>Lines: %1</source>
         <translation>Linjer: %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="139"/>
+        <location filename="../qml/pages/ShowStops.qml" line="141"/>
         <source>Zone %1</source>
         <translation>Zon %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="150"/>
+        <location filename="../qml/pages/ShowStops.qml" line="152"/>
         <source>Realtime info from %1</source>
         <translation>Realtidsinfo från %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="156"/>
+        <location filename="../qml/pages/ShowStops.qml" line="158"/>
         <source>Realtime info for %1 %2 from %3</source>
         <translation>Realtidsinfo för %1 %2 från %3</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="162"/>
+        <location filename="../qml/pages/ShowStops.qml" line="164"/>
         <source>Travel from %1</source>
         <translation>Res från %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="168"/>
+        <location filename="../qml/pages/ShowStops.qml" line="170"/>
         <source>Travel to %2</source>
         <translation>Res till %2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="207"/>
-        <location filename="../qml/pages/ShowStops.qml" line="211"/>
+        <location filename="../qml/pages/ShowStops.qml" line="209"/>
+        <location filename="../qml/pages/ShowStops.qml" line="213"/>
         <source>min</source>
         <translation>min</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="211"/>
+        <location filename="../qml/pages/ShowStops.qml" line="213"/>
         <source>h</source>
         <translation>tim</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ShowStops.qml" line="219"/>
+        <location filename="../qml/pages/ShowStops.qml" line="221"/>
         <source>Error getting stops</source>
         <translation>Kunde inte hämta hållplatser</translation>
     </message>
@@ -390,93 +390,93 @@
 <context>
     <name>TravelFromTo</name>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="88"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="90"/>
         <source>Journey information</source>
         <translation>Reseinformation</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="91"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="93"/>
         <source>From %1</source>
         <translation>Från %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="96"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="98"/>
         <source>To %1</source>
         <translation>Till %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="111"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="113"/>
         <source>Settings</source>
         <translation>Inställningar</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="117"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="119"/>
         <source>Add to favorites</source>
         <translation>Lägg till i Favoriter</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="152"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="154"/>
         <source>Error adding favorite</source>
         <translation>Kunde inte lägga till favorit</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="157"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="159"/>
         <source>Switch from and to</source>
         <translation>Byt riktning</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="170"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="172"/>
         <source>Search options</source>
         <translation>Sökalternativ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="216"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="218"/>
         <source>Realtime for %1 %2</source>
         <translation>Realtid för %1 %2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="226"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="228"/>
         <source>Show all stops for %1 %2</source>
         <translation>Visa alla hållplatser för %1 %2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="271"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="273"/>
         <source>Walking</source>
         <translation>Promenad</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="317"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="359"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="319"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="361"/>
         <source>%1: %2 %3</source>
         <translation>%1: %2 %3</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="317"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="359"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="319"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="361"/>
         <source>Zone %1</source>
         <translation>Zon %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="401"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="403"/>
         <source>Walking %1</source>
         <translation>Promenad %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="445"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="449"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="463"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="467"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="447"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="451"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="465"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="469"/>
         <source>min</source>
         <translation>min</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="449"/>
-        <location filename="../qml/pages/TravelFromTo.qml" line="467"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="451"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="469"/>
         <source>h</source>
         <translation>tim</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TravelFromTo.qml" line="480"/>
+        <location filename="../qml/pages/TravelFromTo.qml" line="482"/>
         <source>Error getting travel search result</source>
         <translation>Kunde inte hämta sökresultat</translation>
     </message>

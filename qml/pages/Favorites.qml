@@ -47,6 +47,8 @@ Page {
           }
           Label {
               visible: false
+              color: Theme.highlightColor
+              font.family: Theme.fontFamilyHeading
               Component.onCompleted: {
                   favorites.errorLabel = this;
               }

@@ -70,6 +70,8 @@ Page {
           }
           Label {
               visible: false
+              color: Theme.highlightColor
+              font.family: Theme.fontFamilyHeading
               Component.onCompleted: {
                   realTimeLinePage.errorLabel = this;
               }

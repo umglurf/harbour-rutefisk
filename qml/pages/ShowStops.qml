@@ -54,6 +54,8 @@ Page {
       }
       Label {
         visible: false
+        color: Theme.highlightColor
+        font.family: Theme.fontFamilyHeading
         Component.onCompleted: {
           showStopsPage.errorLabel = this;
         }

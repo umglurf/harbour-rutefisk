@@ -73,6 +73,8 @@ Page {
 
       Label {
         text: errorstring
+        color: Theme.highlightColor
+        font.family: Theme.fontFamilyHeading
       }
     }
   }
@@ -267,7 +269,7 @@ Page {
               Label {
                 id: lineLabel
                 font.pixelSize: Theme.fontSizeSmall
-                color: Theme.highlightColor
+                color: linesListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
                 text: walking ? qsTr("Walking") : LineName
               }
               TransportIcon {
@@ -298,7 +300,7 @@ Page {
                   id: lineLabel
                   visible: !walking
                   font.pixelSize: Theme.fontSizeSmall
-                  color: Theme.highlightColor
+                  color: linesListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
                   text: LineName + " " + Destination + " (" + traveltime + ")"
                 }
               }
@@ -313,7 +315,7 @@ Page {
                   id: departureLabel
                   visible: !walking
                   font.pixelSize: Theme.fontSizeSmall
-                  color: Theme.highlightColor
+                  color: linesListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
                   text: walking ? "" : qsTr("%1: %2 %3").arg(DepartureStop['Name']).arg(departure).arg(DepartureStop['Zone'].length == 0 ? '' : qsTr("Zone %1").arg(DepartureStop['Zone']) )
                 }
               }
@@ -328,7 +330,7 @@ Page {
                   id: departureDeviationLabel
                   visible: !walking
                   font.pixelSize: Theme.fontSizeExtraSmall
-                  color: Theme.highlightColor
+                  color: linesListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
                   Component.onCompleted: {
                     if(!walking) {
                       if(DepartureStop['Deviations'].length > 0) {
@@ -355,7 +357,7 @@ Page {
                   id: arrivalLabel
                   visible: !walking
                   font.pixelSize: Theme.fontSizeSmall
-                  color: Theme.highlightColor
+                  color: linesListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
                   text: walking ? "" : qsTr("%1: %2 %3").arg(ArrivalStop['Name']).arg(departure).arg(ArrivalStop['Zone'].length == 0 ? '' : qsTr("Zone %1").arg(ArrivalStop['Zone']) )
                 }
               }
@@ -370,7 +372,7 @@ Page {
                   id: arrivalDeviationLabel
                   visible: !walking
                   font.pixelSize: Theme.fontSizeExtraSmall
-                  color: Theme.highlightColor
+                  color: linesListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
                   Component.onCompleted: {
                     if(!walking) {
                       if(ArrivalStop['Deviations'].length > 0) {
@@ -397,7 +399,7 @@ Page {
                   id: walkingLabel
                   visible: walking
                   font.pixelSize: Theme.fontSizeSmall
-                  color: Theme.highlightColor
+                  color: linesListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
                   text: qsTr("Walking %1").arg(traveltime)
                 }
               }
