@@ -358,7 +358,7 @@ Page {
                   visible: !walking
                   font.pixelSize: Theme.fontSizeSmall
                   color: linesListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
-                  text: walking ? "" : qsTr("%1: %2 %3").arg(ArrivalStop['Name']).arg(departure).arg(ArrivalStop['Zone'].length == 0 ? '' : qsTr("Zone %1").arg(ArrivalStop['Zone']) )
+                  text: walking ? "" : qsTr("%1: %2 %3").arg(ArrivalStop['Name']).arg(arrival).arg(ArrivalStop['Zone'].length == 0 ? '' : qsTr("Zone %1").arg(ArrivalStop['Zone']) )
                 }
               }
 
