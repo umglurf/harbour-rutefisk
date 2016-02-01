@@ -29,12 +29,12 @@
     <message>
         <location filename="../qml/pages/Favorites.qml" line="133"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <location filename="../qml/pages/Favorites.qml" line="164"/>
         <source>Error removing item</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte ta bort objektet</translation>
     </message>
 </context>
 <context>
