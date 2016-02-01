@@ -69,7 +69,15 @@ Page {
                 var val = JSON.parse(favorites[i]);
                 if(val['type'] == 'realTime') {
                   val['stopID'] = JSON.stringify(val['stopID']); //avoid array getting lost in ListModel
+                } else if(val['type'] == 'journey') {
+                    // add lines if this favourite has been save before lines was available
+                    if(!val.hasOwnProperty('lines')) {
+                        val['lines'] = "[]";
+                    } else {
+                        val['lines'] = JSON.stringify(val['lines']); //avoid array getting lost in ListModel
+                    }
                 }
+
                 append(val);
               }
           }
@@ -93,6 +101,7 @@ Page {
           }
           onClicked: {
               if(type == "journey") {
+                var l = JSON.parse(lines);
                 pageStack.push(Qt.resolvedUrl("TravelFromTo.qml"), {
                                  "fromID": fromID,
                                  "fromName": fromName,
@@ -109,7 +118,8 @@ Page {
                                  "train": train,
                                  "boat": boat,
                                  "metro": metro,
-                                 "tram": tram
+                                 "tram": tram,
+                                 "lines": l
                                });
               } else if(type == "realTime") {
                 var s = JSON.parse(stopID);

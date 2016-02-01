@@ -136,7 +136,8 @@ Page {
             "train": train,
             "boat": boat,
             "metro": metro,
-            "tram": tram
+            "tram": tram,
+            "lines": lines
           };
           try {
             var favorites = JSON.parse(favoritesConfig.value);

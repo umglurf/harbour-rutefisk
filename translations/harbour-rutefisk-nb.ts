@@ -16,19 +16,19 @@
     <name>Favorites</name>
     <message>
         <source>Favorites</source>
-        <translation>Favoritter</translation>
+        <translation type="unfinished">Favoritter</translation>
     </message>
     <message>
         <source>%1 %2 from %3</source>
-        <translation>%1 %2 fra %3</translation>
+        <translation type="unfinished">%1 %2 fra %3</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Fjern</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error removing item</source>
-        <translation>Feil ved fjerning av element</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
