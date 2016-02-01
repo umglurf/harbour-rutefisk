@@ -49,6 +49,7 @@ Page {
 
 
     PullDownMenu {
+      width: parent.width
       MenuItem {
           text: qsTr("Settings")
           onClicked: {
