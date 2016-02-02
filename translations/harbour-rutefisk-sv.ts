@@ -4,12 +4,12 @@
 <context>
     <name>CoverPage</name>
     <message>
-        <location filename="../qml/cover/CoverPage.qml" line="130"/>
+        <location filename="../qml/cover/CoverPage.qml" line="141"/>
         <source>sec</source>
         <translation>sek</translation>
     </message>
     <message>
-        <location filename="../qml/cover/CoverPage.qml" line="132"/>
+        <location filename="../qml/cover/CoverPage.qml" line="143"/>
         <source>min</source>
         <translation>min</translation>
     </message>

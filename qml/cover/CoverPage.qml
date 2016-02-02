@@ -41,6 +41,16 @@ CoverBackground {
     defaultValue: 30
   }
 
+  CoverActionList {
+      id: coverAction
+      CoverAction {
+          iconSource: "image://theme/icon-cover-sync"
+          onTriggered: {
+              departureTimer.restart();
+          }
+      }
+  }
+
   Image {
     id: coverImage
     source: "cover.svg";
@@ -60,7 +70,8 @@ CoverBackground {
     x: Theme.paddingMedium
     y: Theme.paddingMedium + Theme.paddingSmall
     width: parent.width - 2*x
-    height: 4*itemHeight + 2*Theme.paddingSmall
+    //height: 3*itemHeight + 2*Theme.paddingSmall
+    height: parent.height - itemHeight - 2*Theme.paddingSmall
     spacing: Theme.paddingSmall
 
     delegate:  Column {
@@ -238,6 +249,10 @@ CoverBackground {
         }
       }
       PropertyChanges {
+        target: coverAction;
+        enabled: false
+      }
+      PropertyChanges {
         target: coverImage;
         visible: true
       }
@@ -252,6 +267,10 @@ CoverBackground {
     },
     State {
       name: "REALTIME_VIEW"
+      PropertyChanges {
+        target: coverAction;
+        enabled: true
+      }
       PropertyChanges {
         target: coverImage;
         visible: false
@@ -280,6 +299,10 @@ CoverBackground {
     State {
       name: "TRAVEL_VIEW"
       PropertyChanges {
+        target: coverAction;
+        enabled: false
+      }
+      PropertyChanges {
         target: coverImage;
         visible: false
       }
@@ -301,12 +324,10 @@ CoverBackground {
 
   onStatusChanged: {
     if(state == "REALTIME_VIEW" || state == "REALTIME_LINE_VIEW") {
-      if(!coverPageAlwaysRefresh.value) {
-        if(cover.status == Cover.Activating) {
-          departureTimer.restart();
-        } else if (cover.status == Cover.Deactivating){
-          departureTimer.stop();
-        }
+      if(cover.status == Cover.Activating) {
+        departureTimer.restart();
+      } else if (cover.status == Cover.Deactivating && !coverPageAlwaysRefresh.value){
+        departureTimer.stop();
       }
     }
   }
