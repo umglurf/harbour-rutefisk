@@ -19,12 +19,12 @@
     <message>
         <location filename="../qml/pages/Favorites.qml" line="46"/>
         <source>Favorites</source>
-        <translation type="unfinished">Favoriter</translation>
+        <translation>Favoriter</translation>
     </message>
     <message>
         <location filename="../qml/pages/Favorites.qml" line="98"/>
         <source>%1 %2 from %3</source>
-        <translation type="unfinished">%1 %2 från %3</translation>
+        <translation>%1 %2 från %3</translation>
     </message>
     <message>
         <location filename="../qml/pages/Favorites.qml" line="133"/>
@@ -196,17 +196,27 @@
         <translation>Plattform %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="339"/>
+        <location filename="../qml/pages/RealTime.qml" line="249"/>
+        <source>Realtime for %1 %2</source>
+        <translation>Realtid för %1 %2</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealTime.qml" line="256"/>
+        <source>Show all stops for %1 %2</source>
+        <translation>Visa alla hållplatser för %1 %2</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealTime.qml" line="359"/>
         <source>sec</source>
         <translation>sek</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="341"/>
+        <location filename="../qml/pages/RealTime.qml" line="361"/>
         <source>min</source>
         <translation>min</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="377"/>
+        <location filename="../qml/pages/RealTime.qml" line="397"/>
         <source>Error getting stop information</source>
         <translation>Kunde inte hämta hållplatsinformation</translation>
     </message>
@@ -316,6 +326,45 @@
         <location filename="../qml/pages/Settings.qml" line="100"/>
         <source>Automatically refresh cover page realtime information</source>
         <translation>Uppdatera miniatyrens realtidsinformation automatiskt</translation>
+    </message>
+</context>
+<context>
+    <name>ShowLineStops</name>
+    <message>
+        <location filename="../qml/pages/ShowLineStops.qml" line="40"/>
+        <source>Stops for %1 %2</source>
+        <translation>Hållplatser för %1 %2</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ShowLineStops.qml" line="82"/>
+        <source>Zone %1</source>
+        <translation>Zon %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ShowLineStops.qml" line="93"/>
+        <source>Realtime info from %1</source>
+        <translation>Realtidsinfo från %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ShowLineStops.qml" line="99"/>
+        <source>Realtime info for %1 %2 from %3</source>
+        <translation>Realtidsinfo för %1 %2 från %3</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ShowLineStops.qml" line="105"/>
+        <source>Travel from %1</source>
+        <translation>Res från %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ShowLineStops.qml" line="111"/>
+        <source>Travel to %2</source>
+        <translation>Res till %2</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ShowLineStops.qml" line="134"/>
+        <location filename="../qml/pages/ShowLineStops.qml" line="148"/>
+        <source>Error getting stops</source>
+        <translation>Kunde inte hämta hållplatser</translation>
     </message>
 </context>
 <context>

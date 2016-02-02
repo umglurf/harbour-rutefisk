@@ -244,6 +244,26 @@ Page {
                 onClicked: {
                   pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": stopID, "stopName": realTimePage.stopName, "linenumber": linenumber, "destination": destination });
                 }
+                menu: ContextMenu {
+                    MenuItem {
+                        text: qsTr("Realtime for %1 %2").arg(linenumber).arg(destination)
+                        onClicked: {
+                            pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": stopID, "stopName": realTimePage.stopName, "linenumber": linenumber, "destination": destination });
+                        }
+                    }
+
+                    MenuItem {
+                        text: qsTr("Show all stops for %1 %2").arg(linenumber).arg(destination)
+                        onClicked: {
+                            pageStack.push(Qt.resolvedUrl("ShowLineStops.qml"), {
+                                             "stopID": stopID,
+                                             "lineID": lineRef,
+                                             "lineNumber": linenumber,
+                                             "destination": destination
+                                           });
+                        }
+                    }
+                }
               }
             }
           }

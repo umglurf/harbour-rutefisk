@@ -16,19 +16,19 @@
     <name>Favorites</name>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished">Favoritter</translation>
+        <translation>Favoritter</translation>
     </message>
     <message>
         <source>%1 %2 from %3</source>
-        <translation type="unfinished">%1 %2 fra %3</translation>
+        <translation>%1 %2 fra %3</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Fjern</translation>
     </message>
     <message>
         <source>Error removing item</source>
-        <translation type="unfinished"></translation>
+        <translation>Feil ved fjerning av element</translation>
     </message>
 </context>
 <context>
@@ -170,6 +170,14 @@
         <source>Settings</source>
         <translation>Instillinger</translation>
     </message>
+    <message>
+        <source>Realtime for %1 %2</source>
+        <translation>Sanntidsinformasjon for %1 %2</translation>
+    </message>
+    <message>
+        <source>Show all stops for %1 %2</source>
+        <translation>Vis alle stopp for %1 %2</translation>
+    </message>
 </context>
 <context>
     <name>RealTimeLine</name>
@@ -255,6 +263,37 @@
     <message>
         <source>Automatically refresh cover page realtime information</source>
         <translation>Oppfrisk sanntidsinformasjon på omslag automatisk</translation>
+    </message>
+</context>
+<context>
+    <name>ShowLineStops</name>
+    <message>
+        <source>Stops for %1 %2</source>
+        <translation>Stopp for %1 %2</translation>
+    </message>
+    <message>
+        <source>Zone %1</source>
+        <translation>Sone %1</translation>
+    </message>
+    <message>
+        <source>Realtime info from %1</source>
+        <translation>Sanntidsinformasjon for %1</translation>
+    </message>
+    <message>
+        <source>Realtime info for %1 %2 from %3</source>
+        <translation>Sanntidsinformasjon for %1 %2 fra %3</translation>
+    </message>
+    <message>
+        <source>Travel from %1</source>
+        <translation>Reis fra %1</translation>
+    </message>
+    <message>
+        <source>Travel to %2</source>
+        <translation>Reis til %2</translation>
+    </message>
+    <message>
+        <source>Error getting stops</source>
+        <translation>Feil oppstod ved henting av stopp</translation>
     </message>
 </context>
 <context>

@@ -51,5 +51,6 @@ DISTFILES += \
     qml/pages/Favorites.qml \
     qml/pages/ShowStops.qml \
     qml/pages/Settings.qml \
-    qml/pages/TransportIcon.qml
+    qml/pages/TransportIcon.qml \
+    qml/pages/ShowLineStops.qml
 

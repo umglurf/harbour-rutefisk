@@ -196,17 +196,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="339"/>
+        <location filename="../qml/pages/RealTime.qml" line="249"/>
+        <source>Realtime for %1 %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealTime.qml" line="256"/>
+        <source>Show all stops for %1 %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealTime.qml" line="359"/>
         <source>sec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="341"/>
+        <location filename="../qml/pages/RealTime.qml" line="361"/>
         <source>min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="377"/>
+        <location filename="../qml/pages/RealTime.qml" line="397"/>
         <source>Error getting stop information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -315,6 +325,45 @@
     <message>
         <location filename="../qml/pages/Settings.qml" line="100"/>
         <source>Automatically refresh cover page realtime information</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ShowLineStops</name>
+    <message>
+        <location filename="../qml/pages/ShowLineStops.qml" line="40"/>
+        <source>Stops for %1 %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ShowLineStops.qml" line="82"/>
+        <source>Zone %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ShowLineStops.qml" line="93"/>
+        <source>Realtime info from %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ShowLineStops.qml" line="99"/>
+        <source>Realtime info for %1 %2 from %3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ShowLineStops.qml" line="105"/>
+        <source>Travel from %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ShowLineStops.qml" line="111"/>
+        <source>Travel to %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ShowLineStops.qml" line="134"/>
+        <location filename="../qml/pages/ShowLineStops.qml" line="148"/>
+        <source>Error getting stops</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
