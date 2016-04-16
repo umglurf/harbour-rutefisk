@@ -263,6 +263,13 @@ Page {
                                            });
                         }
                     }
+
+                    MenuItem {
+                        text: qsTr("Add to realtime view")
+                        onClicked: {
+                            var dialog = pageStack.push(Qt.resolvedUrl("AddToRealTimeViewDialog.qml"), { "stopID": stopID, "stopName": realTimePage.stopName, "lineNumber": linenumber, "destination": destination } );
+                        }
+                    }
                 }
               }
             }

@@ -2,6 +2,24 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="sv">
 <context>
+    <name>AddToRealTimeViewDialog</name>
+    <message>
+        <location filename="../qml/pages/AddToRealTimeViewDialog.qml" line="65"/>
+        <source>Name of new realtime view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AddToRealTimeViewDialog.qml" line="66"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AddToRealTimeViewDialog.qml" line="72"/>
+        <source>Realtime view</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CoverPage</name>
     <message>
         <location filename="../qml/cover/CoverPage.qml" line="141"/>
@@ -81,18 +99,18 @@
 <context>
     <name>MainPage</name>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="158"/>
+        <location filename="../qml/pages/MainPage.qml" line="164"/>
         <source>Ruter travel information</source>
         <translation>Ruter resinformation</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="166"/>
+        <location filename="../qml/pages/MainPage.qml" line="172"/>
         <source>Search stop or street</source>
         <translation>Sök hållplats eller gata</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="134"/>
-        <location filename="../qml/pages/MainPage.qml" line="141"/>
+        <location filename="../qml/pages/MainPage.qml" line="140"/>
+        <location filename="../qml/pages/MainPage.qml" line="147"/>
         <source>Start GPS search</source>
         <translation>Starta GPS-sökning</translation>
     </message>
@@ -102,53 +120,58 @@
         <translation>Inställningar</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="138"/>
+        <location filename="../qml/pages/MainPage.qml" line="134"/>
+        <source>Realtime Views</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/MainPage.qml" line="144"/>
         <source>Stop GPS search</source>
         <translation>Stoppa GPS-sökning</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="146"/>
+        <location filename="../qml/pages/MainPage.qml" line="152"/>
         <source>Favorites</source>
         <translation>Favoriter</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="209"/>
+        <location filename="../qml/pages/MainPage.qml" line="215"/>
         <source>GPS update interval</source>
         <translation>GPS uppdateringsintervall</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="210"/>
+        <location filename="../qml/pages/MainPage.qml" line="216"/>
         <source>s</source>
         <translation>s</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="224"/>
+        <location filename="../qml/pages/MainPage.qml" line="230"/>
         <source>GPS search grid size</source>
         <translation>GPS sökfältsstorlek</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="225"/>
+        <location filename="../qml/pages/MainPage.qml" line="231"/>
         <source>meters</source>
         <translation>meter</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="274"/>
+        <location filename="../qml/pages/MainPage.qml" line="280"/>
         <source>Realtime info</source>
         <translation>Realtidsinfo</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="279"/>
+        <location filename="../qml/pages/MainPage.qml" line="285"/>
         <source>Travel from here</source>
         <translation>Res härifrån</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="289"/>
+        <location filename="../qml/pages/MainPage.qml" line="295"/>
         <source>Travel to here</source>
         <translation>Res hit</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="351"/>
-        <location filename="../qml/pages/MainPage.qml" line="379"/>
+        <location filename="../qml/pages/MainPage.qml" line="357"/>
+        <location filename="../qml/pages/MainPage.qml" line="385"/>
         <source>Error getting stops</source>
         <translation>Kunde inte hämta hållplatser</translation>
     </message>
@@ -206,17 +229,22 @@
         <translation>Visa alla hållplatser för %1 %2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="359"/>
+        <location filename="../qml/pages/RealTime.qml" line="268"/>
+        <source>Add to realtime view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealTime.qml" line="366"/>
         <source>sec</source>
         <translation>sek</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="361"/>
+        <location filename="../qml/pages/RealTime.qml" line="368"/>
         <source>min</source>
         <translation>min</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTime.qml" line="397"/>
+        <location filename="../qml/pages/RealTime.qml" line="404"/>
         <source>Error getting stop information</source>
         <translation>Kunde inte hämta hållplatsinformation</translation>
     </message>
@@ -272,6 +300,24 @@
         <location filename="../qml/pages/RealTimeLine.qml" line="221"/>
         <source>Error getting stop information</source>
         <translation>Kunde inte hämta hållplatsinformation</translation>
+    </message>
+</context>
+<context>
+    <name>RealtimeViews</name>
+    <message>
+        <location filename="../qml/pages/RealtimeViews.qml" line="46"/>
+        <source>Realtime Views</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealtimeViews.qml" line="86"/>
+        <source>Remove</source>
+        <translation type="unfinished">Ta bort</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealtimeViews.qml" line="102"/>
+        <source>Error removing item</source>
+        <translation type="unfinished">Kunde inte ta bort objektet</translation>
     </message>
 </context>
 <context>

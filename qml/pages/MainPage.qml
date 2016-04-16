@@ -131,6 +131,12 @@ Page {
           }
       }
       MenuItem {
+          text: qsTr("Realtime Views")
+          onClicked: {
+              pageStack.push(Qt.resolvedUrl("RealtimeViews.qml"));
+          }
+      }
+      MenuItem {
         text: qsTr("Start GPS search")
         onClicked: {
           if(mainpage.state == "TEXT_SEARCH") {

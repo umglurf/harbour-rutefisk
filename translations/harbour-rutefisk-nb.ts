@@ -2,6 +2,21 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="nb" sourcelanguage="en">
 <context>
+    <name>AddToRealTimeViewDialog</name>
+    <message>
+        <source>Realtime view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name of new realtime view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CoverPage</name>
     <message>
         <source>sec</source>
@@ -123,6 +138,10 @@
         <source>Settings</source>
         <translation>Instillinger</translation>
     </message>
+    <message>
+        <source>Realtime Views</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RealTime</name>
@@ -178,6 +197,10 @@
         <source>Show all stops for %1 %2</source>
         <translation>Vis alle stopp for %1 %2</translation>
     </message>
+    <message>
+        <source>Add to realtime view</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RealTimeLine</name>
@@ -220,6 +243,21 @@
     <message>
         <source>Settings</source>
         <translation>Instillinger</translation>
+    </message>
+</context>
+<context>
+    <name>RealtimeViews</name>
+    <message>
+        <source>Realtime Views</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Fjern</translation>
+    </message>
+    <message>
+        <source>Error removing item</source>
+        <translation type="unfinished">Feil ved fjerning av element</translation>
     </message>
 </context>
 <context>
