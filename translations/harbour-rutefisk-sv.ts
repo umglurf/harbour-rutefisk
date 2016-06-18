@@ -22,12 +22,12 @@
 <context>
     <name>CoverPage</name>
     <message>
-        <location filename="../qml/cover/CoverPage.qml" line="141"/>
+        <location filename="../qml/cover/CoverPage.qml" line="142"/>
         <source>sec</source>
         <translation>sek</translation>
     </message>
     <message>
-        <location filename="../qml/cover/CoverPage.qml" line="143"/>
+        <location filename="../qml/cover/CoverPage.qml" line="144"/>
         <source>min</source>
         <translation>min</translation>
     </message>
@@ -325,27 +325,27 @@
         <translation type="unfinished">Uppdatera</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="207"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="206"/>
         <source>Realtime for %1 %2</source>
         <translation type="unfinished">Realtid för %1 %2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="214"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="213"/>
         <source>Show all stops for %1 %2</source>
         <translation type="unfinished">Visa alla hållplatser för %1 %2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="287"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="298"/>
         <source>sec</source>
         <translation type="unfinished">sek</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="290"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="300"/>
         <source>min</source>
         <translation type="unfinished">min</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="318"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="326"/>
         <source>Error getting stop information</source>
         <translation type="unfinished">Kunde inte hämta hållplatsinformation</translation>
     </message>

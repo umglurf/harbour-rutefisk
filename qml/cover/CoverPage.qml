@@ -24,6 +24,7 @@ CoverBackground {
   id: cover
   state: "MAIN_VIEW"
   property var stopID
+  property var stops
   property string linenumber
   property string destination
   property ListModel travelModel
@@ -182,6 +183,10 @@ CoverBackground {
     onTriggered: {
       if(state == "REALTIME_LINE_VIEW") {
         departuresModel.update(stopID, linenumber, destination);
+      } else if(state == "REALTIME_CUSTOM_VIEW") {
+          for(var i=0; i < stops.length; i++) {
+              departuresModel.update(stops[i]['stopID'], stops[i]['lineNumber'], stops[i]['destination']);
+          }
       } else {
         for(var i=0; i < stopID.length; i++) {
           departuresModel.update(stopID[i], 0, "");
@@ -297,6 +302,10 @@ CoverBackground {
       extend: "REALTIME_VIEW"
     },
     State {
+      name: "REALTIME_CUSTOM_VIEW"
+      extend: "REALTIME_VIEW"
+    },
+    State {
       name: "TRAVEL_VIEW"
       PropertyChanges {
         target: coverAction;
@@ -323,7 +332,7 @@ CoverBackground {
   ]
 
   onStatusChanged: {
-    if(state == "REALTIME_VIEW" || state == "REALTIME_LINE_VIEW") {
+    if(state == "REALTIME_VIEW" || state == "REALTIME_LINE_VIEW" || state == "REALTIME_CUSTOM_VIEW") {
       if(cover.status == Cover.Activating) {
         departureTimer.restart();
       } else if (cover.status == Cover.Deactivating && !coverPageAlwaysRefresh.value){

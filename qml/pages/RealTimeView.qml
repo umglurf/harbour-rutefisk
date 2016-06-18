@@ -245,6 +245,19 @@ Page {
       }
     }
   }
+
+  onStatusChanged: {
+    if(status == PageStatus.Active) {
+      applicationWindow.coverPage.state = "REALTIME_CUSTOM_VIEW";
+      applicationWindow.coverPage.stops = realTimeViewPage.stops;
+      if(autorefresh) {
+        realTimeViewTimer.start();
+      }
+    } else if(status == PageStatus.Deactivating) {
+      realTimeViewTimer.stop();
+    }
+  }
+
   ListModel {
     id: realTimeViewModel
 
@@ -284,8 +297,7 @@ Page {
               if(departure.getTime() - now.getTime() < (1000 * 60)) { // 1 minute, 1000 usec * 60 sec
                 timestr = ((departure.getTime() - now.getTime()) / 1000 ).toFixed(0) + qsTr("sec");
               } else {
-                //timestr = ((departure.getTime() - now.getTime()) / 1000 / 60 ).toFixed(0) + qsTr("min");
-                timestr = ((departure.getTime() - now.getTime()) / 1000 / 60 ).toFixed(2) + qsTr("min");
+                timestr = ((departure.getTime() - now.getTime()) / 1000 / 60 ).toFixed(0) + qsTr("min");
               }
             } else {
               timestr = departure.toLocaleTimeString(Qt.locale(), "HH:mm");
@@ -295,7 +307,6 @@ Page {
           var updated = false;
           for(var mindex = 0; mindex < realTimeViewModel.count; mindex++) {
             if(realTimeViewModel.get(mindex).line == line['line']) {
-              console.log("updating entry " + mindex)
               realTimeViewModel.remove(mindex, 1);
               realTimeViewModel.insert(mindex, line);
               updated = true;
