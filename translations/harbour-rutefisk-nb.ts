@@ -272,10 +272,6 @@
         <translation type="unfinished">Vis alle stopp for %1 %2</translation>
     </message>
     <message>
-        <source>Add to realtime view</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>sec</source>
         <translation type="unfinished">sek</translation>
     </message>

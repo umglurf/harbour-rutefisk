@@ -335,22 +335,17 @@
         <translation type="unfinished">Visa alla hållplatser för %1 %2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="225"/>
-        <source>Add to realtime view</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="293"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="288"/>
         <source>sec</source>
         <translation type="unfinished">sek</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="295"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="290"/>
         <source>min</source>
         <translation type="unfinished">min</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="320"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="315"/>
         <source>Error getting stop information</source>
         <translation type="unfinished">Kunde inte hämta hållplatsinformation</translation>
     </message>

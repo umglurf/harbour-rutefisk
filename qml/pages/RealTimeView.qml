@@ -205,7 +205,7 @@ Page {
           MenuItem {
             text: qsTr("Realtime for %1 %2").arg(linenumber).arg(destination)
             onClicked: {
-              pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": stopID, "stopName": realTimePage.stopName, "linenumber": linenumber, "destination": destination });
+              pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": stopID, "stopName": stopName, "linenumber": linenumber, "destination": destination });
             }
           }
 
@@ -221,12 +221,6 @@ Page {
             }
           }
 
-          MenuItem {
-            text: qsTr("Add to realtime view")
-            onClicked: {
-              var dialog = pageStack.push(Qt.resolvedUrl("AddToRealTimeViewDialog.qml"), { "stopID": stopID, "stopName": realTimePage.stopName, "lineNumber": linenumber, "destination": destination } );
-            }
-          }
         }
     }
     Timer {
@@ -264,6 +258,7 @@ Page {
         if(xhr.readyState == 4 && xhr.status == 200) {
           var now = new Date();
           var line = {};
+          line['stopName'] = stop['stopName']
           line['deviations'] = {};
           line['departures'] = [];
           var data = JSON.parse(xhr.responseText);
