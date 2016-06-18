@@ -335,17 +335,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="298"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="225"/>
+        <source>Add to realtime view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealTimeView.qml" line="305"/>
         <source>sec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="300"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="307"/>
         <source>min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="326"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="333"/>
         <source>Error getting stop information</source>
         <translation type="unfinished"></translation>
     </message>

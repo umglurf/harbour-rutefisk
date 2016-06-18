@@ -283,6 +283,10 @@
         <source>Error getting stop information</source>
         <translation type="unfinished">Feil oppstod ved henting av stoppinformasjon</translation>
     </message>
+    <message>
+        <source>Add to realtime view</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RealtimeViews</name>
