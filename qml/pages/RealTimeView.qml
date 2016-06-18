@@ -266,9 +266,6 @@ Page {
             var lineNumber = data[index]['MonitoredVehicleJourney']['PublishedLineName']
             var destination = data[index]['MonitoredVehicleJourney']['DestinationName'];
             if(lineNumber != stop['lineNumber'] || destination != stop['destination']) {
-              console.log("skipping");
-              console.log("linenumber " + lineNumber + " != " + stop['lineNumber']);
-              console.log("destination " + destination + " != " + stop['destination']);
               continue;
             }
             line['line'] = data[index]['MonitoredVehicleJourney']['PublishedLineName'] + data[index]['MonitoredVehicleJourney']['DestinationName'];
@@ -287,7 +284,8 @@ Page {
               if(departure.getTime() - now.getTime() < (1000 * 60)) { // 1 minute, 1000 usec * 60 sec
                 timestr = ((departure.getTime() - now.getTime()) / 1000 ).toFixed(0) + qsTr("sec");
               } else {
-                timestr = ((departure.getTime() - now.getTime()) / 1000 / 60 ).toFixed(0) + qsTr("min");
+                //timestr = ((departure.getTime() - now.getTime()) / 1000 / 60 ).toFixed(0) + qsTr("min");
+                timestr = ((departure.getTime() - now.getTime()) / 1000 / 60 ).toFixed(2) + qsTr("min");
               }
             } else {
               timestr = departure.toLocaleTimeString(Qt.locale(), "HH:mm");
@@ -297,7 +295,9 @@ Page {
           var updated = false;
           for(var mindex = 0; mindex < realTimeViewModel.count; mindex++) {
             if(realTimeViewModel.get(mindex).line == line['line']) {
-              realTimeViewModel.set(mindex, line);
+              console.log("updating entry " + mindex)
+              realTimeViewModel.remove(mindex, 1);
+              realTimeViewModel.insert(mindex, line);
               updated = true;
               break;
             }

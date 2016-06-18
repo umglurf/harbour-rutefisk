@@ -325,17 +325,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="206"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="207"/>
         <source>Realtime for %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="213"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="214"/>
         <source>Show all stops for %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="288"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="287"/>
         <source>sec</source>
         <translation type="unfinished"></translation>
     </message>
@@ -345,7 +345,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="315"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="318"/>
         <source>Error getting stop information</source>
         <translation type="unfinished"></translation>
     </message>
