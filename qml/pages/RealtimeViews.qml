@@ -28,6 +28,10 @@ Page {
     key: "/apps/rutefisk/realtimeviews"
     defaultValue: "[]"
   }
+  ConfigurationGroup {
+      id: realTimeViewGroup
+      path: "/apps/rutefisk/realtimeview"
+  }
 
   onStatusChanged: {
     if(status == PageStatus.Active) {
@@ -80,6 +84,11 @@ Page {
         text: name
       }
       onClicked: {
+        var stops = JSON.parse(realTimeViewGroup.value(name, "[]"));
+        pageStack.push(Qt.resolvedUrl("RealTimeView.qml"), {
+                         "name": name,
+                         "stops": stops
+                       });
       }
       menu: ContextMenu {
         MenuItem {

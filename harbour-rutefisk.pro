@@ -54,5 +54,6 @@ DISTFILES += \
     qml/pages/TransportIcon.qml \
     qml/pages/ShowLineStops.qml \
     qml/pages/RealtimeViews.qml \
-    qml/pages/AddToRealTimeViewDialog.qml
+    qml/pages/AddToRealTimeViewDialog.qml \
+    qml/pages/RealTimeView.qml
 

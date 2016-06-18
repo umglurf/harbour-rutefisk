@@ -246,6 +246,49 @@
     </message>
 </context>
 <context>
+    <name>RealTimeView</name>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished">Instillinger</translation>
+    </message>
+    <message>
+        <source>Stop auto refresh</source>
+        <translation type="unfinished">Stopp automatisk oppfriskning</translation>
+    </message>
+    <message>
+        <source>Auto Refresh</source>
+        <translation type="unfinished">Automatisk oppfriskning</translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished">Oppfrisk</translation>
+    </message>
+    <message>
+        <source>Realtime for %1 %2</source>
+        <translation type="unfinished">Sanntidsinformasjon for %1 %2</translation>
+    </message>
+    <message>
+        <source>Show all stops for %1 %2</source>
+        <translation type="unfinished">Vis alle stopp for %1 %2</translation>
+    </message>
+    <message>
+        <source>Add to realtime view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sec</source>
+        <translation type="unfinished">sek</translation>
+    </message>
+    <message>
+        <source>min</source>
+        <translation type="unfinished">min</translation>
+    </message>
+    <message>
+        <source>Error getting stop information</source>
+        <translation type="unfinished">Feil oppstod ved henting av stoppinformasjon</translation>
+    </message>
+</context>
+<context>
     <name>RealtimeViews</name>
     <message>
         <source>Realtime Views</source>
