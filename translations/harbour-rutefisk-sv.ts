@@ -6,17 +6,17 @@
     <message>
         <location filename="../qml/pages/AddToRealTimeViewDialog.qml" line="65"/>
         <source>Name of new realtime view</source>
-        <translation type="unfinished"></translation>
+        <translation>Namn för realtidsvisning</translation>
     </message>
     <message>
         <location filename="../qml/pages/AddToRealTimeViewDialog.qml" line="66"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Namn</translation>
     </message>
     <message>
         <location filename="../qml/pages/AddToRealTimeViewDialog.qml" line="72"/>
         <source>Realtime view</source>
-        <translation type="unfinished"></translation>
+        <translation>Realtidsvisning</translation>
     </message>
 </context>
 <context>
@@ -122,7 +122,7 @@
     <message>
         <location filename="../qml/pages/MainPage.qml" line="134"/>
         <source>Realtime Views</source>
-        <translation type="unfinished"></translation>
+        <translation>Realtidsvisningar</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="144"/>
@@ -231,7 +231,7 @@
     <message>
         <location filename="../qml/pages/RealTime.qml" line="268"/>
         <source>Add to realtime view</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till i realtidsvisningar</translation>
     </message>
     <message>
         <location filename="../qml/pages/RealTime.qml" line="366"/>
@@ -307,52 +307,52 @@
     <message>
         <location filename="../qml/pages/RealTimeView.qml" line="56"/>
         <source>Settings</source>
-        <translation type="unfinished">Inställningar</translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <location filename="../qml/pages/RealTimeView.qml" line="62"/>
         <source>Stop auto refresh</source>
-        <translation type="unfinished">Stoppa automatisk uppdatering</translation>
+        <translation>Stoppa automatisk uppdatering</translation>
     </message>
     <message>
         <location filename="../qml/pages/RealTimeView.qml" line="62"/>
         <source>Auto Refresh</source>
-        <translation type="unfinished">Uppdatera automatiskt</translation>
+        <translation>Uppdatera automatiskt</translation>
     </message>
     <message>
         <location filename="../qml/pages/RealTimeView.qml" line="73"/>
         <source>Refresh</source>
-        <translation type="unfinished">Uppdatera</translation>
+        <translation>Uppdatera</translation>
     </message>
     <message>
         <location filename="../qml/pages/RealTimeView.qml" line="206"/>
         <source>Realtime for %1 %2</source>
-        <translation type="unfinished">Realtid för %1 %2</translation>
+        <translation>Realtid för %1 %2</translation>
     </message>
     <message>
         <location filename="../qml/pages/RealTimeView.qml" line="213"/>
         <source>Show all stops for %1 %2</source>
-        <translation type="unfinished">Visa alla hållplatser för %1 %2</translation>
+        <translation>Visa alla hållplatser för %1 %2</translation>
     </message>
     <message>
         <location filename="../qml/pages/RealTimeView.qml" line="225"/>
         <source>Add to realtime view</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till i realtidsvisning</translation>
     </message>
     <message>
         <location filename="../qml/pages/RealTimeView.qml" line="305"/>
         <source>sec</source>
-        <translation type="unfinished">sek</translation>
+        <translation>sek</translation>
     </message>
     <message>
         <location filename="../qml/pages/RealTimeView.qml" line="307"/>
         <source>min</source>
-        <translation type="unfinished">min</translation>
+        <translation>min</translation>
     </message>
     <message>
         <location filename="../qml/pages/RealTimeView.qml" line="333"/>
         <source>Error getting stop information</source>
-        <translation type="unfinished">Kunde inte hämta hållplatsinformation</translation>
+        <translation>Kunde inte hämta hållplatsinformation</translation>
     </message>
 </context>
 <context>
@@ -360,17 +360,17 @@
     <message>
         <location filename="../qml/pages/RealtimeViews.qml" line="50"/>
         <source>Realtime Views</source>
-        <translation type="unfinished"></translation>
+        <translation>Realtidsvisningar</translation>
     </message>
     <message>
         <location filename="../qml/pages/RealtimeViews.qml" line="95"/>
         <source>Remove</source>
-        <translation type="unfinished">Ta bort</translation>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <location filename="../qml/pages/RealtimeViews.qml" line="111"/>
         <source>Error removing item</source>
-        <translation type="unfinished">Kunde inte ta bort objektet</translation>
+        <translation>Kunde inte ta bort objektet</translation>
     </message>
 </context>
 <context>

@@ -5,15 +5,15 @@
     <name>AddToRealTimeViewDialog</name>
     <message>
         <source>Realtime view</source>
-        <translation type="unfinished"></translation>
+        <translation>Sanntidsvising</translation>
     </message>
     <message>
         <source>Name of new realtime view</source>
-        <translation type="unfinished"></translation>
+        <translation>Navn på ny sanntidsvisning</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Navn</translation>
     </message>
 </context>
 <context>
@@ -140,7 +140,7 @@
     </message>
     <message>
         <source>Realtime Views</source>
-        <translation type="unfinished"></translation>
+        <translation>Sanntidsvisninger</translation>
     </message>
 </context>
 <context>
@@ -199,7 +199,7 @@
     </message>
     <message>
         <source>Add to realtime view</source>
-        <translation type="unfinished"></translation>
+        <translation>Legg til sanntidsvisning</translation>
     </message>
 </context>
 <context>
@@ -249,58 +249,58 @@
     <name>RealTimeView</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Instillinger</translation>
+        <translation>Instillinger</translation>
     </message>
     <message>
         <source>Stop auto refresh</source>
-        <translation type="unfinished">Stopp automatisk oppfriskning</translation>
+        <translation>Stopp automatisk oppfriskning</translation>
     </message>
     <message>
         <source>Auto Refresh</source>
-        <translation type="unfinished">Automatisk oppfriskning</translation>
+        <translation>Automatisk oppfriskning</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">Oppfrisk</translation>
+        <translation>Oppfrisk</translation>
     </message>
     <message>
         <source>Realtime for %1 %2</source>
-        <translation type="unfinished">Sanntidsinformasjon for %1 %2</translation>
+        <translation>Sanntidsinformasjon for %1 %2</translation>
     </message>
     <message>
         <source>Show all stops for %1 %2</source>
-        <translation type="unfinished">Vis alle stopp for %1 %2</translation>
+        <translation>Vis alle stopp for %1 %2</translation>
     </message>
     <message>
         <source>sec</source>
-        <translation type="unfinished">sek</translation>
+        <translation>sek</translation>
     </message>
     <message>
         <source>min</source>
-        <translation type="unfinished">min</translation>
+        <translation>min</translation>
     </message>
     <message>
         <source>Error getting stop information</source>
-        <translation type="unfinished">Feil oppstod ved henting av stoppinformasjon</translation>
+        <translation>Feil oppstod ved henting av stoppinformasjon</translation>
     </message>
     <message>
         <source>Add to realtime view</source>
-        <translation type="unfinished"></translation>
+        <translation>Legg til sanntidsvisning</translation>
     </message>
 </context>
 <context>
     <name>RealtimeViews</name>
     <message>
         <source>Realtime Views</source>
-        <translation type="unfinished"></translation>
+        <translation>Sanntidsvisninger</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Fjern</translation>
+        <translation>Fjern</translation>
     </message>
     <message>
         <source>Error removing item</source>
-        <translation type="unfinished">Feil ved fjerning av element</translation>
+        <translation>Feil ved fjerning av element</translation>
     </message>
 </context>
 <context>
