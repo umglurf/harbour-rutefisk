@@ -122,16 +122,23 @@ Page {
           RemorseItem {
               id: remorse
           }
-          Label {
+          Row {
+            width: parent.width
+            Item {
+                width: Theme.paddingMedium
+                height: Theme.paddingSmall
+            }
+            Label {
               text: {
-                  if(type == "journey") {
-                      fromName + " - " + toName;
-                  } else if(type == "realTime") {
-                      stopName;
-                  } else if(type == "realTimeLine") {
-                      qsTr("%1 %2 from %3").arg(linenumber).arg(destination).arg(stopName);
-                  }
+                if(type == "journey") {
+                  fromName + " - " + toName;
+                } else if(type == "realTime") {
+                  stopName;
+                } else if(type == "realTimeLine") {
+                  qsTr("%1 %2 from %3").arg(linenumber).arg(destination).arg(stopName);
+                }
               }
+            }
           }
           onClicked: {
               if(type == "journey") {

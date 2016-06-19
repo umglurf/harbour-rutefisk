@@ -46,17 +46,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="132"/>
+        <location filename="../qml/pages/Favorites.qml" line="138"/>
         <source>%1 %2 from %3</source>
         <translation>%1 %2 från %3</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="167"/>
+        <location filename="../qml/pages/Favorites.qml" line="174"/>
         <source>Remove</source>
         <translation>Ta bort</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="202"/>
+        <location filename="../qml/pages/Favorites.qml" line="209"/>
         <source>Error removing item</source>
         <translation>Kunde inte ta bort objektet</translation>
     </message>
@@ -380,12 +380,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealtimeViews.qml" line="129"/>
+        <location filename="../qml/pages/RealtimeViews.qml" line="136"/>
         <source>Remove</source>
         <translation>Ta bort</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealtimeViews.qml" line="149"/>
+        <location filename="../qml/pages/RealtimeViews.qml" line="156"/>
         <source>Error removing item</source>
         <translation>Kunde inte ta bort objektet</translation>
     </message>

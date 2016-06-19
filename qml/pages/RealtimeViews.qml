@@ -114,8 +114,15 @@ Page {
       RemorseItem {
         id: remorse
       }
-      Label {
-        text: name
+      Row {
+        width: parent.width
+        Item {
+          width: Theme.paddingMedium
+          height: Theme.paddingSmall
+        }
+        Label {
+          text: name
+        }
       }
       onClicked: {
         var stops = JSON.parse(realTimeViewGroup.value(name, "[]"));
