@@ -287,6 +287,10 @@
         <source>Add to realtime view</source>
         <translation>Legg til sanntidsvisning</translation>
     </message>
+    <message>
+        <source>Remove</source>
+        <translation>Fjern</translation>
+    </message>
 </context>
 <context>
     <name>RealtimeViews</name>

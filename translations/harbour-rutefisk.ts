@@ -305,52 +305,57 @@
 <context>
     <name>RealTimeView</name>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="56"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="55"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="62"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="61"/>
         <source>Stop auto refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="62"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="61"/>
         <source>Auto Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="73"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="72"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="206"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="219"/>
         <source>Realtime for %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="213"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="226"/>
         <source>Show all stops for %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="225"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="238"/>
         <source>Add to realtime view</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="305"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="245"/>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealTimeView.qml" line="352"/>
         <source>sec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="307"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="354"/>
         <source>min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealTimeView.qml" line="333"/>
+        <location filename="../qml/pages/RealTimeView.qml" line="380"/>
         <source>Error getting stop information</source>
         <translation type="unfinished"></translation>
     </message>

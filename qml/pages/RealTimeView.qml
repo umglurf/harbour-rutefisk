@@ -28,10 +28,9 @@ Page {
   property BusyIndicator searchIndicator
   property Label errorLabel
 
-  ConfigurationValue {
-    id: realTimeViewsConfig
-    key: "/apps/rutefisk/realtimeviews"
-    defaultValue: "[]"
+  ConfigurationGroup {
+      id: realTimeViewGroup
+      path: "/apps/rutefisk/realtimeview"
   }
   ConfigurationValue {
     id: realTimeAutoRefresh
@@ -113,6 +112,20 @@ Page {
         id: listItem
         width: parent.width
         contentHeight: contentColumn.height
+        RemorseItem {
+            id: remorse
+            onCanceled: {
+              if(autorefresh) {
+                realTimeViewTimer.start();
+              }
+            }
+            onTriggered: {
+              if(autorefresh) {
+                realTimeViewTimer.start();
+              }
+            }
+        }
+
         Column {
           id: contentColumn
           width: parent.width
@@ -225,6 +238,40 @@ Page {
             text: qsTr("Add to realtime view")
             onClicked: {
               var dialog = pageStack.push(Qt.resolvedUrl("AddToRealTimeViewDialog.qml"), { "stopID": stopID, "stopName": stopName, "lineNumber": linenumber, "destination": destination } );
+            }
+          }
+
+          MenuItem {
+            text: qsTr("Remove")
+            onClicked: {
+              realTimeViewTimer.stop();
+              remorse.execute(listItem, "Removing", function() {
+                try {
+                  var items = JSON.parse(realTimeViewGroup.value(realTimeViewPage.name, "[]"));
+                  var remove = -1;
+                  for(var i = 0; i < items.length; i++) {
+                    if(items[i]['stopID'] == stopID &&
+                        items[i]['stopName'] == stopName &&
+                        items[i]['lineNumber'] == linenumber &&
+                        items[i]['destination'] == destination) {
+                        remove = i;
+                    }
+                  }
+                  if(remove > 0) {
+                    items.splice(remove, 1);
+                    stops = items;
+                    realTimeViewGroup.setValue(realTimeViewPage.name, JSON.stringify(items));
+                    realTimeViewModel.clear();
+                    for(var stopIndex=0; stopIndex < realTimeViewPage.stops.length; stopIndex++) {
+                      realTimeViewModel.update(realTimeViewPage.stops[stopIndex]);
+                    }
+                  }
+                } catch(err) {
+                  realTimeViewModel.clear();
+                  errorLabel.visible = true;
+                  errorLabel.text = qsTr("Error removing item" + err);
+                }
+              });
             }
           }
 
