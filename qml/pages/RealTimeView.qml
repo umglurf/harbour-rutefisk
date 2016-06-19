@@ -269,7 +269,7 @@ Page {
                 } catch(err) {
                   realTimeViewModel.clear();
                   errorLabel.visible = true;
-                  errorLabel.text = qsTr("Error removing item" + err);
+                  errorLabel.text = qsTr("Error removing item");
                 }
               });
             }
