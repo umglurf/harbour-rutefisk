@@ -36,12 +36,46 @@ Page {
   onStatusChanged: {
     if(status == PageStatus.Active) {
       applicationWindow.coverPage.state = "MAIN_VIEW";
-      realTimeViewsModel.update();
+      var views = JSON.parse(realTimeViewsConfig.value);
+      if(views.length > 0) {
+        info.visible = false;
+        list.visible = true;
+        realTimeViewsModel.update();
+      } else {
+        info.visible = true;
+        list.visible = false;
+      }
     }
   }
 
+  SilicaFlickable {
+      id: info
+      anchors.fill: parent
+      visible: false
+      PageHeader {
+        id: pageHeader
+        title: qsTr("Realtime Views")
+      }
+      Row {
+        anchors.top: pageHeader.bottom
+        width: parent.width
+        Item {
+          width: Theme.paddingSmall
+          height: Theme.paddingSmall
+        }
+        TextArea {
+          width: parent.width - Theme.paddingSmall * 2
+          readOnly: true
+          wrapMode: Text.WordWrap
+          text: qsTr("You have no custom realtime views defined. To create a new custom realtime view, press and hold on a realtime entry and select Add to realtime view.")
+        }
+      }
+  }
+
   SilicaListView {
+    id: list
     anchors.fill: parent
+    visible: false
 
     header: Column {
       width: parent.width
@@ -105,6 +139,10 @@ Page {
                 }
                 realTimeViewsConfig.value = JSON.stringify(views);
                 realTimeViewsModel.remove(idx);
+                if(views.length == 0) {
+                    info.visible = true;
+                    list.visible = false;
+                }
               } catch(err) {
                 realTimeViewsModel.clear();
                 errorLabel.visible = true;

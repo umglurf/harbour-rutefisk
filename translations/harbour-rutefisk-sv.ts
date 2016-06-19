@@ -35,22 +35,28 @@
 <context>
     <name>Favorites</name>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="46"/>
+        <location filename="../qml/pages/Favorites.qml" line="53"/>
+        <location filename="../qml/pages/Favorites.qml" line="80"/>
         <source>Favorites</source>
         <translation>Favoriter</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="98"/>
+        <location filename="../qml/pages/Favorites.qml" line="66"/>
+        <source>You have no favorites defined. You add a journey or a realtime stop to the favorites by using the Add to favorites on the pull down menu.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Favorites.qml" line="132"/>
         <source>%1 %2 from %3</source>
         <translation>%1 %2 från %3</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="133"/>
+        <location filename="../qml/pages/Favorites.qml" line="167"/>
         <source>Remove</source>
         <translation>Ta bort</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="164"/>
+        <location filename="../qml/pages/Favorites.qml" line="202"/>
         <source>Error removing item</source>
         <translation>Kunde inte ta bort objektet</translation>
     </message>
@@ -363,17 +369,23 @@
 <context>
     <name>RealtimeViews</name>
     <message>
-        <location filename="../qml/pages/RealtimeViews.qml" line="50"/>
+        <location filename="../qml/pages/RealtimeViews.qml" line="57"/>
+        <location filename="../qml/pages/RealtimeViews.qml" line="84"/>
         <source>Realtime Views</source>
         <translation>Realtidsvisningar</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealtimeViews.qml" line="95"/>
+        <location filename="../qml/pages/RealtimeViews.qml" line="70"/>
+        <source>You have no custom realtime views defined. To create a new custom realtime view, press and hold on a realtime entry and select Add to realtime view.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealtimeViews.qml" line="129"/>
         <source>Remove</source>
         <translation>Ta bort</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RealtimeViews.qml" line="111"/>
+        <location filename="../qml/pages/RealtimeViews.qml" line="149"/>
         <source>Error removing item</source>
         <translation>Kunde inte ta bort objektet</translation>
     </message>

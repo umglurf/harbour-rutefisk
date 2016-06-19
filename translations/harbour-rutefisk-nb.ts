@@ -45,6 +45,10 @@
         <source>Error removing item</source>
         <translation>Feil ved fjerning av element</translation>
     </message>
+    <message>
+        <source>You have no favorites defined. You add a journey or a realtime stop to the favorites by using the Add to favorites on the pull down menu.</source>
+        <translation>Du har ingen favoritter definert. Du kan legge til en reise eller en sanntidsavgang ved å bruke Legg til favoritter fra nedtrekksmenyen.</translation>
+    </message>
 </context>
 <context>
     <name>FindFromTo</name>
@@ -305,6 +309,10 @@
     <message>
         <source>Error removing item</source>
         <translation>Feil ved fjerning av element</translation>
+    </message>
+    <message>
+        <source>You have no custom realtime views defined. To create a new custom realtime view, press and hold on a realtime entry and select Add to realtime view.</source>
+        <translation>Du har ingen egendefinerte sanntidsvisninger. For å lage en ny egendefinert sanntidsvisning, trykk og hold på en sanntidsvisning og velg Legg til sanntidsvisning.</translation>
     </message>
 </context>
 <context>

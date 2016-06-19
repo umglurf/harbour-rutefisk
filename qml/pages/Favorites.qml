@@ -32,12 +32,46 @@ Page {
   onStatusChanged: {
     if(status == PageStatus.Active) {
       applicationWindow.coverPage.state = "MAIN_VIEW";
-      favoritesModel.update();
+      var favorites = JSON.parse(favoritesConfig.value);
+      if(favorites.length > 0) {
+        info.visible = false;
+        list.visible = true;
+        favoritesModel.update();
+      } else {
+        info.visible = true;
+        list.visible = false;
+      }
     }
   }
 
-  SilicaListView {
+  SilicaFlickable {
+      id: info
       anchors.fill: parent
+      visible: false
+      PageHeader {
+        id: pageHeader
+        title: qsTr("Favorites")
+      }
+      Row {
+        anchors.top: pageHeader.bottom
+        width: parent.width
+        Item {
+          width: Theme.paddingSmall
+          height: Theme.paddingSmall
+        }
+        TextArea {
+          width: parent.width - Theme.paddingSmall * 2
+          readOnly: true
+          wrapMode: Text.WordWrap
+          text: qsTr("You have no favorites defined. You add a journey or a realtime stop to the favorites by using the Add to favorites on the pull down menu.")
+        }
+      }
+  }
+
+  SilicaListView {
+      id: list
+      anchors.fill: parent
+      visible: false
 
       header: Column {
           width: parent.width
@@ -158,6 +192,10 @@ Page {
                             }
                             favoritesConfig.value = JSON.stringify(favorites);
                             favoritesModel.remove(idx);
+                            if(favorites.length == 0) {
+                              info.visible = true;
+                              list.visible = false;
+                            }
                           } catch(err) {
                               favoritesModel.clear();
                               errorLabel.visible = true;
