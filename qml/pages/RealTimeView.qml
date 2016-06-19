@@ -212,7 +212,7 @@ Page {
         }
 
         onClicked: {
-          pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": stopID, "stopName": realTimePage.stopName, "linenumber": linenumber, "destination": destination });
+          pageStack.push(Qt.resolvedUrl("RealTimeLine.qml"), { "stopID": stopID, "stopName": stopName, "linenumber": linenumber, "destination": destination });
         }
         menu: ContextMenu {
           MenuItem {
