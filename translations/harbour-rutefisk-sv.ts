@@ -43,7 +43,7 @@
     <message>
         <location filename="../qml/pages/Favorites.qml" line="66"/>
         <source>You have no favorites defined. You add a journey or a realtime stop to the favorites by using the Add to favorites on the pull down menu.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du har inga favoriter. Du lägger till en resa eller ett realtidsstopp i favoriter genom att använda Lägg till i favoriter.</translation>
     </message>
     <message>
         <location filename="../qml/pages/Favorites.qml" line="138"/>
@@ -377,7 +377,7 @@
     <message>
         <location filename="../qml/pages/RealtimeViews.qml" line="70"/>
         <source>You have no custom realtime views defined. To create a new custom realtime view, press and hold on a realtime entry and select Add to realtime view.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du har inga anpassade realtidsvisningar. Långtryck på en realtidspost, för att skapa en anpassad realtidsvisning.</translation>
     </message>
     <message>
         <location filename="../qml/pages/RealtimeViews.qml" line="136"/>
