@@ -18,6 +18,11 @@
         <source>Realtime view</source>
         <translation>Realtidsvisning</translation>
     </message>
+    <message>
+        <location filename="../qml/pages/AddToRealTimeViewDialog.qml" line="76"/>
+        <source>New realtime view</source>
+        <translation>Ny realtidsvisning</translation>
+    </message>
 </context>
 <context>
     <name>CoverPage</name>
@@ -349,6 +354,11 @@
         <location filename="../qml/pages/RealTimeView.qml" line="245"/>
         <source>Remove</source>
         <translation>Ta bort</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealTimeView.qml" line="272"/>
+        <source>Error removing item</source>
+        <translation>Kunde inte ta bort objektet</translation>
     </message>
     <message>
         <location filename="../qml/pages/RealTimeView.qml" line="352"/>

@@ -15,6 +15,10 @@
         <source>Name</source>
         <translation>Navn</translation>
     </message>
+    <message>
+        <source>New realtime view</source>
+        <translation>Ny sanntidsvisning</translation>
+    </message>
 </context>
 <context>
     <name>CoverPage</name>
@@ -294,6 +298,10 @@
     <message>
         <source>Remove</source>
         <translation>Fjern</translation>
+    </message>
+    <message>
+        <source>Error removing item</source>
+        <translation>Feil ved fjerning av element</translation>
     </message>
 </context>
 <context>

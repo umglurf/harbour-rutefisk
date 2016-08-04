@@ -18,6 +18,11 @@
         <source>Realtime view</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../qml/pages/AddToRealTimeViewDialog.qml" line="76"/>
+        <source>New realtime view</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CoverPage</name>
@@ -348,6 +353,11 @@
     <message>
         <location filename="../qml/pages/RealTimeView.qml" line="245"/>
         <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RealTimeView.qml" line="272"/>
+        <source>Error removing item</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

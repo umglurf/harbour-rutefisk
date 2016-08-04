@@ -73,7 +73,7 @@ Dialog {
         currentIndex: -1
 
         menu: ContextMenu {
-            MenuItem { text: "New realtime view" }
+            MenuItem { text: qsTr("New realtime view") }
             Repeater {
                 model: realTimeViewsModel
 
