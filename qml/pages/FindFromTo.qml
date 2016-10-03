@@ -89,33 +89,33 @@ Page {
       Label {
         x: Theme.horizontalPageMargin
         anchors.verticalCenter: parent.verticalCenter
-        text: Name + (PlaceType == "Street" ? " (" + District + ")" : "" )
+        text: name + (placeType == "Street" ? " (" + district + ")" : "" )
         font.capitalization: Font.Capitalize
         color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
       }
 
       onClicked: {
         if(findFromToPage.fromID) {
-          if(PlaceType == "Street") {
+          if(placeType == "Street") {
               pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {
                                "fromID": findFromToPage.fromID, "fromName": findFromToPage.fromName,
-                               "streetID": ID, "streetName": Name + " (" + District + ")", "streetTo": true
+                               "streetID": id, "streetName": name + " (" + district + ")", "streetTo": true
                              });
           } else {
             pageStack.push(Qt.resolvedUrl("TravelFromTo.qml"), {
                              "fromID": findFromToPage.fromID, "fromName": findFromToPage.fromName,
-                             "toID": ID, "toName": Name
+                             "toID": id, "toName": name
                            });
           }
         } else {
-          if(PlaceType == "Street") {
+          if(placeType == "Street") {
               pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {
                                "toID": findFromToPage.toID, "toName": findFromToPage.toName,
-                               "streetID": ID, "streetName": Name + " (" + District + ")", "streetTo": true
+                               "streetID": id, "streetName": name + " (" + district + ")", "streetFrom": true
                              });
           } else {
             pageStack.push(Qt.resolvedUrl("TravelFromTo.qml"), {
-                             "fromID": ID, "fromName": Name,
+                             "fromID": id, "fromName": name,
                              "toID": findFromToPage.toID, "toName": findFromToPage.toName
                            });
           }
@@ -143,7 +143,12 @@ Page {
           var l = data.length;
           placesModel.clear();
           for(var index=0; index < l; index++) {
-            placesModel.append(data[index]);
+            var m = new Object();
+            m['id'] = data[index]['ID'];
+            m['name'] = data[index]['Name'];
+            m['district'] = data[index]['District'];
+            m['placeType'] = data[index]['PlaceType'];
+            placesModel.append(m);
           };
           RuteFisk.add_district(placesModel);
           searchIndicator.running = false;

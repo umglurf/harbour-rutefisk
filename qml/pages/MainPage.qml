@@ -285,9 +285,9 @@ Page {
             text: qsTr("Travel from here")
             onClicked: {
               if(placeType == "Street") {
-                pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name, "streetFrom": true});
+                pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": id, "streetName": name, "streetFrom": true});
               } else {
-                pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"fromID": ID, "fromName": Name});
+                pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"fromID": id, "fromName": name});
               }
             }
           }
@@ -295,9 +295,9 @@ Page {
             text: qsTr("Travel to here")
             onClicked: {
               if(placeType == "Street") {
-                pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name, "streetTo": true});
+                pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": id, "streetName": name, "streetTo": true});
               } else {
-                pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"toID": ID, "toName": Name});
+                pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"toID": id, "toName": name});
               }
             }
           }
@@ -305,7 +305,7 @@ Page {
 
         onClicked: {
           if(placeType == "Street") {
-            pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name, "streetFrom": true});
+            pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": id, "streetName": name, "streetFrom": true});
           } else {
             show_realtime();
           }
@@ -345,6 +345,7 @@ Page {
           placesModel.clear();
           for(var index=0; index < l; index++) {
             var m = new Object();
+            m['id'] = data[index]['ID'];
             m['name'] = data[index]['Name'];
             m['district'] = data[index]['District'];
             m['placeType'] = data[index]['PlaceType'];

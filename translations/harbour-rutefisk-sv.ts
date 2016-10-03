@@ -89,7 +89,7 @@
         <translation>Sök startpunkt</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FindFromTo.qml" line="153"/>
+        <location filename="../qml/pages/FindFromTo.qml" line="158"/>
         <source>Error getting stops</source>
         <translation>Kunde inte hämta hållplatser</translation>
     </message>
@@ -181,8 +181,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="367"/>
-        <location filename="../qml/pages/MainPage.qml" line="395"/>
+        <location filename="../qml/pages/MainPage.qml" line="368"/>
+        <location filename="../qml/pages/MainPage.qml" line="396"/>
         <source>Error getting stops</source>
         <translation type="unfinished">Kunde inte hämta hållplatser</translation>
     </message>
