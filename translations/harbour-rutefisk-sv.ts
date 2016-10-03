@@ -27,12 +27,12 @@
 <context>
     <name>CoverPage</name>
     <message>
-        <location filename="../qml/cover/CoverPage.qml" line="142"/>
+        <location filename="../qml/cover/CoverPage.qml" line="148"/>
         <source>sec</source>
         <translation>sek</translation>
     </message>
     <message>
-        <location filename="../qml/cover/CoverPage.qml" line="144"/>
+        <location filename="../qml/cover/CoverPage.qml" line="150"/>
         <source>min</source>
         <translation>min</translation>
     </message>

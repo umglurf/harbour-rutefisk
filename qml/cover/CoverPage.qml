@@ -16,6 +16,7 @@ This file is part of harbour-rutefisk.
 */
 
 import QtQuick 2.0
+import QtGraphicalEffects 1.0
 import org.nemomobile.configuration 1.0
 import Sailfish.Silica 1.0
 import "../scripts/rutefisk.js" as RuteFisk
@@ -57,6 +58,11 @@ CoverBackground {
     source: "cover.svg";
     anchors.fill: parent
     opacity: 0.8
+  }
+  ColorOverlay {
+    anchors.fill: coverImage
+    source: coverImage
+    color: Theme.highlightColor
   }
 
 
