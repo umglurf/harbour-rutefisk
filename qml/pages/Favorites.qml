@@ -184,8 +184,6 @@ Page {
                               } else if(val['type'] == 'realTime') {// && val['stopID'].join("-") == stopID.join("-")) {
                                   var eq = true;
                                   for(var j = 0; j > val['stopID'].length; j++) {
-                                      console.log("stopid1: " + val['stopID'][j]);
-                                      console.log("stopid2: " + stopID.get(j));
                                       if(val['stopID'][j] != stopID.get(j)) {
                                           eq = false;
                                       }

@@ -315,7 +315,6 @@ Page {
           var stopID = new Array();
           for(var i = 0; i < stops.count; i++) {
               stopID.push(stops.get(i).id);
-              console.log(stops.get(i).id)
           };
           pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": stopID, "stopName": name });
         }
