@@ -110,22 +110,6 @@
 <context>
     <name>MainPage</name>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="164"/>
-        <source>Ruter travel information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/MainPage.qml" line="172"/>
-        <source>Search stop or street</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/MainPage.qml" line="140"/>
-        <location filename="../qml/pages/MainPage.qml" line="147"/>
-        <source>Start GPS search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../qml/pages/MainPage.qml" line="128"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
@@ -136,6 +120,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../qml/pages/MainPage.qml" line="140"/>
+        <location filename="../qml/pages/MainPage.qml" line="147"/>
+        <source>Start GPS search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../qml/pages/MainPage.qml" line="144"/>
         <source>Stop GPS search</source>
         <translation type="unfinished"></translation>
@@ -143,6 +133,16 @@
     <message>
         <location filename="../qml/pages/MainPage.qml" line="152"/>
         <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/MainPage.qml" line="164"/>
+        <source>Ruter travel information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/MainPage.qml" line="172"/>
+        <source>Search stop or street</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -181,8 +181,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="357"/>
-        <location filename="../qml/pages/MainPage.qml" line="385"/>
+        <location filename="../qml/pages/MainPage.qml" line="367"/>
+        <location filename="../qml/pages/MainPage.qml" line="395"/>
         <source>Error getting stops</source>
         <translation type="unfinished"></translation>
     </message>

@@ -110,81 +110,81 @@
 <context>
     <name>MainPage</name>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="164"/>
-        <source>Ruter travel information</source>
-        <translation>Ruter resinformation</translation>
+        <location filename="../qml/pages/MainPage.qml" line="128"/>
+        <source>Settings</source>
+        <translation type="unfinished">Inställningar</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="172"/>
-        <source>Search stop or street</source>
-        <translation>Sök hållplats eller gata</translation>
+        <location filename="../qml/pages/MainPage.qml" line="134"/>
+        <source>Realtime Views</source>
+        <translation type="unfinished">Realtidsvisningar</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="140"/>
         <location filename="../qml/pages/MainPage.qml" line="147"/>
         <source>Start GPS search</source>
-        <translation>Starta GPS-sökning</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/MainPage.qml" line="128"/>
-        <source>Settings</source>
-        <translation>Inställningar</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/MainPage.qml" line="134"/>
-        <source>Realtime Views</source>
-        <translation>Realtidsvisningar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="144"/>
         <source>Stop GPS search</source>
-        <translation>Stoppa GPS-sökning</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="152"/>
         <source>Favorites</source>
-        <translation>Favoriter</translation>
+        <translation type="unfinished">Favoriter</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/MainPage.qml" line="164"/>
+        <source>Ruter travel information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/MainPage.qml" line="172"/>
+        <source>Search stop or street</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="215"/>
         <source>GPS update interval</source>
-        <translation>GPS uppdateringsintervall</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="216"/>
         <source>s</source>
-        <translation>s</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="230"/>
         <source>GPS search grid size</source>
-        <translation>GPS sökfältsstorlek</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="231"/>
         <source>meters</source>
-        <translation>meter</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="280"/>
         <source>Realtime info</source>
-        <translation>Realtidsinfo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="285"/>
         <source>Travel from here</source>
-        <translation>Res härifrån</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="295"/>
         <source>Travel to here</source>
-        <translation>Res hit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="357"/>
-        <location filename="../qml/pages/MainPage.qml" line="385"/>
+        <location filename="../qml/pages/MainPage.qml" line="367"/>
+        <location filename="../qml/pages/MainPage.qml" line="395"/>
         <source>Error getting stops</source>
-        <translation>Kunde inte hämta hållplatser</translation>
+        <translation type="unfinished">Kunde inte hämta hållplatser</translation>
     </message>
 </context>
 <context>

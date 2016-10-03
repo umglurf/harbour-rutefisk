@@ -20,18 +20,18 @@ This file is part of harbour-rutefisk.
 function add_district(listModel) {
   var places = {};
   for(var i=0; i < listModel.count; i++) {
-    var name = listModel.get(i).Name;
+    var name = listModel.get(i).name;
     if(places.hasOwnProperty(name)) {
-      listModel.setProperty(i, 'Name', name + ' (' + listModel.get(i).District + ')');
+      listModel.setProperty(i, 'name', name + ' (' + listModel.get(i).district + ')');
       if(places[name] == 1)
         for (var j=0; j < i; j++) {
-          if(listModel.get(j).Name == name) {
-            listModel.setProperty(j, 'Name', name + ' (' + listModel.get(j).District + ')');
+          if(listModel.get(j).name == name) {
+            listModel.setProperty(j, 'name', name + ' (' + listModel.get(j).district + ')');
           }
         }
       places[name] = 2;
     } else {
-      places[listModel.get(i).Name] = 1;
+      places[listModel.get(i).name] = 1;
     }
   }
 }

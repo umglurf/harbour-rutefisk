@@ -270,7 +270,7 @@ Page {
         Label {
           x: Theme.horizontalPageMargin
           anchors.verticalCenter: parent.verticalCenter
-          text: Name
+          text: name
           font.capitalization: Font.Capitalize
           color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
         }
@@ -278,13 +278,13 @@ Page {
         menu: ContextMenu {
           MenuItem {
             text: qsTr("Realtime info")
-            visible: PlaceType == 'Stop' || PlaceType == 'Area'
+            visible: placeType == 'Stop' || placeType == 'Area'
             onClicked: show_realtime()
           }
           MenuItem {
             text: qsTr("Travel from here")
             onClicked: {
-              if(PlaceType == "Street") {
+              if(placeType == "Street") {
                 pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name, "streetFrom": true});
               } else {
                 pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"fromID": ID, "fromName": Name});
@@ -294,7 +294,7 @@ Page {
           MenuItem {
             text: qsTr("Travel to here")
             onClicked: {
-              if(PlaceType == "Street") {
+              if(placeType == "Street") {
                 pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name, "streetTo": true});
               } else {
                 pageStack.push(Qt.resolvedUrl("FindFromTo.qml"), {"toID": ID, "toName": Name});
@@ -304,7 +304,7 @@ Page {
         }
 
         onClicked: {
-          if(PlaceType == "Street") {
+          if(placeType == "Street") {
             pageStack.push(Qt.resolvedUrl("FindFromToStreet.qml"), {"streetID": ID, "streetName": Name, "streetFrom": true});
           } else {
             show_realtime();
@@ -312,15 +312,12 @@ Page {
         }
 
         function show_realtime() {
-          if(PlaceType == "Stop") {
-            pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": [ID], "stopName": Name });
-          } else if(PlaceType == "Area") {
-            var id = [];
-            for(var i=0; i < Stops.count; i++) {
-              id.push(Stops.get(i)['ID']);
-            }
-            pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": id, "stopName": Name });
-          }
+          var stopID = new Array();
+          for(var i = 0; i < stops.count; i++) {
+              stopID.push(stops.get(i).id);
+              console.log(stops.get(i).id)
+          };
+          pageStack.push(Qt.resolvedUrl("RealTime.qml"), { "stopID": stopID, "stopName": name });
         }
       }
     }
@@ -333,7 +330,7 @@ Page {
 
   ListModel {
     id: placesModel
-    dynamicRoles: true
+    dynamicRoles: false
     property var xhr: new XMLHttpRequest()
 
     function update() {
@@ -347,7 +344,20 @@ Page {
           var l = data.length;
           placesModel.clear();
           for(var index=0; index < l; index++) {
-            placesModel.append(data[index]);
+            var m = new Object();
+            m['name'] = data[index]['Name'];
+            m['district'] = data[index]['District'];
+            m['placeType'] = data[index]['PlaceType'];
+            m['stops'] = new Array();
+            if(data[index]['PlaceType'] == "Area") {
+                for (var i=0; i < data[index]['Stops'].length; i++) {
+                    m['stops'].push({ "id": data[index]['Stops'][i]['ID'] });
+                };
+            } else {
+                m['stops'].push({ "id": data[index]['ID'] })
+            };
+
+            placesModel.append(m);
           };
           RuteFisk.add_district(placesModel);
           searchIndicator.running = false;

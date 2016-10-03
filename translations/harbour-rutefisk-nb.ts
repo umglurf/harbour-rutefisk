@@ -91,64 +91,64 @@
 <context>
     <name>MainPage</name>
     <message>
-        <source>Ruter travel information</source>
-        <translation>Ruter reiseinformasjon</translation>
-    </message>
-    <message>
-        <source>Search stop or street</source>
-        <translation>Søk stopp eller gate</translation>
-    </message>
-    <message>
-        <source>Realtime info</source>
-        <translation>Sanntidsinformasjon</translation>
-    </message>
-    <message>
-        <source>Travel from here</source>
-        <translation>Reis fra her</translation>
-    </message>
-    <message>
-        <source>Travel to here</source>
-        <translation>Reis til her</translation>
-    </message>
-    <message>
-        <source>Error getting stops</source>
-        <translation>Feil oppstod ved henting av stopp</translation>
-    </message>
-    <message>
-        <source>Start GPS search</source>
-        <translation>Start GPS-søk</translation>
-    </message>
-    <message>
-        <source>GPS update interval</source>
-        <translation>GPS oppdateringsintervall</translation>
-    </message>
-    <message>
-        <source>s</source>
-        <translation>s</translation>
-    </message>
-    <message>
-        <source>GPS search grid size</source>
-        <translation>GPS søkenettstørrelse</translation>
-    </message>
-    <message>
-        <source>meters</source>
-        <translation>metre</translation>
-    </message>
-    <message>
-        <source>Stop GPS search</source>
-        <translation>Stopp GPS-søk</translation>
-    </message>
-    <message>
-        <source>Favorites</source>
-        <translation>Favoritter</translation>
-    </message>
-    <message>
         <source>Settings</source>
-        <translation>Instillinger</translation>
+        <translation type="unfinished">Instillinger</translation>
     </message>
     <message>
         <source>Realtime Views</source>
-        <translation>Sanntidsvisninger</translation>
+        <translation type="unfinished">Sanntidsvisninger</translation>
+    </message>
+    <message>
+        <source>Start GPS search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop GPS search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished">Favoritter</translation>
+    </message>
+    <message>
+        <source>Ruter travel information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search stop or street</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GPS update interval</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GPS search grid size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Realtime info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel from here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel to here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error getting stops</source>
+        <translation type="unfinished">Feil oppstod ved henting av stopp</translation>
     </message>
 </context>
 <context>
