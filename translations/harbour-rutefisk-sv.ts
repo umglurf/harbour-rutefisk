@@ -61,7 +61,7 @@
         <translation>Ta bort</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favorites.qml" line="209"/>
+        <location filename="../qml/pages/Favorites.qml" line="207"/>
         <source>Error removing item</source>
         <translation>Kunde inte ta bort objektet</translation>
     </message>
@@ -181,8 +181,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="368"/>
-        <location filename="../qml/pages/MainPage.qml" line="396"/>
+        <location filename="../qml/pages/MainPage.qml" line="367"/>
+        <location filename="../qml/pages/MainPage.qml" line="395"/>
         <source>Error getting stops</source>
         <translation type="unfinished">Kunde inte hämta hållplatser</translation>
     </message>
