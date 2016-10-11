@@ -60,6 +60,7 @@ CoverBackground {
     opacity: 0.8
   }
   ColorOverlay {
+    id: coverOverlay
     anchors.fill: coverImage
     source: coverImage
     color: Theme.highlightColor
@@ -268,6 +269,10 @@ CoverBackground {
         visible: true
       }
       PropertyChanges {
+        target: coverOverlay;
+        visible: true
+      }
+      PropertyChanges {
         target: realTimeList;
         visible: false
       }
@@ -284,6 +289,10 @@ CoverBackground {
       }
       PropertyChanges {
         target: coverImage;
+        visible: false
+      }
+      PropertyChanges {
+        target: coverOverlay;
         visible: false
       }
       PropertyChanges {
@@ -319,6 +328,10 @@ CoverBackground {
       }
       PropertyChanges {
         target: coverImage;
+        visible: false
+      }
+      PropertyChanges {
+        target: coverOverlay;
         visible: false
       }
       PropertyChanges {
