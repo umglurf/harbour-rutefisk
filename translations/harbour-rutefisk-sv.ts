@@ -6,7 +6,7 @@
     <message>
         <location filename="../qml/pages/AddToRealTimeViewDialog.qml" line="65"/>
         <source>Name of new realtime view</source>
-        <translation>Namn för realtidsvisning</translation>
+        <translation>Namn för ny realtidsvisning</translation>
     </message>
     <message>
         <location filename="../qml/pages/AddToRealTimeViewDialog.qml" line="66"/>
@@ -123,12 +123,12 @@
         <location filename="../qml/pages/MainPage.qml" line="140"/>
         <location filename="../qml/pages/MainPage.qml" line="147"/>
         <source>Start GPS search</source>
-        <translation type="unfinished"></translation>
+        <translation>Starta GPS-sökning</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="144"/>
         <source>Stop GPS search</source>
-        <translation type="unfinished"></translation>
+        <translation>Stoppa GPS-sökning</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="152"/>
@@ -138,47 +138,47 @@
     <message>
         <location filename="../qml/pages/MainPage.qml" line="164"/>
         <source>Ruter travel information</source>
-        <translation type="unfinished"></translation>
+        <translation>Reseinformation</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="172"/>
         <source>Search stop or street</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök hållplats eller gata</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="215"/>
         <source>GPS update interval</source>
-        <translation type="unfinished"></translation>
+        <translation>GPS-uppdateringsintervall</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="216"/>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>s</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="230"/>
         <source>GPS search grid size</source>
-        <translation type="unfinished"></translation>
+        <translation>GPS sökfältsstorlek</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="231"/>
         <source>meters</source>
-        <translation type="unfinished"></translation>
+        <translation>meter</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="280"/>
         <source>Realtime info</source>
-        <translation type="unfinished"></translation>
+        <translation>Realtidsinfo</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="285"/>
         <source>Travel from here</source>
-        <translation type="unfinished"></translation>
+        <translation>Res härifrån</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="295"/>
         <source>Travel to here</source>
-        <translation type="unfinished"></translation>
+        <translation>Res hit</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="367"/>
