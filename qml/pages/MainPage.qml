@@ -387,7 +387,21 @@ Page {
           }
           placesModel.clear();
           for(var index=0; index < data.length; index++) {
-            placesModel.append(data[index]);
+            var m = new Object();
+            m['id'] = data[index]['ID'];
+            m['name'] = data[index]['Name'];
+            m['district'] = data[index]['District'];
+            m['placeType'] = data[index]['PlaceType'];
+            m['stops'] = new Array();
+            if(data[index]['PlaceType'] == "Area") {
+                for (var i=0; i < data[index]['Stops'].length; i++) {
+                    m['stops'].push({ "id": data[index]['Stops'][i]['ID'] });
+                };
+            } else {
+                m['stops'].push({ "id": data[index]['ID'] })
+            };
+
+            placesModel.append(m);
           };
           RuteFisk.add_district(placesModel);
         } else if(xhr.readyState == 4 && xhr.status == 0) {

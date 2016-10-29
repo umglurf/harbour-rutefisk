@@ -182,7 +182,7 @@
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="367"/>
-        <location filename="../qml/pages/MainPage.qml" line="395"/>
+        <location filename="../qml/pages/MainPage.qml" line="409"/>
         <source>Error getting stops</source>
         <translation type="unfinished"></translation>
     </message>
