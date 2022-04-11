@@ -3,6 +3,10 @@
 # Rutefisk
 Unofficial Ruter app for SailfishOS
 
+## Status
+
+This project is no longer maintained.
+
 Implemented features
 --------------------
  * Search by stop name or street name
@@ -14,7 +18,3 @@ Implemented features
  * Show all stops for a journey part
  * Show deviation information in both realtime information and in journey information
  * Favorites
-
-Roadmap
--------
-See [enhancement issues](https://github.com/umglurf/harbour-rutefisk/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement)
